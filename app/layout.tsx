@@ -4,6 +4,8 @@ import { GeistMono } from 'geist/font/mono';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import InitialLoader from '@/components/InitialLoader';
+import PageTransition from '@/components/PageTransition';
 
 export const metadata: Metadata = {
   title: {
@@ -34,11 +36,12 @@ export default function RootLayout({
       className={`${GeistSans.variable} ${GeistMono.variable}`}
     >
       <body className="bg-[#FFFFFF] text-[#111111]">
+        <InitialLoader />
         <header className="sticky top-0 z-50 w-full bg-[#FFFFFF] border-b border-[#E8E8E4]">
           <Navbar />
         </header>
         <main id="main-content" tabIndex={-1}>
-          {children}
+          <PageTransition>{children}</PageTransition>
         </main>
         <Footer />
       </body>

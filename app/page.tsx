@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { clubStats, clubInfo } from '@/data/v2/stats';
 import { projects } from '@/data/v2/projects';
-import { milestones } from '@/data/v2/roadmap';
+import { strategicRoadmap, strategicPillars } from '@/data/v2/roadmap';
 import { SectionLabel, ArrowLink, CircularCTA } from '@/components/ui';
 import { ProjectCard } from '@/components/ProjectComponents';
 
@@ -220,28 +220,59 @@ export default function HomePage() {
       </section>
 
       {/* =====================================================
-          ROADMAP PREVIEW — VERTICAL TIMELINE DESIGN
+          ROADMAP PREVIEW — 3 STRATEGIC PILLARS
           ===================================================== */}
       <section
         className="section-spacing bg-[#FFFFFF] text-[#111111] border-b border-[#E8E8E4]"
         aria-labelledby="roadmap-preview-heading"
       >
         <div className="container-main">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
             <div>
-              <SectionLabel className="mb-4">ACTIVE TIMELINE</SectionLabel>
+              <SectionLabel className="mb-4">STRATEGIC ROADMAP</SectionLabel>
               <h2 id="roadmap-preview-heading" className="section-headline text-[#111111]">
-                Term Execution Schedule.
+                Development, Sustainability, & Expansion.
               </h2>
             </div>
             <ArrowLink href="/roadmap" className="shrink-0">
-              View complete roadmap
+              View full 3-pillar roadmap
             </ArrowLink>
           </div>
 
+          {/* 3 Pillars Summary Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {strategicPillars.map((p) => (
+              <div key={p.id} className="p-6 sm:p-8 bg-[#F4F4F1] border border-[#E8E8E4] rounded flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-mono text-xs font-bold text-[#D83933]">PILLAR {p.number}</span>
+                    <span className="font-mono text-[10px] text-[#606060] uppercase">
+                      {p.milestones.length} PHASES
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-bold text-[#111111] mb-2">{p.headline}</h3>
+                  <p className="text-xs text-[#606060] leading-relaxed mb-6">{p.summary}</p>
+                </div>
+                <div className="pt-4 border-t border-[#E8E8E4] flex items-center justify-between">
+                  <span className="text-[11px] font-mono text-[#111111] font-semibold">
+                    {p.milestones.some((m) => m.status === 'in-progress')
+                      ? '● ACTIVE INITIATIVES'
+                      : '○ PLANNED HORIZON'}
+                  </span>
+                  <Link
+                    href={`/roadmap#${p.id}`}
+                    className="text-xs font-mono text-[#D83933] font-bold hover:underline"
+                  >
+                    Details →
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+
           {/* Compact Timeline Container */}
-          <div className="relative pl-6 sm:pl-8 border-l-2 border-[#111111] ml-3 sm:ml-4 space-y-10 max-w-3xl">
-            {milestones.map((m) => (
+          <div className="relative pl-6 sm:pl-8 border-l-2 border-[#111111] ml-3 sm:ml-4 space-y-8 max-w-3xl">
+            {strategicRoadmap.slice(0, 3).map((m) => (
               <div key={m.id} className="relative group">
                 {/* Node indicator */}
                 <span
@@ -249,7 +280,7 @@ export default function HomePage() {
                     m.status === 'completed'
                       ? 'bg-[#111111]'
                       : m.status === 'in-progress'
-                      ? 'bg-[#D83933] ring-4 ring-[#D83933]/20'
+                      ? 'bg-[#D83933] ring-4 ring-[#D83933]/20 animate-pulse'
                       : 'bg-[#B8B8B8]'
                   }`}
                   aria-hidden="true"
@@ -257,19 +288,19 @@ export default function HomePage() {
 
                 <div className="flex items-center gap-3 mb-1">
                   <span className="label text-[#D83933] text-xs font-mono font-bold">
-                    {m.shortDate}
+                    {m.phase} // {m.timeline}
                   </span>
                   <span className="label text-[#A0A0A0] text-[10px]">
                     {m.status.toUpperCase()}
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-[#111111] tracking-tight mb-2">
+                <h3 className="text-lg sm:text-xl font-bold text-[#111111] tracking-tight mb-2">
                   {m.title}
                 </h3>
 
                 <p className="text-sm text-[#606060] leading-relaxed">
-                  {m.description}
+                  {m.strategicObjective}
                 </p>
               </div>
             ))}
