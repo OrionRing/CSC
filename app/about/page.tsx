@@ -2,110 +2,93 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Clock, Award, Shield, CheckCircle2, Search, SlidersHorizontal } from 'lucide-react';
-import { labEquipmentList, LabItem } from '@/data/v2/inventory';
+import { ArrowRight, Clock, Award, Search, Sparkles } from 'lucide-react';
+import { labEquipmentList } from '@/data/v2/inventory';
 import { clubInfo } from '@/data/v2/stats';
+import { SectionLabel, CircularCTA } from '@/components/ui';
 
 const categories = [
-  'Semua Alat & Bahan',
-  'Fisika & Instrumentasi',
-  'Biologi & Bioteknologi',
-  'Kimia & Nanomaterial',
-  'Senyawa & Reagen Kimia',
+  'All Equipment',
+  'Physics & Instrumentation',
+  'Biology & Biotechnology',
+  'Chemistry & Nanomaterials',
+  'Chemical Reagents',
 ] as const;
 
 export default function AboutPage() {
-  const [selectedCategory, setSelectedCategory] = useState<string>('Semua Alat & Bahan');
+  const [selectedCategory, setSelectedCategory] = useState<string>('All Equipment');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   const filteredEquipment = labEquipmentList.filter((item) => {
     const matchesCategory =
-      selectedCategory === 'Semua Alat & Bahan' || item.category === selectedCategory;
-    const matchesSearch =
-      item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      (item.notes && item.notes.toLowerCase().includes(searchQuery.toLowerCase()));
+      selectedCategory === 'All Equipment' || item.category === selectedCategory;
+    const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
   return (
     <>
       {/* =====================================================
-          HERO
+          HERO — Spacious editorial layout
           ===================================================== */}
       <section
-        className="pt-28 pb-16 bg-[#050505] text-white border-b border-white/10"
+        className="pt-36 pb-16 bg-[#FFFFFF] border-b border-[#E8E8E4]"
         aria-labelledby="about-hero-heading"
       >
         <div className="container-main">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest uppercase">
-              ABOUT CSC
-            </span>
-            <span className="text-white/20">|</span>
-            <span className="text-xs font-mono text-white/60 uppercase">
-              CANISIUS SCIENCE CLUB
-            </span>
-          </div>
-
+          <SectionLabel className="mb-4">ABOUT CSC</SectionLabel>
           <h1
             id="about-hero-heading"
-            className="text-4xl sm:text-6xl font-bold tracking-tight text-white mb-8 max-w-4xl leading-tight"
+            className="page-headline text-[#111111] mb-8 max-w-4xl"
           >
-            Ekskul Riset STEM Kolese Kanisius.
+            Built around curiosity and evidence.
           </h1>
-          <p className="text-base sm:text-lg text-white/70 max-w-2xl leading-relaxed">
-            Wadah eksplorasi ilmiah dan pengembangan teknologi bagi siswa SMA Kolese Kanisius. Kami memadukan rasa ingin tahu saintifik, ketelitian eksperimen laboratorium, dan daya juang kompetisi untuk menghadirkan solusi nyata bagi sesama dan lingkungan.
+          <p className="body-large text-[#606060] max-w-2xl leading-relaxed">
+            {clubInfo.intro}
           </p>
         </div>
       </section>
 
       {/* =====================================================
-          VISI & MISI
+          MISSION & VISION
           ===================================================== */}
       <section
-        id="visi-misi"
-        className="py-20 bg-[#0A0A0A] text-white border-b border-white/10"
-        aria-labelledby="visi-misi-heading"
+        className="section-spacing bg-[#FFFFFF]"
+        id="vision-mission"
+        aria-labelledby="mission-heading"
       >
         <div className="container-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-            {/* Visi */}
-            <div className="p-8 bg-[#0D0D0D] border border-white/10">
-              <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest block mb-4">
-                01 // VISI
-              </span>
-              <h2 className="text-2xl font-bold text-white mb-6">
-                Menjadi Pusat Keunggulan Riset Remaja Berintegritas & Berdampak Nyata.
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+            <div>
+              <SectionLabel className="mb-5">OUR VISION & PURPOSE</SectionLabel>
+              <h2
+                id="mission-heading"
+                className="section-headline text-[#111111] mb-6"
+              >
+                Developing young researchers who create real-world solutions.
               </h2>
-              <p className="text-sm sm:text-base text-white/70 leading-relaxed">
-                Membentuk komunitas saintis muda Kanisian yang memiliki ketajaman berpikir kritis, kecakapan metodologi ilmiah berstandar tinggi, serta komitmen moral untuk merawat alam ciptaan (*Care for Creation*) melalui riset sains dan inovasi teknologi aplikatif.
+              <p className="body-large text-[#606060] leading-relaxed mb-6">
+                Our vision is to build an uncompromising community of young scientists at Kolese Kanisius equipped with rigorous research skills, academic integrity, and a profound commitment to environmental stewardship.
+              </p>
+              <p className="body-large text-[#606060] leading-relaxed">
+                Rather than treating science as textbook theory, we empower members to investigate unsolved problems, conduct hands-on laboratory trials, and present empirical findings on national and international podiums.
               </p>
             </div>
 
-            {/* Misi */}
-            <div className="p-8 bg-[#0D0D0D] border border-white/10">
-              <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest block mb-4">
-                02 // MISI
-              </span>
-              <h2 className="text-2xl font-bold text-white mb-6">
-                Empat Langkah Konkret Ekskul Riset.
-              </h2>
-              <ul className="space-y-4 text-sm sm:text-base text-white/70">
+            <div className="p-8 lg:p-10 bg-[#F4F4F1] border border-[#E8E8E4]">
+              <SectionLabel className="mb-6">CORE METHODOLOGY</SectionLabel>
+              <ul className="space-y-4 text-sm text-[#606060] leading-relaxed">
                 <li className="flex items-start gap-3">
-                  <span className="text-[#D83933] font-mono font-bold mt-0.5">•</span>
-                  <span><strong>Eksplorasi Laboratorium Mandiri:</strong> Menyediakan ruang dan pendampingan bagi siswa untuk menguji hipotesis di bidang fisika, biologi, kimia, dan teknik.</span>
+                  <span className="text-[#D83933] font-bold mt-0.5">•</span>
+                  <span><strong>Independent Lab Exploration:</strong> Active physical experimentation in physics, organic chemistry, bio-reactors, and microcontroller automation.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-[#D83933] font-mono font-bold mt-0.5">•</span>
-                  <span><strong>Solusi Berbasis Masalah Nyata:</strong> Mendorong proyek penelitian yang berorientasi pada pemanfaatan limbah lokal, efisiensi energi terbarukan, dan konservasi alam.</span>
+                  <span className="text-[#D83933] font-bold mt-0.5">•</span>
+                  <span><strong>Ecological Responsibility:</strong> Every major research track prioritizes environmental sustainability and circular resource utilization.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-[#D83933] font-mono font-bold mt-0.5">•</span>
-                  <span><strong>Daya Juang Kompetisi:</strong> Mempersiapkan naskah ilmiah dan prototipe presisi untuk berkompetisi di ajang riset bergengsi tingkat nasional dan internasional.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[#D83933] font-mono font-bold mt-0.5">•</span>
-                  <span><strong>Pendampingan Cura Personalis:</strong> Membina setiap individu anggota dengan perhatian personal pada karakter, kejujuran data, dan kedisiplinan keselamatan kerja lab.</span>
+                  <span className="text-[#D83933] font-bold mt-0.5">•</span>
+                  <span><strong>Cura Personalis:</strong> Close individual mentorship nurturing character, laboratory safety, and perseverance through research hurdles.</span>
                 </li>
               </ul>
             </div>
@@ -117,108 +100,74 @@ export default function AboutPage() {
           ACTIVITIES
           ===================================================== */}
       <section
+        className="section-dark section-spacing"
         id="activities"
-        className="py-20 bg-[#050505] text-white border-b border-white/10"
         aria-labelledby="activities-heading"
       >
         <div className="container-main">
-          <div className="max-w-3xl mb-12">
-            <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest block mb-3">
-              KEGIATAN & RITME KERJA
-            </span>
-            <h2
-              id="activities-heading"
-              className="text-2xl sm:text-4xl font-bold text-white tracking-tight"
-            >
-              Aktivitas Rutin Ekskul Riset.
+          <div className="max-w-3xl mb-16">
+            <SectionLabel light className="mb-4">SCHEDULE & ACTIVITIES</SectionLabel>
+            <h2 id="activities-heading" className="section-headline text-white">
+              Weekly Rhythm & Competition Targets.
             </h2>
-            <p className="text-white/70 text-base mt-4 leading-relaxed">
-              Fokus kegiatan kami terbagi menjadi dua pilar utama: sesi riset berkala di laboratorium dan persiapan kompetisi ilmiah.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="p-8 bg-[#0D0D0D] border border-white/10">
-              <div className="flex items-center gap-3 text-[#D83933] mb-4">
-                <Clock size={20} />
-                <span className="font-mono text-sm font-bold uppercase tracking-wider">
-                  Sesi Rutin Laboratorium
-                </span>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">
-                Pertemuan Setiap Rabu & Jumat
-              </h3>
-              <p className="text-sm text-white/70 leading-relaxed mb-4">
-                Dilaksanakan dua kali seminggu dengan durasi 2 jam per sesi (15.00 – 17.00 WIB) di laboratorium Fisika, Kimia, atau Biologi Kolese Kanisius.
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="border-t border-white/10 pt-8">
+              <span className="label text-[#D83933] block mb-3 font-mono">01 // ROUTINE</span>
+              <h3 className="text-2xl font-bold text-white mb-4">Laboratory Working Sessions</h3>
+              <p className="text-white/70 text-sm leading-relaxed mb-4">
+                Held twice weekly on <strong>Wednesdays and Fridays (15:00 – 17:00 WIB)</strong> in the school laboratory complex.
               </p>
-              <ul className="text-xs font-mono text-white/60 space-y-2">
-                <li>• Eksperimen sintesis dan pengujian material</li>
-                <li>• Analisis data spektroskopi & sensorik digital</li>
-                <li>• Diskusi kelompok dan bimbingan guru advisor</li>
-                <li>• Evaluasi keselamatan kerja & pencatatan log lab</li>
-              </ul>
+              <p className="text-xs font-mono text-white/50 leading-relaxed">
+                Activities include chemical reagent synthesis, optical absorbance logging, circuit breadboarding, data analysis, and regular supervisor check-ins.
+              </p>
             </div>
 
-            <div className="p-8 bg-[#0D0D0D] border border-white/10">
-              <div className="flex items-center gap-3 text-[#D83933] mb-4">
-                <Award size={20} />
-                <span className="font-mono text-sm font-bold uppercase tracking-wider">
-                  Target Prestasi Lomba
-                </span>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">
-                Persiapan Kompetisi Nasional & Global
-              </h3>
-              <p className="text-sm text-white/70 leading-relaxed mb-4">
-                Setiap kelompok riset dibimbing secara khusus untuk menyusun proposal penelitian, laporan ilmiah berformat akademis, dan poster/presentasi untuk ajang ilmiah resmi.
+            <div className="border-t border-white/10 pt-8">
+              <span className="label text-[#D83933] block mb-3 font-mono">02 // MILESTONES</span>
+              <h3 className="text-2xl font-bold text-white mb-4">Competition Milestones</h3>
+              <p className="text-white/70 text-sm leading-relaxed mb-4">
+                Structured preparation for premier national and international youth science olympiads.
               </p>
-              <ul className="text-xs font-mono text-white/60 space-y-2">
-                <li>• OPSI (Olimpiade Penelitian Siswa Indonesia)</li>
-                <li>• EUREKA! ITB Science Project Competition</li>
-                <li>• Indonesia International Invention Expo (IIIEX)</li>
-                <li>• Youth International Science Fair (YSIF)</li>
-              </ul>
+              <p className="text-xs font-mono text-white/50 leading-relaxed">
+                Active targets include OPSI, EUREKA! ITB Science Project Competition, Indonesia International Invention Expo (IIIEX), and Youth International Science Fair (YSIF).
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* =====================================================
-          LABORATORY EQUIPMENT & INVENTORY DIRECTORY
+          LABORATORY INVENTORY (COMPACT DIRECTORY)
           ===================================================== */}
       <section
+        className="section-spacing bg-[#FFFFFF] border-b border-[#E8E8E4]"
         id="equipment"
-        className="py-20 bg-[#0A0A0A] text-white border-b border-white/10"
         aria-labelledby="equipment-heading"
       >
         <div className="container-main">
           <div className="max-w-3xl mb-12">
-            <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest block mb-3">
-              FASILITAS & INVENTARIS
-            </span>
-            <h2
-              id="equipment-heading"
-              className="text-2xl sm:text-4xl font-bold text-white tracking-tight"
-            >
-              Daftar Alat & Bahan Laboratorium.
+            <SectionLabel className="mb-4">LABORATORY INVENTORY</SectionLabel>
+            <h2 id="equipment-heading" className="section-headline text-[#111111]">
+              Apparatus & Chemical Reagents.
             </h2>
-            <p className="text-white/70 text-base mt-4 leading-relaxed">
-              Kompleks laboratorium SMA Kolese Kanisius dilengkapi sarana pengujian modern untuk mendukung seluruh riset mandiri siswa.
+            <p className="body-large text-[#606060] mt-4 leading-relaxed">
+              Kolese Kanisius maintains three fully-equipped STEM laboratories with high-precision analytical equipment, support tools, and certified compounds.
             </p>
           </div>
 
-          {/* Filter & Search Bar */}
-          <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-8">
-            {/* Category pills */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
+          {/* Compact Filter Toolbar */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mb-8">
+            <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-none">
               {categories.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-3 py-1.5 text-xs font-mono rounded whitespace-nowrap transition-colors duration-200 ${
+                  className={`px-3 py-1.5 text-xs font-mono rounded whitespace-nowrap transition-colors duration-150 ${
                     selectedCategory === cat
-                      ? 'bg-[#D83933] text-white font-bold'
-                      : 'bg-[#141414] text-white/60 hover:text-white border border-white/10'
+                      ? 'bg-[#111111] text-white font-bold'
+                      : 'bg-[#F4F4F1] text-[#606060] hover:text-[#111111] border border-[#E8E8E4]'
                   }`}
                 >
                   {cat}
@@ -226,99 +175,81 @@ export default function AboutPage() {
               ))}
             </div>
 
-            {/* Search Input */}
-            <div className="relative min-w-[240px]">
-              <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/40" />
+            <div className="relative min-w-[220px]">
+              <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#A0A0A0]" />
               <input
                 type="text"
-                placeholder="Cari alat atau bahan..."
+                placeholder="Search equipment or chemical..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-[#111111] border border-white/10 rounded py-2 pl-9 pr-4 text-xs font-mono text-white placeholder-white/40 focus:outline-none focus:border-[#D83933]"
+                className="w-full bg-[#F4F4F1] border border-[#E8E8E4] rounded py-1.5 pl-8 pr-3 text-xs font-mono text-[#111111] placeholder-[#A0A0A0] focus:outline-none focus:border-[#111111]"
               />
             </div>
           </div>
 
-          {/* Table of Equipment */}
-          <div className="border border-white/10 overflow-x-auto bg-[#0D0D0D]">
-            <table className="w-full text-left text-xs font-mono">
-              <thead>
-                <tr className="border-b border-white/10 bg-[#141414] text-[#D83933]">
-                  <th className="py-3 px-4 w-16">NO</th>
-                  <th className="py-3 px-4">NAMA ALAT / BAHAN</th>
-                  <th className="py-3 px-4">KATEGORI LAB</th>
-                  <th className="py-3 px-4 w-28">JUMLAH</th>
-                  <th className="py-3 px-4">KETERANGAN / FUNGSI</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-white/05 text-white/80">
-                {filteredEquipment.length > 0 ? (
-                  filteredEquipment.map((item, index) => (
-                    <tr key={item.id} className="hover:bg-white/05 transition-colors duration-150">
-                      <td className="py-3 px-4 text-white/40">{String(index + 1).padStart(2, '0')}</td>
-                      <td className="py-3 px-4 font-bold text-white">{item.name}</td>
-                      <td className="py-3 px-4 text-[#D83933]">{item.category}</td>
-                      <td className="py-3 px-4">{item.quantity || 'Tersedia'}</td>
-                      <td className="py-3 px-4 text-white/60">{item.notes || '—'}</td>
-                    </tr>
-                  ))
-                ) : (
-                  <tr>
-                    <td colSpan={5} className="py-8 text-center text-white/40">
-                      Tidak ditemukan alat atau bahan dengan kata kunci tersebut.
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
+          {/* Compact Equipment Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            {filteredEquipment.length > 0 ? (
+              filteredEquipment.map((item) => (
+                <div
+                  key={item.id}
+                  className="p-3.5 bg-[#F4F4F1] border border-[#E8E8E4] rounded flex items-start justify-between gap-3 text-xs"
+                >
+                  <div>
+                    <p className="font-semibold text-[#111111] leading-tight mb-1">{item.name}</p>
+                    <p className="label text-[#A0A0A0] text-[10px]">{item.category}</p>
+                  </div>
+                  {item.quantity && (
+                    <span className="label font-mono text-[10px] bg-white px-2 py-0.5 rounded border border-[#E8E8E4] text-[#606060] shrink-0">
+                      {item.quantity}
+                    </span>
+                  )}
+                </div>
+              ))
+            ) : (
+              <p className="col-span-full py-8 text-center text-xs font-mono text-[#A0A0A0]">
+                No equipment or reagents found matching your query.
+              </p>
+            )}
           </div>
 
-          <p className="text-xs font-mono text-white/40 mt-4 text-right">
-            Menampilkan {filteredEquipment.length} dari {labEquipmentList.length} inventaris laboratorium
+          <p className="text-xs font-mono text-[#A0A0A0] mt-6 text-right">
+            Showing {filteredEquipment.length} of {labEquipmentList.length} items
           </p>
         </div>
       </section>
 
       {/* =====================================================
-          FIND US AT CC (NO OPEN RECRUITMENT NOTICE)
+          FIND US AT CC
           ===================================================== */}
       <section
+        className="section-spacing bg-[#F4F4F1]"
         id="join"
-        className="py-20 bg-[#050505] text-white"
         aria-labelledby="join-heading"
       >
         <div className="container-main">
           <div className="max-w-3xl">
-            <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest block mb-4">
-              HUBUNGI & TEMUI KAMI
-            </span>
-            <h2
-              id="join-heading"
-              className="text-2xl sm:text-4xl font-bold text-white tracking-tight mb-6"
-            >
-              Find Us at Canisius College.
+            <SectionLabel className="mb-5">CONNECT & VISIT</SectionLabel>
+            <h2 id="join-heading" className="section-headline text-[#111111] mb-6">
+              Find Us at Kolese Kanisius.
             </h2>
-            <p className="text-white/70 text-base sm:text-lg leading-relaxed mb-6">
-              Saat ini Canisius Science Club sedang tidak membuka rekrutmen terbuka (*not actively recruiting*), karena tim sedang berfokus penuh pada penyelesaian proyek riset berjalan dan bimbingan kompetisi lomba.
+            <p className="body-large text-[#606060] mb-6 leading-relaxed">
+              {clubInfo.joinInfo}
             </p>
-            <p className="text-white/70 text-base sm:text-lg leading-relaxed mb-8">
-              Bagi siswa Kolese Kanisius, rekan akademisi, atau pihak luar yang ingin berdiskusi atau bertukar wawasan seputar penelitian sains, silakan temui kami langsung di sekolah atau di laboratorium saat jam ekstrakulikuler berlangsung.
+            <p className="body-large text-[#606060] mb-8 leading-relaxed">
+              Students, alumni, or scientific partners wishing to exchange ideas or inspect our laboratory apparatus are welcome to visit during scheduled session hours.
             </p>
 
-            <div className="p-6 bg-[#0D0D0D] border border-white/10 rounded mb-8 font-mono text-xs sm:text-sm text-white/80 space-y-2">
-              <p className="text-[#D83933] font-bold">LOKASI & KONTAK:</p>
-              <p>• Laboratorium STEM SMA Kolese Kanisius</p>
-              <p>• Alamat: Jl. Menteng Raya No. 64, Jakarta Pusat 10340</p>
-              <p>• Waktu Lab: Rabu & Jumat (15.00 – 17.00 WIB)</p>
+            <div className="p-6 bg-white border border-[#E8E8E4] rounded mb-8 font-mono text-xs text-[#606060] space-y-2">
+              <p className="text-[#D83933] font-bold">CAMPUS & LABORATORY COORDINATES:</p>
+              <p>• Complex: STEM Science Laboratories, SMA Kolese Kanisius</p>
+              <p>• Address: Jl. Menteng Raya No. 64, Jakarta Pusat 10340</p>
+              <p>• Weekly Hours: Wednesday & Friday (15:00 – 17:00 WIB)</p>
             </div>
 
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-3 px-6 py-3.5 bg-[#D83933] text-white font-mono text-sm font-semibold hover:bg-[#b82e28] transition-colors duration-200 rounded"
-            >
-              <span>Jelajahi Hasil Riset Kami</span>
-              <ArrowRight size={16} />
-            </Link>
+            <CircularCTA href="/projects">
+              Browse our research papers
+            </CircularCTA>
           </div>
         </div>
       </section>

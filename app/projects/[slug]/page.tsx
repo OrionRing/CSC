@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, Award } from 'lucide-react';
 import { projects, getProjectBySlug } from '@/data/v2/projects';
+import { SectionLabel, ArrowLink } from '@/components/ui';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -28,35 +29,27 @@ export default async function ProjectDetailPage({ params }: Props) {
   const project = getProjectBySlug(slug);
   if (!project) notFound();
 
-  const related = projects
-    .filter(
-      (p) =>
-        p.slug !== project.slug &&
-        p.categories.some((c: string) => project.categories.includes(c))
-    )
-    .slice(0, 2);
-
   return (
-    <article className="min-h-screen bg-[#050505] text-white">
+    <article className="min-h-screen bg-[#FFFFFF] text-[#111111]">
       {/* Header section */}
-      <section className="pt-28 pb-16 border-b border-white/10" aria-labelledby="project-title">
+      <section className="pt-36 pb-16 bg-[#FFFFFF] border-b border-[#E8E8E4]" aria-labelledby="project-title">
         <div className="container-main">
           {/* Back link */}
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 text-xs font-mono text-white/60 hover:text-white transition-colors duration-200 mb-8 group"
-            aria-label="Kembali ke semua karya penelitian"
+            className="inline-flex items-center gap-2 label text-[#606060] hover:text-[#111111] transition-colors duration-200 mb-8 group"
+            aria-label="Back to all research projects"
           >
             <ArrowLeft
               size={14}
               className="transition-transform duration-200 group-hover:-translate-x-1"
               aria-hidden="true"
             />
-            <span>SEMUA KARYA PENELITIAN</span>
+            <span>ALL RESEARCH PROJECTS</span>
           </Link>
 
           {/* Meta */}
-          <div className="flex items-center gap-3 mb-6 flex-wrap text-xs font-mono text-[#888888]">
+          <div className="flex items-center gap-3 mb-6 flex-wrap text-xs font-mono text-[#606060]">
             <span className="text-[#D83933] font-bold">PROJECT {project.number}</span>
             <span>—</span>
             <span>{project.category.toUpperCase()}</span>
@@ -67,110 +60,107 @@ export default async function ProjectDetailPage({ params }: Props) {
           {/* Title */}
           <h1
             id="project-title"
-            className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-6 max-w-4xl leading-tight"
+            className="page-headline text-[#111111] mb-6 max-w-4xl"
           >
             {project.title}
           </h1>
 
-          {/* Authors */}
-          <div className="flex items-center gap-2 mb-6 font-mono text-sm text-white/80">
-            <span className="text-[#D83933] font-bold">Peneliti:</span>
-            <span>{project.authors.join(', ')}</span>
+          {/* Authors & Award */}
+          <div className="flex flex-wrap items-center gap-4 text-sm font-mono text-[#606060] mb-4">
+            <span><strong>AUTHORS:</strong> {project.authors.join(', ')}</span>
+            {project.award && (
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#D83933]/10 text-[#D83933] text-xs font-mono">
+                <Award size={13} className="shrink-0" />
+                <span>{project.award}</span>
+              </span>
+            )}
           </div>
-
-          {/* Award badge */}
-          {project.award && (
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-[#D83933]/15 text-[#D83933] text-xs font-mono border border-[#D83933]/30">
-              <Award size={14} className="shrink-0" />
-              <span>{project.award}</span>
-            </div>
-          )}
         </div>
       </section>
 
       {/* Main body */}
-      <section className="py-16">
+      <section className="section-spacing bg-[#FFFFFF]">
         <div className="container-main">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             {/* Left column: Content */}
-            <div className="lg:col-span-8 space-y-12">
-              {/* Summary & Description */}
+            <div className="lg:col-span-8 space-y-14">
+              {/* Executive Summary */}
               <div>
-                <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest block mb-3">
-                  RINGKASAN EKSEKUTIF
-                </span>
-                <p className="text-base sm:text-lg text-white/80 leading-relaxed">
+                <SectionLabel className="mb-4">EXECUTIVE SUMMARY</SectionLabel>
+                <p className="body-large text-[#606060] leading-relaxed">
                   {project.description}
                 </p>
               </div>
 
-              <div className="border-t border-white/10 pt-10">
-                <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest block mb-3">
-                  RUMUSAN MASALAH / RESEARCH QUESTION
-                </span>
+              <hr />
+
+              {/* Research Question */}
+              <div>
+                <SectionLabel className="mb-4">RESEARCH QUESTION</SectionLabel>
                 <blockquote className="border-l-2 border-[#D83933] pl-6 py-1">
-                  <p className="text-lg sm:text-xl font-medium text-white italic leading-relaxed">
+                  <p className="text-xl font-medium text-[#111111] italic leading-relaxed">
                     &ldquo;{project.researchQuestion}&rdquo;
                   </p>
                 </blockquote>
               </div>
 
-              <div className="border-t border-white/10 pt-10">
-                <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest block mb-3">
-                  HIPOTESIS
-                </span>
-                <p className="text-sm sm:text-base text-white/70 leading-relaxed">
+              <hr />
+
+              {/* Hypothesis */}
+              <div>
+                <SectionLabel className="mb-4">HYPOTHESIS</SectionLabel>
+                <p className="text-[#606060] leading-relaxed">
                   {project.hypothesis}
                 </p>
               </div>
 
+              <hr />
+
               {/* Method */}
-              <div className="border-t border-white/10 pt-10">
-                <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest block mb-6">
-                  METODOLOGI & PROSEDUR EKSPERIMEN
-                </span>
+              <div>
+                <SectionLabel className="mb-6">METHOD & LABORATORY PROCEDURES</SectionLabel>
                 <ol className="space-y-4">
                   {project.method.map((step, i) => (
                     <li key={i} className="flex gap-4">
-                      <span className="text-xs font-mono text-[#D83933] font-bold shrink-0 mt-0.5">
-                        {String(i + 1).padStart(2, '0')}.
+                      <span className="label text-[#B8B8B8] shrink-0 mt-0.5 font-mono">
+                        {String(i + 1).padStart(2, '0')}
                       </span>
-                      <p className="text-sm text-white/70 leading-relaxed">{step}</p>
+                      <p className="text-[#606060] leading-relaxed">{step}</p>
                     </li>
                   ))}
                 </ol>
               </div>
 
+              <hr />
+
               {/* Observations */}
-              <div className="border-t border-white/10 pt-10">
-                <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest block mb-3">
-                  OBSERVASI LABORATORIUM
-                </span>
-                <p className="text-sm sm:text-base text-white/70 leading-relaxed">
+              <div>
+                <SectionLabel className="mb-4">LABORATORY OBSERVATIONS</SectionLabel>
+                <p className="text-[#606060] leading-relaxed">
                   {project.observations}
                 </p>
               </div>
 
+              <hr />
+
               {/* Results */}
-              <div className="border-t border-white/10 pt-10">
-                <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest block mb-3">
-                  HASIL PENELITIAN & ANALISIS
-                </span>
-                <p className="text-sm sm:text-base text-white/80 leading-relaxed">
+              <div>
+                <SectionLabel className="mb-4">EXPERIMENTAL FINDINGS & DATA</SectionLabel>
+                <p className="text-[#606060] leading-relaxed">
                   {project.results}
                 </p>
               </div>
 
+              <hr />
+
               {/* Limitations & Next Steps */}
-              <div className="border-t border-white/10 pt-10 grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 <div>
-                  <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest block mb-3">
-                    BATASAN PENELITIAN
-                  </span>
-                  <ul className="space-y-2 text-xs text-white/60 leading-relaxed">
+                  <SectionLabel className="mb-4">LIMITATIONS</SectionLabel>
+                  <ul className="space-y-3">
                     {project.limitations.map((lim, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="text-[#D83933]">•</span>
+                      <li key={i} className="flex gap-3 text-sm text-[#606060]">
+                        <span className="text-[#D83933]">—</span>
                         <span>{lim}</span>
                       </li>
                     ))}
@@ -178,13 +168,11 @@ export default async function ProjectDetailPage({ params }: Props) {
                 </div>
 
                 <div>
-                  <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest block mb-3">
-                    LANGKAH LANJUTAN
-                  </span>
-                  <ul className="space-y-2 text-xs text-white/60 leading-relaxed">
+                  <SectionLabel className="mb-4">NEXT STEPS</SectionLabel>
+                  <ul className="space-y-3">
                     {project.nextSteps.map((step, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="text-[#D83933]">•</span>
+                      <li key={i} className="flex gap-3 text-sm text-[#606060]">
+                        <span className="label text-[#B8B8B8] font-mono">{String(i + 1).padStart(2, '0')}</span>
                         <span>{step}</span>
                       </li>
                     ))}
@@ -195,26 +183,24 @@ export default async function ProjectDetailPage({ params }: Props) {
 
             {/* Right column: Sidebar metadata */}
             <aside className="lg:col-span-4">
-              <div className="p-8 bg-[#0D0D0D] border border-white/10 sticky top-24 space-y-6 text-xs font-mono">
-                <span className="text-[#D83933] font-bold tracking-widest uppercase block">
-                  METADATA PENELITIAN
-                </span>
+              <div className="p-8 bg-[#F4F4F1] border border-[#E8E8E4] sticky top-28 space-y-6 text-xs font-mono">
+                <SectionLabel className="mb-4">PROJECT METADATA</SectionLabel>
 
                 <div>
-                  <p className="text-white/40 mb-1">KOMPETISI / KONTEKS</p>
-                  <p className="text-white font-semibold">{project.competitionContext}</p>
+                  <p className="text-[#A0A0A0] mb-1">COMPETITION / FORUM</p>
+                  <p className="text-[#111111] font-semibold">{project.competitionContext}</p>
                 </div>
 
                 {project.award && (
                   <div>
-                    <p className="text-white/40 mb-1">PENGHARGAAN</p>
+                    <p className="text-[#A0A0A0] mb-1">AWARD / RECOGNITION</p>
                     <p className="text-[#D83933] font-bold">{project.award}</p>
                   </div>
                 )}
 
                 <div>
-                  <p className="text-white/40 mb-1">TIM PENELITI</p>
-                  <ul className="space-y-1 text-white">
+                  <p className="text-[#A0A0A0] mb-1">INVESTIGATORS</p>
+                  <ul className="space-y-1 text-[#111111]">
                     {project.authors.map((author, i) => (
                       <li key={i}>• {author}</li>
                     ))}
@@ -222,13 +208,13 @@ export default async function ProjectDetailPage({ params }: Props) {
                 </div>
 
                 <div>
-                  <p className="text-white/40 mb-1">INSTITUSI</p>
-                  <p className="text-white">SMA Kolese Kanisius Jakarta</p>
+                  <p className="text-[#A0A0A0] mb-1">AFFILIATION</p>
+                  <p className="text-[#111111]">SMA Kolese Kanisius, Jakarta</p>
                 </div>
 
                 <div>
-                  <p className="text-white/40 mb-1">BIDANG RISET</p>
-                  <p className="text-white">{project.category}</p>
+                  <p className="text-[#A0A0A0] mb-1">DISCIPLINE</p>
+                  <p className="text-[#111111]">{project.category}</p>
                 </div>
               </div>
             </aside>

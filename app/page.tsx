@@ -1,159 +1,146 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Clock, Award, Shield, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { clubStats, clubInfo } from '@/data/v2/stats';
 import { projects } from '@/data/v2/projects';
+import { milestones } from '@/data/v2/roadmap';
+import { SectionLabel, ArrowLink, CircularCTA } from '@/components/ui';
 import { ProjectCard } from '@/components/ProjectComponents';
+import { RoadmapItem } from '@/components/RoadmapItem';
 
 export default function HomePage() {
   const featuredProjects = projects.slice(0, 3);
+  const currentFocus = projects[1] || projects[0]; // PCM Solar Cooling project
+  const roadmapPreview = milestones.slice(0, 3);
 
   return (
     <>
       {/* =====================================================
-          HERO SECTION — Clean, uncluttered, red & black
+          HERO — Clean NASA editorial aesthetic
           ===================================================== */}
       <section
-        className="relative bg-[#050505] text-white pt-24 pb-20 border-b border-white/10"
+        className="relative min-h-[85vh] flex flex-col justify-end bg-[#050505] text-white border-b border-white/10"
         aria-labelledby="hero-headline"
       >
-        <div className="container-main">
-          {/* Subtle top identifier */}
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest uppercase">
+        <div className="container-main pb-20 pt-36">
+          {/* Metadata */}
+          <div className="flex items-center gap-3 mb-8">
+            <span className="label text-[#D83933] font-bold">
               CANISIUS SCIENCE CLUB
             </span>
-            <span className="text-white/20">|</span>
-            <span className="text-xs font-mono text-white/60 uppercase">
-              SMA KOLESE KANISIUS JAKARTA
+            <span className="label text-white/30">·</span>
+            <span className="label text-white/60">
+              KOLLESE KANISIUS JAKARTA / 2026–2027
             </span>
           </div>
 
-          {/* Main Headline */}
+          {/* Headline */}
           <h1
             id="hero-headline"
-            className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white max-w-4xl leading-[1.08] mb-10"
+            className="hero-headline text-white mb-8 max-w-5xl"
           >
-            Semangat Riset.<br />
-            Merawat Alam Ciptaan.
+            Scientific Rigor.<br />
+            Real Solutions.
           </h1>
 
-          {/* Description Paragraph with ample breathing room */}
-          <p className="text-base sm:text-lg text-white/70 max-w-2xl leading-relaxed mb-12">
-            Kami adalah Canisius Science Club (Ekstrakulikuler Riset) di Kolese Kanisius. Berfokus pada penelitian ilmiah berbasis STEM dan aktif berkompetisi di tingkat nasional maupun internasional. Semangat kami bukan sekadar meriset tanpa arah, melainkan memanfaatkan ilmu pengetahuan untuk menciptakan solusi nyata atas persoalan sehari-hari serta merawat seluruh alam ciptaan.
+          {/* Supporting Copy */}
+          <p className="body-large text-white/70 max-w-2xl leading-relaxed mb-10">
+            {clubInfo.intro}
           </p>
 
-          {/* Clean CTA */}
-          <div className="flex items-center gap-6 flex-wrap">
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-3 px-6 py-3.5 bg-[#D83933] text-white font-mono text-sm font-semibold hover:bg-[#b82e28] transition-colors duration-200 rounded"
-            >
-              <span>Lihat Hasil Penelitian</span>
-              <ArrowRight size={16} />
-            </Link>
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-2 text-sm font-mono text-white/80 hover:text-white transition-colors duration-200"
-            >
-              <span>Profil & Alat Laboratorium</span>
-              <ArrowRight size={14} className="text-[#D83933]" />
-            </Link>
-          </div>
+          {/* Action CTA */}
+          <CircularCTA href="/projects" light>
+            Explore our research
+          </CircularCTA>
         </div>
       </section>
 
       {/* =====================================================
-          PHILOSOPHY SECTION — Without clutter badges or image slots
+          MISSION & PHILOSOPHY
           ===================================================== */}
       <section
-        className="py-20 bg-[#0A0A0A] text-white border-b border-white/10"
-        aria-labelledby="philosophy-heading"
+        className="section-spacing bg-[#FFFFFF] text-[#111111]"
+        aria-labelledby="mission-heading"
       >
         <div className="container-main">
           <div className="max-w-3xl">
-            <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest block mb-4">
-              PRINSIP & FILOSOFI RISET
-            </span>
+            <SectionLabel className="mb-6">OUR MISSION</SectionLabel>
             <h2
-              id="philosophy-heading"
-              className="text-2xl sm:text-4xl font-bold text-white tracking-tight mb-8"
+              id="mission-heading"
+              className="section-headline text-[#111111] mb-6"
             >
-              Bukan Sekadar Meriset — Menghasilkan Solusi Nyata.
+              Curiosity with Purpose — Grounded in Evidence.
             </h2>
-            <p className="text-white/70 text-base sm:text-lg leading-relaxed mb-6">
-              Di Kolese Kanisius, penelitian ilmiah diawali dari observasi nyata terhadap lingkungan terdekat. Dari pemanfaatan limbah minyak jelantah menjadi biodiesel, sintesis nanoteknologi pelindung radiasi UV-A, pemanfaatan air cucian beras untuk bio-listrik Microbial Fuel Cell, hingga pendinginan panel surya fotovoltaik berbasis material fase alami.
+            <p className="body-large text-[#606060] leading-relaxed mb-6">
+              At Kolese Kanisius, science begins with observations of real-world challenges around us. Whether synthesizing quantum dots from organic precursors, harvesting bio-electricity from kitchen wastewater, or developing passive solar panel heat sinks for equatorial heat, our projects combine academic curiosity with genuine social utility.
             </p>
-            <p className="text-white/70 text-base sm:text-lg leading-relaxed mb-10">
-              Setiap karya riset dituntun oleh pendampingan <em>Cura Personalis</em> yang membentuk integritas saintifik, ketelitian pengujian laboratorium, dan daya juang berkompetisi demi dampak positif bagi sesama.
+            <p className="body-large text-[#606060] leading-relaxed mb-8">
+              Guided by the Jesuit principle of <em>Cura Personalis</em>, our work emphasizes meticulous laboratory discipline, intellectual honesty, and persistence under rigorous competitive standards.
             </p>
-
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-2 text-sm font-mono text-[#D83933] hover:text-white font-bold transition-colors duration-200"
-            >
-              <span>Pelajari Profil & Aktivitas Riset CC</span>
-              <ArrowRight size={14} />
-            </Link>
+            <ArrowLink href="/about">
+              Learn about our facilities & methodology
+            </ArrowLink>
           </div>
         </div>
       </section>
 
       {/* =====================================================
-          FOUR PILLARS / ASPECTS — Cleaned right border arrows
+          EXPLORE AREAS / FOUR PILLARS
           ===================================================== */}
       <section
-        className="py-20 bg-[#050505] text-white border-b border-white/10"
+        className="section-dark section-spacing"
         aria-labelledby="pillars-heading"
       >
         <div className="container-main">
-          <div className="max-w-3xl mb-14">
-            <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest block mb-3">
-              PILAR UTAMA EKSKUL
-            </span>
-            <h2
-              id="pillars-heading"
-              className="text-2xl sm:text-4xl font-bold text-white tracking-tight"
-            >
-              Empat Aspek Utama Riset STEM Kolese Kanisius.
-            </h2>
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16">
+            <div>
+              <SectionLabel light className="mb-4">RESEARCH FOUNDATIONS</SectionLabel>
+              <h2 id="pillars-heading" className="section-headline text-white">
+                Four Pillars of Canisius Science.
+              </h2>
+            </div>
+            <p className="text-white/50 text-sm font-mono max-w-xs sm:text-right">
+              THE CORE PHILOSOPHY BEHIND EVERY EXPERIMENT
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="divide-y divide-white/10 border-y border-white/10">
             {[
               {
                 num: '01',
-                title: 'STEM Research Excellence',
-                desc: 'Eksperimen mendalam di bidang Fisika Terapan, Nanomaterial, Bioteknologi Lingkungan, dan Teknik Energi Terbarukan.',
+                title: 'Experimental Rigor',
+                desc: 'Applied investigations in Materials Science, Nanotechnology, Applied Physics, Renewable Energy, and Environmental Bio-remediation.',
               },
               {
                 num: '02',
-                title: 'Target Lomba & Prestasi',
-                desc: 'Bimbingan intensif dan persiapan matang untuk melaju ke tahap Finalis dan Juara pada kompetisi ilmiah nasional dan internasional.',
+                title: 'Competitive Excellence',
+                desc: 'Targeted preparation for prestigious national and international research forums (OPSI, EUREKA! ITB, IIIEX, YSIF).',
               },
               {
                 num: '03',
-                title: 'Cura Personalis Mentoring',
-                desc: 'Pendampingan individual yang memperhatikan potensi, disiplin keselamatan lab, dan kedewasaan karakter tiap siswa peneliti.',
+                title: 'Cura Personalis',
+                desc: 'Individual mentoring fostering moral character, laboratory safety discipline, and intellectual resilience in every student.',
               },
               {
                 num: '04',
-                title: 'Care for Creation (Keberlanjutan)',
-                desc: 'Merawat seluruh alam ciptaan dengan menghasilkan solusi hijau berbasis pemanfaatan limbah dan konservasi sumber daya alam.',
+                title: 'Care for Creation',
+                desc: 'Commitment to sustainable technology by transforming waste streams into useful energy and safeguarding our natural ecology.',
               },
             ].map((pillar) => (
               <div
                 key={pillar.num}
-                className="p-8 bg-[#0D0D0D] border border-white/10"
+                className="py-8 flex flex-col md:flex-row md:items-baseline justify-between gap-4 group"
               >
-                <span className="text-xs font-mono text-[#D83933] font-bold block mb-4">
-                  {pillar.num} // PILAR
-                </span>
-                <h3 className="text-xl font-bold text-white mb-3">
-                  {pillar.title}
-                </h3>
-                <p className="text-sm text-white/60 leading-relaxed">
+                <div className="flex items-baseline gap-6 md:w-1/3">
+                  <span className="label text-[#D83933] font-bold font-mono text-sm">
+                    {pillar.num}
+                  </span>
+                  <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">
+                    {pillar.title}
+                  </h3>
+                </div>
+                <p className="text-sm md:text-base text-white/60 leading-relaxed md:w-2/3 max-w-xl">
                   {pillar.desc}
                 </p>
               </div>
@@ -163,32 +150,64 @@ export default function HomePage() {
       </section>
 
       {/* =====================================================
-          FEATURED RESEARCH PROJECTS — Real papers, no status badges
+          CURRENT FOCUS / FEATURED HIGHLIGHT
           ===================================================== */}
       <section
-        className="py-20 bg-[#0A0A0A] text-white border-b border-white/10"
+        className="section-spacing bg-[#FFFFFF] text-[#111111] border-b border-[#E8E8E4]"
+        aria-labelledby="focus-heading"
+      >
+        <div className="container-main">
+          <SectionLabel className="mb-6">CURRENT FOCUS</SectionLabel>
+
+          <div className="p-8 lg:p-14 bg-[#F4F4F1] border border-[#E8E8E4]">
+            <div className="flex items-center gap-3 mb-4 text-xs font-mono text-[#606060]">
+              <span className="text-[#D83933] font-bold uppercase">{currentFocus.category}</span>
+              <span>—</span>
+              <span>PROJECT {currentFocus.number}</span>
+              <span>—</span>
+              <span>{currentFocus.year}</span>
+            </div>
+
+            <h2
+              id="focus-heading"
+              className="text-2xl lg:text-4xl font-bold tracking-tight text-[#111111] mb-4 leading-tight"
+            >
+              {currentFocus.title}
+            </h2>
+
+            <p className="label text-[#606060] mb-6">
+              Authors: {currentFocus.authors.join(', ')}
+            </p>
+
+            <p className="body-large text-[#606060] max-w-3xl leading-relaxed mb-8">
+              {currentFocus.summary}
+            </p>
+
+            <ArrowLink href={`/projects/${currentFocus.slug}`}>
+              Read full project paper & experimental data
+            </ArrowLink>
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          RESEARCH REPOSITORY PREVIEW
+          ===================================================== */}
+      <section
+        className="section-spacing bg-[#FFFFFF] text-[#111111] border-b border-[#E8E8E4]"
         aria-labelledby="projects-heading"
       >
         <div className="container-main">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
             <div>
-              <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest block mb-3">
-                KARYA ILMIAH SISWA
-              </span>
-              <h2
-                id="projects-heading"
-                className="text-2xl sm:text-4xl font-bold text-white tracking-tight"
-              >
-                Karya Inovasi & Riset STEM.
+              <SectionLabel className="mb-4">RESEARCH REPOSITORY</SectionLabel>
+              <h2 id="projects-heading" className="section-headline text-[#111111]">
+                Recent Scientific Papers.
               </h2>
             </div>
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 text-sm font-mono text-[#D83933] hover:text-white font-bold transition-colors duration-200 shrink-0"
-            >
-              <span>Semua Karya Penelitian ({projects.length})</span>
-              <ArrowRight size={14} />
-            </Link>
+            <ArrowLink href="/projects" className="shrink-0">
+              View all {projects.length} research papers
+            </ArrowLink>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -200,33 +219,54 @@ export default function HomePage() {
       </section>
 
       {/* =====================================================
+          ROADMAP PREVIEW
+          ===================================================== */}
+      <section
+        className="section-spacing bg-[#FFFFFF] text-[#111111] border-b border-[#E8E8E4]"
+        aria-labelledby="roadmap-preview-heading"
+      >
+        <div className="container-main">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+            <div>
+              <SectionLabel className="mb-4">TIMELINE & ROADMAP</SectionLabel>
+              <h2 id="roadmap-preview-heading" className="section-headline text-[#111111]">
+                Active Research Agenda.
+              </h2>
+            </div>
+            <ArrowLink href="/roadmap" className="shrink-0">
+              View complete roadmap
+            </ArrowLink>
+          </div>
+
+          <div>
+            {roadmapPreview.map((milestone) => (
+              <RoadmapItem key={milestone.id} milestone={milestone} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================
           NUMBERS & ACHIEVEMENTS
           ===================================================== */}
       <section
-        className="py-20 bg-[#050505] text-white border-b border-white/10"
+        className="section-dark section-spacing"
         aria-labelledby="stats-heading"
       >
         <div className="container-main">
-          <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest block mb-3">
-            FASILITAS & PRESTASI
-          </span>
-          <h2
-            id="stats-heading"
-            className="text-2xl sm:text-4xl font-bold text-white tracking-tight mb-14"
-          >
-            Keunggulan Ekskul Riset Kolese Kanisius.
+          <SectionLabel light className="mb-6">BY THE NUMBERS</SectionLabel>
+          <h2 id="stats-heading" className="section-headline text-white mb-16">
+            A Legacy of Student Inquiry.
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {clubStats.map((stat) => (
-              <div key={stat.id} className="p-6 bg-[#0D0D0D] border border-white/10">
-                <p className="text-4xl font-bold text-white font-mono mb-2">
+              <div key={stat.id} className="pr-4">
+                <p className="stat-number text-white font-mono">
                   {stat.value}
                 </p>
-                <p className="text-xs font-mono text-[#D83933] font-semibold uppercase tracking-wider mb-2">
-                  {stat.label}
-                </p>
-                <p className="text-xs text-white/60 leading-relaxed">
+                <p className="label text-[#B8B8B8] mt-3">{stat.label}</p>
+                <p className="text-xs text-white/50 mt-1 leading-relaxed">
                   {stat.description}
                 </p>
               </div>
@@ -236,41 +276,30 @@ export default function HomePage() {
       </section>
 
       {/* =====================================================
-          FIND US AT CC (JOIN / CONTACT)
+          FIND US / CONTACT
           ===================================================== */}
       <section
-        className="py-20 bg-[#0A0A0A] text-white"
-        aria-labelledby="contact-heading"
+        className="section-dark section-spacing border-t border-white/10"
+        id="join"
+        aria-labelledby="join-heading"
       >
         <div className="container-main">
           <div className="max-w-3xl">
-            <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest block mb-4">
-              LOKASI & PERTEMUAN
-            </span>
-            <h2
-              id="contact-heading"
-              className="text-2xl sm:text-4xl font-bold text-white tracking-tight mb-6"
-            >
-              Temui Kami di Laboratorium Kolese Kanisius.
+            <SectionLabel light className="mb-6">FIND US AT CC</SectionLabel>
+            <h2 id="join-heading" className="page-headline text-white mb-6">
+              Connect With Canisius Science.
             </h2>
-            <p className="text-white/70 text-base sm:text-lg leading-relaxed mb-8">
+            <p className="body-large text-[#B8B8B8] mb-8 leading-relaxed">
               {clubInfo.joinInfo}
             </p>
 
-            <div className="p-6 bg-[#111111] border border-white/10 rounded mb-8 font-mono text-xs sm:text-sm text-white/80 space-y-2">
-              <p className="text-[#D83933] font-bold">JADWAL & TEMPAT:</p>
-              <p>• Hari: Setiap Rabu & Jumat</p>
-              <p>• Waktu: Pukul 15.00 – 17.00 WIB (2 jam per sesi)</p>
-              <p>• Lokasi: Kompleks Laboratorium STEM SMA Kolese Kanisius, Jl. Menteng Raya No. 64, Jakarta Pusat</p>
-            </div>
+            <CircularCTA href="/about#join" light className="mb-8">
+              Laboratory details
+            </CircularCTA>
 
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-3 px-6 py-3.5 bg-[#D83933] text-white font-mono text-sm font-semibold hover:bg-[#b82e28] transition-colors duration-200 rounded"
-            >
-              <span>Lihat Fasilitas & Peralatan Laboratorium</span>
-              <ArrowRight size={16} />
-            </Link>
+            <p className="label text-white/40 mt-8 max-w-md leading-relaxed">
+              {clubInfo.meetingInfo}
+            </p>
           </div>
         </div>
       </section>

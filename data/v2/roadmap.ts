@@ -11,68 +11,47 @@ export interface Milestone {
 
 export const milestones: Milestone[] = [
   {
-    id: 'cc-ms-01',
-    date: 'Agustus 2026',
-    shortDate: 'AGT 2026',
-    title: 'Perumusan Topik Riset & Mentoring Cura Personalis',
+    id: 'ms-01',
+    date: 'Semester 1 (Aug – Oct 2026)',
+    shortDate: 'AUG–OCT',
+    title: 'Laboratory Re-alignment & Baseline Testing',
     status: 'completed',
     description:
-      'Pembentukan kelompok riset STEM, orientasi 3 laboratorium utama (Fisika, Biologi, Kimia), serta perumusan 6 topik penelitian berbasis permasalahan sehari-hari.',
+      'Inventory audit of all physics, chemistry, and biology laboratory equipment. Archiving historical research papers and restructuring project datasets for competition preparation.',
   },
   {
-    id: 'cc-ms-02',
-    date: 'September – Oktober 2026',
-    shortDate: 'SEP-OKT 2026',
-    title: 'Siklus Eksperimen Sesi Rabu & Jumat',
-    status: 'completed',
-    description:
-      'Pengujian Spektrofotometer UV-Vis untuk akrilik CQD, pemanenan energi destilasi aquadest, fermentasi Eco-Enzyme sel MFC, dan pembuatan Nutribar pangan lokal.',
-  },
-  {
-    id: 'cc-ms-03',
-    date: 'Nopember 2026',
-    shortDate: 'NOV 2026',
-    title: 'Seleksi Internal & Penyusunan Paper Kompetisi',
+    id: 'ms-02',
+    date: 'Semester 1 (Nov – Dec 2026)',
+    shortDate: 'NOV–DEC',
+    title: 'Individual Project Focus & Manuscript Drafting',
     status: 'in-progress',
     description:
-      'Penyusunan naskah ilmiah (scientific paper) dan simulasi sidang riset di depan Smartboard lab untuk menyaring karya terbaik melaju ke tingkat nasional.',
+      'Solo consolidation phase: finalizing research documentation for ongoing prototypes (solar cooling, bio-energy, and nanomaterials). Drafting academic abstracts and project portfolios.',
   },
   {
-    id: 'cc-ms-04',
-    date: 'Desember 2026 – Januari 2027',
-    shortDate: 'DES-JAN 2027',
-    title: 'Pengiriman Berkas Lomba Riset STEM Nasional',
+    id: 'ms-03',
+    date: 'Semester 2 (Jan – Feb 2027)',
+    shortDate: 'JAN–FEB',
+    title: 'Competition Submissions & External Registrations',
     status: 'planned',
     description:
-      'Pendaftaran dan pengiriman naskah ke ajang OPSI, LIPI Youth Science Competition, dan OSEAN. Target melaju ke babak Finalis/Juara untuk nilai kredit akademis A.',
+      'Registering polished research papers into regional and national student olympiads (OPSI, LIPI/BRIN, EUREKA! ITB 2027). Finalizing poster boards and digital exhibition presentations.',
   },
   {
-    id: 'cc-ms-05',
-    date: 'Maret 2027',
-    shortDate: 'MAR 2027',
-    title: 'Babak Final & Presentasi Karya Juara',
+    id: 'ms-04',
+    date: 'Semester 2 (Mar – May 2027)',
+    shortDate: 'MAR–MAY',
+    title: 'Finals Presentation & School Science Showcase',
     status: 'planned',
     description:
-      'Presentasi produk prototipe (Generator Pintu Geser & Supresi Api Gelombang Akustik) di ajang kompetisi nasional & internasional.',
-  },
-  {
-    id: 'cc-ms-06',
-    date: 'Mei 2027',
-    shortDate: 'MEI 2027',
-    title: 'Kanisian Science Exhibition & Implementasi Keberlanjutan',
-    status: 'planned',
-    description:
-      'Pameran ilmiah tahunan Kolese Kanisius dan penyerahan inovasi teknologi ramah lingkungan untuk komunitas sekolah dan lingkungan masyarakat.',
+      'Defending papers in competition judging rounds, followed by an internal Canisius science exhibition showcasing working hardware and verified research results.',
   },
 ];
 
 export const longTermGoals = [
-  'Mencapai 100% tingkat kelulusan Juara/Finalis lomba riset STEM nasional bagi seluruh anggota ekskul untuk pemenuhan Nilai A.',
-  'Memperluas penerapan teknologi ramah lingkungan di sekolah (MFC Eco-Enzyme & Generator Pintu Geser).',
-  'Mengembangkan publikasi ilmiah berkala "Canisian Journal of Youth STEM Research".',
-  'Meningkatkan fasilitas laboratorium dengan teknologi sensor IoT & perangkat pirolisis otomatis.',
-  'Menjalin kolaborasi riset antar-sekolah dan institusi perguruan tinggi sains.',
-  'Mewujudkan semangat Cura Personalis dalam setiap karya inovasi untuk keberlanjutan seluruh alam ciptaan.',
+  'Maintain an open-access digital archive of student scientific research at Kolese Kanisius.',
+  'Target top podium rankings across national and international STEM competitions.',
+  'Translate laboratory prototypes into real-world sustainable solutions for the school campus and surrounding community.',
 ];
 
 export const statusGroups = {

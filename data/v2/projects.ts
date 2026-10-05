@@ -34,7 +34,7 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: 'csc-p01',
+    id: 'csc-01',
     slug: 'cqd-acrylic-uv-shield',
     number: '01',
     title: 'Doping Acrylic with Carbon Quantum Dots to Produce Anti UV-A Transparent Material',
@@ -43,328 +43,580 @@ export const projects: Project[] = [
     year: 2026,
     authors: ['Davis Leon Palsha Sitorus', 'Laszlo Uria Maleh'],
     summary:
-      'Sintesis Carbon Quantum Dots (CQD) dari asam sitrat dan urea untuk didopingkan ke dalam matriks akrilik, menghasilkan panel kaca bening penangkal radiasi UV-A dengan memanfaatkan fenomena pendaran cahaya tampak.',
+      'Synthesis of Carbon Quantum Dots (CQDs) from citric acid and urea, embedded into an acrylic matrix to produce optical-grade clear windows that block harmful UV-A radiation via photoluminescence.',
     description:
-      'Radiasi ultraviolet gelombang panjang (UV-A: 315–400 nm) mampu menembus kaca jendela standar dan memicu kerusakan material maupun fotopenuaan kulit. Penelitian ini mensintesis Carbon Quantum Dots (CQD) berbahan baku organik ramah lingkungan. Larutan suspensi CQD dicampurkan secara homogen ke dalam resin akrilik transparan sebelum proses polimerisasi, menciptakan material proteksi radiasi yang tetap mempertahankan kejernihan optik.',
+      'Long-wave ultraviolet radiation (UV-A: 315–400 nm) readily penetrates conventional silicate window glass, causing photochemical degradation and cellular skin damage. This research explores bottom-up hydrothermal synthesis of fluorescent Carbon Quantum Dots (CQDs) from eco-friendly organic precursors. Suspended CQD nanoparticles were uniformly cast into clear poly(methyl methacrylate) acrylic sheets, yielding a transparent composite that converts harmful UV-A rays into benign visible light.',
     researchQuestion:
-      'Bagaimana pengaruh konsentrasi suspensi Carbon Quantum Dots (CQD) terhadap persentase pelemahan radiasi UV-A dan nilai kejernihan transparansi pada material akrilik transparan?',
+      'How does CQD suspension concentration correlate with UV-A radiation attenuation and visible light optical transmittance in doped acrylic sheets?',
     hypothesis:
-      'Peningkatan konsentrasi dispersi CQD akan meningkatkan efisiensi penyerapan radiasi UV-A melalui konversi fluoresensi fotoluminesensi tanpa mengorbankan transmitansi cahaya pada spektrum kasatmata.',
+      'Higher dispersion densities of CQDs will enhance UV-A absorption via down-conversion fluorescence while maintaining visible light transparency above 85%.',
     method: [
-      'Sintesis CQD menggunakan prekursor asam sitrat dan urea melalui metode pirolisis termal di laboratorium kimia.',
-      'Karakterisasi fotoluminesensi larutan CQD di bawah paparan lampu sinar UV 365 nm.',
-      'Pembuatan lembaran akrilik dengan variasi konsentrasi dopan CQD (0.01 g/100ml hingga 0.05 g/100ml).',
-      'Pengukuran daya serap absorbansi dan transmisi UV-A menggunakan sensor radiometer ultraviolet terkalibrasi.',
-      'Uji kejernihan optik transmitansi cahaya tampak (visible light).',
+      'Thermal pyrolysis synthesis of CQDs using stoichiometric ratios of citric acid and urea in the chemistry lab.',
+      'Photoluminescence confirmation under 365 nm UV illumination.',
+      'Homogeneous dispersion of CQDs into acrylic monomer resin across concentrations (0.01 to 0.05 g/100ml).',
+      'Polymerization curing and precision optical absorbance profiling with spectrophotometry.',
+      'Surface hardness and thermal stability stress testing.',
     ],
     observations:
-      'Partikel CQD yang terdispersi dalam akrilik memancarkan fluoresensi hijau-kebiruan (greenish-blue light) yang kuat saat terpapar sinar UV. Lembaran akrilik secara visual tetap tembus pandang jernih.',
+      'Doped acrylic samples exhibited brilliant greenish-blue fluorescence under UV excitation while remaining visibly crystal clear in daylight.',
     results:
-      'Pada konsentrasi suspensi 0,05 g/100ml, akrilik hasil doping CQD berhasil memblokir hingga 61,9% paparan radiasi UV-A, membuktikan potensinya sebagai material kaca pelindung hemat biaya dan ramah lingkungan.',
+      'A 0.05 g/100ml suspension concentration achieved 61.9% UV-A blocking efficiency with negligible visible light haze, demonstrating a scalable, low-cost architectural daylighting shield.',
     limitations: [
-      'Dispersi partikel nano memerlukan pengadukan ultrasonik lebih intensif untuk meminimalkan aglomerasi pada konsentrasi lebih tinggi.',
+      'Ultrasonic dispersion duration must be extended at higher concentrations to prevent nanoscale agglomeration.',
     ],
     nextSteps: [
-      'Pengembangan formulasi pelapisan film tipis pada kaca jendela gedung sekolah.',
-      'Pengujian stabilitas fotodegradasi CQD pada paparan sinar matahari langsung selama 6 bulan.',
+      'Formulate thin-film spray-coating methods for existing school windows.',
+      'Perform 6-month continuous accelerated weathering tests.',
     ],
-    competitionContext: 'Canisius Science Competition (CSC) & Publikasi Extended Abstract',
+    competitionContext: 'Canisius Science Competition (CSC) & Extended Abstract Publication',
     featured: true,
   },
   {
-    id: 'csc-p02',
+    id: 'csc-02',
     slug: 'pcm-solar-panel-cooling',
     number: '02',
-    title: 'Sistem Pendingin Pasif Panel Surya Berbasis Phase Change Material (PCM) Alami',
+    title: 'Passive Phase Change Material (PCM) Cooling System for Tropical Solar Panels',
     category: 'Physics / Renewable Energy',
     categories: ['physics', 'engineering'],
     year: 2026,
     authors: ['Jonathan Paul Setiawan', 'Rafael Malaka Dala Da Gomez', 'Stevario Anathapindika Agung'],
     summary:
-      'Perancangan sistem pendingin pasif tanpa listrik untuk panel surya mini 12V di iklim tropis menggunakan wadah aluminium berisi Phase Change Material (minyak kelapa dan lilin kedelai) terintegrasi pipa radiator tembaga.',
+      'Designing a zero-electricity passive thermal management system for 12V photovoltaic panels using organic PCMs (coconut oil & soy wax) backed by passive copper heat pipes.',
     description:
-      'Efisiensi konversi panel surya mengalami penurunan drastis sekitar 0,4% per setiap kenaikan suhu 1°C di atas 25°C. Di iklim tropis Indonesia, suhu permukaan panel fotovoltaik dapat mencapai 50–70°C. Proyek ini merancang mekanisme pembuangan panas pasif dengan memanfaatkan kalor laten peleburan material pengubah fase (PCM) berbasis bahan nabati (minyak kelapa dan lilin kedelai) yang ditempatkan di bagian belakang panel.',
+      'Solar cell efficiency drops approximately 0.4% per 1°C increase above 25°C. In equatorial climates like Jakarta, solar panel surface temperatures routinely exceed 60°C. This investigation designs and tests a zero-power passive cooling jacket utilizing latent heat absorption of natural Phase Change Materials (coconut oil and soy wax) housed in a rear-mounted aluminium chamber with copper tube radiators.',
     researchQuestion:
-      'Seberapa besar penurunan suhu permukaan panel dan peningkatan efisiensi daya listrik (P = V × I) yang dapat dicapai melalui sistem pendingin PCM alami pada siklus leleh-beku berulang?',
+      'To what extent does a natural PCM cooling enclosure lower solar surface temperatures and preserve output electrical power (P = V × I) across repeated cyclic heating?',
     hypothesis:
-      'Penyerapan panas oleh kalor laten PCM saat bertransformasi dari fase padat ke cair akan menstabilkan suhu panel di dekat titik leleh material, menghasilkan kenaikan output daya listrik yang terukur dan konsisten.',
+      'Latent heat absorption during solid-to-liquid phase transitions will buffer panel temperatures near the melting point, stabilizing power output without external pump or fan energy.',
     method: [
-      'Karakterisasi termal titik leleh dan kapasitas kalor laten minyak kelapa dan lilin kedelai.',
-      'Fabrikasi wadah penampung aluminium dengan kontak termal konduktif tinggi di belakang panel surya 12V.',
-      'Pemasangan pipa tembaga eksternal sebagai radiator pasif pendingin alami untuk mempercepat pemadatan kembali PCM.',
-      'Simulasi pemanasan radiasi tropis terkontrol menggunakan lampu pemanas halogen.',
-      'Pencatatan kontinu suhu permukaan panel (°C) dan keluaran daya listrik (V, I) menggunakan multimeter digital pada beberapa siklus termal.',
+      'Thermal characterization of melting points and latent heat capacities of coconut oil and soy wax.',
+      'Fabrication of high thermal conductivity aluminium rear-mount enclosure for a 12V test panel.',
+      'Integration of copper loop heat sinks for nocturnal passive heat dissipation and re-solidification.',
+      'Simulated equatorial solar heating cycles using calibrated halogen thermal lamps.',
+      'Real-time logging of panel surface temperature and electrical power output.',
     ],
     observations:
-      'Panel surya dengan pendingin PCM memperlihatkan laju kenaikan suhu yang jauh lebih lambat dibandingkan panel kontrol tanpa pendingin saat dihangatkan.',
+      'PCM-backed panels showed significantly dampened temperature spikes compared to uncooled reference panels under identical radiant heat.',
     results:
-      'Sistem pendingin PCM alami sukses meredam lonjakan panas panel, menjaga efisiensi fotovoltaik lebih tinggi dan membuktikan kestabilan performa pada siklus termal berulang tanpa mengonsumsi energi listrik tambahan.',
+      'The natural PCM heat sink maintained cooler panel operating temperatures across consecutive thermal cycles, resulting in measurable electrical efficiency preservation without parasitic energy draw.',
     limitations: [
-      'Pelepasan panas kembali dari cairan PCM ke udara sekitar pada malam hari memerlukan ventilasi radiator yang memadai.',
+      'Nocturnal cooling rates depend on ambient air convection for complete re-solidification.',
     ],
     nextSteps: [
-      'Uji coba lapangan jangka panjang di atap gedung Kolese Kanisius di bawah terik matahari Jakarta.',
-      'Optimalisasi geometri wadah penampung aluminium untuk efisiensi transfer panas maksimal.',
+      'Conduct long-term outdoor rooftop trials under natural Jakarta sunlight.',
+      'Optimize aluminium internal fin geometry to maximize conduction rate.',
     ],
     competitionContext: 'Science Project Competition (SPC) EUREKA! ITB 2026',
     featured: true,
   },
   {
-    id: 'csc-p03',
+    id: 'csc-03',
     slug: 'rice-water-microbial-fuel-cell',
     number: '03',
-    title: 'Pemanfaatan Air Cucian Beras sebagai Substrat Double-Chamber Microbial Fuel Cell (MFC)',
+    title: 'Double-Chamber Microbial Fuel Cell (MFC) Powered by Domestic Rice Washing Water',
     category: 'Biology / Bio-Energy',
     categories: ['biology', 'environmental'],
     year: 2024,
     authors: ['Ananda Bernard Hizkia'],
     summary:
-      'Inovasi pemanenan energi listrik mikro ramah lingkungan berbasis bio-elektrokimia memanfaatkan air cucian beras rumah tangga yang kaya karbohidrat sebagai substrat elektrogenik.',
+      'Harvesting bio-electricity from domestic rice-cleaning wastewater using an anaerobic double-chamber Microbial Fuel Cell with graphite electrodes and a salt-bridge separator.',
     description:
-      'Air cucian beras mengandung nutrisi pati dan karbohidrat tinggi yang umumnya langsung dibuang menjadi limbah domestik. Riset ini memanfaatkan limbah organik tersebut sebagai bahan bakar nutrisi bagi koloni bakteri elektrogenik di dalam reaktor Microbial Fuel Cell (MFC) tipe dual-chamber. Reaksi metabolik bakteri melepaskan elektron pada anoda dan proton yang dialirkan menuju katoda melalui jembatan garam.',
+      'Rice washing effluent is a ubiquitous carbohydrate-rich domestic waste that normally burdens sewage systems. This project harnesses indigenous electrogenic bacteria to oxidize dissolved starch and glucose in an anaerobic anode chamber, generating continuous bio-electricity while simultaneously treating wastewater.',
     researchQuestion:
-      'Bagaimana efektivitas degradasi substrat air cucian beras dalam menghasilkan kerapatan arus listrik dan voltase kontinu pada reaktor MFC dua ruang?',
+      'How efficiently can rice-washing wastewater sustain electrical power density and voltage output in a dual-chamber bio-electrochemical reactor?',
     hypothesis:
-      'Kandungan glukosa dan amilum terlarut dalam air cucian beras mampu menopang pertumbuhan bakteri bio-elektrogenik untuk menghasilkan beda potensial listrik yang stabil.',
+      'The abundant starch and carbohydrate substrate in rice wastewater will fuel electrochemically active biofilms, sustaining measurable potential difference across an external load.',
     method: [
-      'Preparasi reaktor akrilik double-chamber dengan anoda dan katoda serat karbon grafit.',
-      'Pembuatan jembatan garam agar-agar gelatin pekat KCl sebagai membran penghubung transfer proton.',
-      'Inokulasi lumpur aktif biologis dan substrat air cucian beras terfermentasi pada ruang anoda.',
-      'Pengukuran beda potensial Open Circuit Voltage (OCV) dan arus harian menggunakan multimeter presisi tinggi.',
-      'Pengujian kemampuan catu daya terhadap beban resistor dan lampu LED indikator.',
+      'Construction of acrylic dual-chamber reactors with graphite felt electrodes.',
+      'Preparation of concentrated KCl-agar salt bridges for proton transfer.',
+      'Inoculation of anaerobic anode chamber with activated biofilm and fermented rice water.',
+      'Continuous logging of Open Circuit Voltage (OCV) and polarization curves across 1000Ω loads.',
+      'Pre- and post-trial chemical oxygen demand (COD) reduction analysis.',
     ],
     observations:
-      'Tegangan reaktor melonjak secara bertahap dalam 48 jam pertama masa inkubasi seiring mikroba menguraikan karbohidrat cair.',
+      'Stable potential difference developed within 48 hours as anaerobic bacterial colonization matured on the anode surface.',
     results:
-      'Reaktor double-chamber MFC berhasil menghasilkan tegangan stabil yang mampu menyalakan perangkat elektronik berdaya rendah, sekaligus menurunkan beban senyawa organik limbah domestik.',
+      'The MFC successfully powered low-drain digital chronometers and LEDs continuously, demonstrating domestic wastewater remediation paired with decentral renewable power generation.',
     limitations: [
-      'Resistansi dalam membran jembatan garam membatasi daya keluaran maksimum.',
+      'Internal resistance of the agar salt bridge limits peak power density compared to synthetic ion-exchange membranes.',
     ],
     nextSteps: [
-      'Peningkatan efisiensi sel menggunakan elektroda berbasis Carbon Cloth dan membran penukar kation komersial.',
+      'Evaluate low-cost ceramic separators to replace agar salt bridges.',
     ],
     competitionContext: 'Indonesia International Invention Expo (IIIEX) 2024',
     award: 'Gold Medal — Environment Category (IIIEX 2024)',
     featured: true,
   },
   {
-    id: 'csc-p04',
+    id: 'csc-04',
     slug: 'arduino-tens-device-prototype',
     number: '04',
-    title: 'Prototipe Alat Transcutaneous Electrical Nerve Stimulation (TENS) Berbasis Arduino',
+    title: 'Portable Arduino-Based Transcutaneous Electrical Nerve Stimulation (TENS) Device',
     category: 'Health / Biomedical Engineering',
     categories: ['engineering', 'biology'],
     year: 2024,
     authors: ['Nobiel Utoro', 'Fransiskus Jonathan Muljadi', 'Haposan Christian Gultom', 'Nobuhiro Komatsuda'],
     summary:
-      'Pengembangan perangkat medis portabel berbiaya terjangkau berbasis mikrokontroler Arduino Uno untuk stimulasi saraf pereda nyeri fisiologis berlandaskan Gate Control Theory.',
+      'Developing an accessible, open-source electrotherapy device for analgesic pain relief based on Melzack-Wall Gate Control Theory, powered by Arduino Uno.',
     description:
-      'Transcutaneous Electrical Nerve Stimulation (TENS) merupakan metode terapi non-invasif yang menghantarkan impuls arus listrik mikro melalui elektroda kulit untuk memblokir sinyal rasa sakit menuju otak. Proyek ini merancang perangkat TENS open-source bertenaga portabel dengan pengaturan frekuensi dan lebar pulsa yang dapat dikustomisasi, dilengkapi indikator keselamatan digital.',
+      'Transcutaneous Electrical Nerve Stimulation (TENS) delivers controlled micro-current electrical pulses through skin electrodes to inhibit nociceptive pain signals from reaching the central nervous system. This team engineered a portable, programmable open-source TENS generator with variable frequency and pulse width, featuring fail-safe current limiting.',
     researchQuestion:
-      'Bagaimana akurasi parameter gelombang stimulasi (frekuensi 2–150 Hz dan lebar pulsa 30–260 μs) yang dapat dihasilkan oleh mikrokontroler dengan standar keamanan kelistrikan?',
+      'Can an inexpensive microcontroller accurately generate clinical-grade biphasic therapeutic waveforms (2–150 Hz, 30–260 μs pulse width) within strict physiological safety thresholds?',
     hypothesis:
-      'Pemrograman timer mikrokontroler dan sirkuit penguat daya transistor mampu menghasilkan pulsa elektrik bifasik yang presisi dan stabil sesuai rentang terapeutik klinis.',
+      'Microcontroller timer interrupts combined with a regulated step-up bridge can deliver consistent, therapeutic electrical stimulation safely comparable to commercial medical devices.',
     method: [
-      'Perancangan arsitektur sirkuit berbasis Arduino Uno dan modul pengatur modulasi lebar pulsa (PWM).',
-      'Pemrograman antarmuka pengguna digital dengan potensiometer dan layar LCD/LED indikator parameter.',
-      'Pengujian karakterisasi bentuk gelombang dan tegangan keluaran menggunakan osiloskop laboratorium fisika.',
-      'Penerapan modul proteksi arus berlebih (overcurrent safety cutoff).',
+      'Circuit architecture design utilizing Arduino Uno, adjustable PWM switching, and isolation transformers.',
+      'Development of an interactive LCD UI with parameter control knobs.',
+      'Oscilloscope verification of output pulse frequencies, peak voltage, and rise times.',
+      'Implementation of hardware overcurrent protection and automatic shut-off.',
     ],
     observations:
-      'Sinyal gelombang elektrik pulsa yang diamati pada layar osiloskop memperlihatkan kestabilan frekuensi yang presisi pada rentang uji 2 Hz hingga 150 Hz.',
+      'Oscilloscope traces confirmed exceptionally stable square pulse trains across the full target therapeutic bandwidth (2 to 150 Hz).',
     results:
-      'Prototipe perangkat TENS sukses mensimulasikan gelombang pulsa analgesik terapeutik secara akurat dalam batas voltase aman, serta meraih penghargaan internasional di bidang inovasi sains terapan.',
+      'The device successfully met clinical parameter targets with safe skin impedance tolerances, earning international recognition in applied innovation science.',
     limitations: [
-      'Protokol uji coba klinis pada subjek manusia dibatasi oleh pertimbangan kode etik riset sekolah.',
+      'Human in vivo efficacy testing was restricted to non-clinical bench simulation due to school ethics protocols.',
     ],
     nextSteps: [
-      'Miniaturisasi PCB sirkuit ke dalam modul enclosure cetak 3D seukuran saku dengan baterai isi ulang.',
+      'Design a miniaturized PCB and 3D-printed pocket enclosure with rechargeable LiPo battery.',
     ],
     competitionContext: 'Youth International Science Fair (YSIF) 2024',
     award: 'Silver Medal — Innovation Science Category (YSIF 2024)',
     featured: false,
   },
   {
-    id: 'csc-p05',
+    id: 'csc-05',
     slug: 'biodiesel-catalyst-optimization',
     number: '05',
-    title: 'Optimasi Penggunaan Katalis NaOH dalam Produksi Biodiesel dari Minyak Jelantah',
+    title: 'Catalyst Optimization for Biodiesel Synthesis from Waste Cooking Oil',
     category: 'Chemistry / Biofuel',
     categories: ['chemistry', 'environmental'],
     year: 2025,
     authors: ['Reinier Louis Stefano', 'Theodore Rex Semita'],
     summary:
-      'Eksperimen transesterifikasi untuk menentukan takaran optimal katalis Natrium Hidroksida (NaOH) guna memaksimalkan rendemen Fatty Acid Methyl Ester (FAME) dari limbah minyak goreng bekas.',
+      'Determining the stoichiometric optimum of NaOH catalyst in transesterification to maximize Fatty Acid Methyl Ester (FAME) yield while suppressing unwanted saponification.',
     description:
-      'Limbah minyak jelantah berpotensi mencemari perairan jika dibuang sembarangan namun kaya akan trigliserida yang dapat dikonversi menjadi bahan bakar alternatif biodiesel. Penelitian ini menganalisis titik kritis konsentrasi katalis basa NaOH untuk mencegah reaksi samping penyabunan (saponifikasi) yang merugikan.',
+      'Discarded culinary cooking oil poses acute environmental hazards if dumped into municipal waterways, yet holds dense triglyceride value for conversion into sustainable biodiesel. This investigation identifies the critical threshold of sodium hydroxide catalyst concentration to avoid soap emulsion formation while maximizing methyl ester yield.',
     researchQuestion:
-      'Berapa massa katalis NaOH paling optimal untuk menghasilkan rendemen metil ester tertinggi tanpa memicu pembentukan emulsi sabun yang mengentalkan produk?',
+      'What specific mass ratio of NaOH catalyst maximizes methyl ester conversion yield without triggering excessive saponification in waste cooking oil?',
     hypothesis:
-      'Penambahan katalis NaOH pada batas massa 0,2 gram per 100 gram minyak jelantah akan memberikan konversi transesterifikasi tertinggi dengan angka asam terendah.',
+      'A catalyst concentration of 0.2g NaOH per 100g oil will achieve the highest FAME conversion efficiency with minimal free fatty acid (FFA) soaping.',
     method: [
-      'Penyaringan kotoran fisik dan pemanasan awal minyak jelantah untuk menghilangkan kadar air sisa.',
-      'Preparasi larutan metoksida dengan melarutkan variasi massa NaOH (0.1g, 0.2g, 0.3g, 0.5g, dan 0.8g) ke dalam metanol murni.',
-      'Reaksi transesterifikasi pada suhu terkontrol 60°C selama 60 menit menggunakan magnetic hotplate stirrer.',
-      'Pemisahan fase gliserol dan metil ester pada corong pisah laboratorium.',
-      'Pencucian (water washing) biodiesel dan uji rendemen massa metil ester yang dihasilkan.',
+      'Physical pre-filtration and thermal dehydration of waste culinary oil at 110°C.',
+      'Preparation of sodium methoxide solution using anhydrous methanol and varied NaOH amounts (0.1g to 0.8g).',
+      'Batch transesterification at 60°C for 60 minutes under continuous magnetic stirring.',
+      'Gravimetric separation of glycerol and biodiesel phases in separatory funnels.',
+      'Warm water washing, drying, and yield measurement.',
     ],
     observations:
-      'Pada penambahan NaOH di atas 0,5 gram, campuran larutan berubah kental berbusa pekat akibat pembentukan sabun berlebih yang mempersulit pemisahan gliserol.',
+      'Exceeding 0.5g NaOH created thick saponified emulsions that severely impeded glycerol phase separation.',
     results:
-      'Massa optimum katalis terbukti berada pada 0,2 gram NaOH, yang menghasilkan rendemen tertinggi sebesar 46,7 gram metil ester murni dengan penurunan kadar asam lemak bebas (FFA) paling efektif.',
+      'The optimal catalyst threshold was verified at 0.2g NaOH per 100g oil, delivering peak pure methyl ester yield (46.7g) with optimal free fatty acid reduction.',
     limitations: [
-      'Kualitas minyak jelantah awal yang bervariasi membutuhkan tahapan pra-esterifikasi asam jika angka asam awal terlampau tinggi.',
+      'Variability in source waste oil requires individual titration to determine initial acid value.',
     ],
     nextSteps: [
-      'Pengujian nilai viskositas kinematik dan densitas biodiesel mengacu pada standar SNI Biodiesel.',
+      'Measure kinematic viscosity, flash point, and cetane index against national biodiesel standards.',
     ],
     competitionContext: 'Canisius Science Competition (CSC) 2025',
     featured: false,
   },
   {
-    id: 'csc-p06',
+    id: 'csc-06',
     slug: 'mussel-biofilter-ciliwung',
     number: '06',
-    title: 'Efektivitas Kerang Hijau, Kerang Dara, dan Kijing sebagai Biofilter Air Sungai Ciliwung',
+    title: 'Comparative Biofiltration of Ciliwung River Water Using Bivalve Molluscs',
     category: 'Environmental Science / Biology',
     categories: ['biology', 'environmental'],
     year: 2026,
     authors: ['Javier Nicholas Vito Uisan', 'Vincenso Marco Pujianto', 'Wilbert Lee'],
     summary:
-      'Uji perbandingan 3 spesies bivalvia sebagai agen filter-feeder biologis untuk mereduksi parameter pencemar fisik dan kimiawi sampel air Sungai Ciliwung.',
+      'Evaluating Green Mussels, Blood Cockles, and Freshwater Mussels as living filter-feeders to reduce turbidity, nitrates, cyanuric acid, and hardness in urban river water.',
     description:
-      'Sungai Ciliwung yang melintasi Jakarta menghadapi tekanan polutan berat berupa partikel tersuspensi, kesadahan tinggi, nitrat, dan nitrit. Penelitian ini mengeksplorasi potensi bioremediasi alami menggunakan tiga jenis kerang (Perna viridis, Tegillarca granosa, dan Pilsbryoconcha exilis) sebagai organisme penyaring polutan air tanpa bahan kimia sintetis.',
+      'The Ciliwung River flowing through Jakarta suffers from heavy organic pollution, high dissolved solids, and agricultural runoff compounds. This study tests the bio-remediation capacity of three native bivalve species (Perna viridis, Tegillarca granosa, and Pilsbryoconcha exilis) to filter physical and chemical pollutants without synthetic chemical treatment.',
     researchQuestion:
-      'Spesies kerang manakah yang memiliki kapasitas biosorpsi tertinggi dalam menurunkan kesadahan, senyawa nitrogen, dan kekeruhan air limbah sungai?',
+      'Which mollusc species exhibits the highest bio-absorption rate for water hardness, nitrogen compounds, and heavy pollutant markers in Ciliwung water?',
     hypothesis:
-      'Setiap spesies memiliki afinitas penyerapan yang spesifik terhadap ion tertentu; kerang air tawar (kijing) akan memiliki daya tahan fisiologis lebih baik dalam media air sungai.',
+      'Each bivalve species will exhibit distinct filtration strengths; freshwater mussels will demonstrate superior physiological survival under prolonged river water exposure.',
     method: [
-      'Pengambilan sampel air uji dari titik representatif aliran Sungai Ciliwung Jakarta.',
-      'Aklimatisasi kelompok kerang pada tangki aerasi laboratorium biologi.',
-      'Pemaparan sampel kerang dalam akuarium uji dengan volume dan durasi waktu filtrasi terukur.',
-      'Pengujian parameter kualitas air laboratorium: pH, Total Dissolved Solids (TDS), kesadahan total, asam sianurat, nitrat, nitrit, dan fluorida.',
+      'Sample collection from standardized urban sampling points along the Ciliwung River.',
+      'Acclimatization of test mollusc cohorts in aerated laboratory tanks.',
+      'Controlled time-series exposure trials in individual biofiltration testing chambers.',
+      'Multi-parameter water analysis: pH, TDS, water hardness, nitrates, nitrites, and fluorides.',
     ],
     observations:
-      'Kerang dara melepaskan senyawa hemoglobin ke dalam air saat kondisi stres sehingga mengubah air menjadi agak kemerahan, sedangkan kerang hijau memperlihatkan laju pembersihan air yang sangat aktif.',
+      'Blood cockles released residual hemoglobin under osmotic stress, while green mussels demonstrated vigorous active particle clearance.',
     results:
-      'Kerang hijau (Perna viridis) terbukti paling efektif dalam mereduksi kadar asam sianurat, fluorida, serta senyawa nitrat dan nitrit. Sementara kerang dara paling unggul dalam menurunkan kesadahan air.',
+      'Green mussels proved most effective at scrubbing cyanuric acid, fluorides, nitrates, and nitrites, while blood cockles achieved the highest reduction in total water hardness.',
     limitations: [
-      'Toleransi salinitas kerang laut saat ditempatkan di air tawar sungai membatasi durasi filtrasi biologis langsung.',
+      'Salinity tolerances of marine species restrict direct long-term deployment in pure freshwater rivers.',
     ],
     nextSteps: [
-      'Riset sistem biofilter hibrida berbasis cangkang kerang teraktivasi untuk filtrasi pasif jangka panjang.',
+      'Investigate activated crushed shell matrices as passive fixed-bed biofilters.',
     ],
     competitionContext: 'Canisius Science Competition (CSC) Research Paper',
     featured: false,
   },
   {
-    id: 'csc-p07',
+    id: 'csc-07',
     slug: 'star-trails-webgl-simulator',
     number: '07',
-    title: 'Pengembangan Visualisasi 3D Star Trails Berbasis WebGL Menggunakan Three.js',
+    title: 'WebGL-Based 3D Star Trails Astronomical Visualization Engine',
     category: 'Computer Science / Astronomy',
     categories: ['engineering', 'physics'],
     year: 2026,
     authors: ['Darrel Jeremiah Rondonuwu', 'Natalius Gabriel'],
     summary:
-      'Aplikasi simulasi komputasi visual berbasis web untuk memprediksi dan memodelkan pola lintasan jejak bintang (star trails) bagi astrofotografer dengan koordinat geografis nyata.',
+      'A real-time interactive browser tool built on Three.js and SvelteKit to simulate celestial rotation and predict star trail geometry for astrophotographers based on geographic coordinates.',
     description:
-      'Astrofotografi jejak bintang membutuhkan perencanaan sudut bidik kamera dan durasi eksposur yang matang agar menghasilkan komposisi melingkar kutub langit yang sempurna. Menggunakan Three.js, WebGL, dan SvelteKit, penelitian ini membangun platform interaktif 3D yang mengkalkulasi koordinat bola langit secara real-time berdasarkan posisi lintang, bujur, dan waktu pengamatan pengguna.',
+      'Planning long-exposure star trail photography requires predicting celestial pole curvature, camera angle of view, and exposure time to avoid trial-and-error. Using Three.js, WebGL shaders, and SvelteKit, this project engineered a responsive 3D simulation calculating real-time equatorial-to-horizontal coordinate transformations for any global latitude and longitude.',
     researchQuestion:
-      'Bagaimana optimalisasi algoritma rendering WebGL dalam memvisualisasikan puluhan ribu lintasan rotasi bintang dengan waktu komputasi responsif (<500 ms)?',
+      'How can WebGL shader pipelines be optimized to render tens of thousands of orbital star arcs interactively with sub-500ms recomputation times?',
     hypothesis:
-      'Pemanfaatan matriks transformasi GPU melalui shader WebGL kustom akan mempercepat komputasi kalkulasi rotasi lintasan bintang tanpa membebani performa browser klien.',
+      'Offloading celestial coordinate transformation matrices directly to client-side GPU shaders will enable fluid 60 FPS previews across exposure parameters.',
     method: [
-      'Pemetaan katalog posisi koordinat ekuatorial bintang terang (Right Ascension & Declination).',
-      'Formulasi matematika konversi koordinat ekuatorial ke koordinat horizontal horizon lokal pengamat.',
-      'Implementasi rendering mesh lintasan orbit bintang menggunakan pustaka Three.js.',
-      'Tolok ukur (benchmarking) waktu komputasi render terhadap variasi durasi eksposur kamera (1 jam hingga 8 jam).',
+      'Compilation of bright star astronomical catalogs with Right Ascension and Declination coordinates.',
+      'Mathematical modeling of local sidereal time and coordinate transformations.',
+      'Implementation of arc-curve GPU mesh generation in Three.js.',
+      'Benchmarking re-render compute latency across 1-hour to 8-hour simulated exposures.',
     ],
     observations:
-      'Rendering interaktif berjalan mulus pada 60 FPS pada pengujian perangkat browser modern standar.',
+      'The engine rendered smooth interactive 60 FPS viewport manipulation with instant exposure scrub updates on standard laptop hardware.',
     results:
-      'Aplikasi berhasil memvisualisasikan kurva star trails secara presisi dengan waktu re-rendering di bawah 500 ms untuk perubahan durasi, serta 1,7–3,1 detik untuk kalkulasi ulang penuh koordinat geografis.',
+      'Simulations achieved sub-500ms re-render speeds for exposure parameter adjustments and 1.7–3.1 seconds for full global coordinate recalculations, providing a robust planning suite for astrophotographers.',
     limitations: [
-      'Kepadatan visualisasi bintang teropong pada sudut pandang sangat lebar memerlukan penyesuaian level-of-detail (LOD).',
+      'Extremely wide-angle fisheye lens projections require additional lens distortion shader compensation.',
     ],
     nextSteps: [
-      'Integrasi data polusi cahaya langit malam (Bortle Scale) ke dalam sistem simulasi pencahayaan.',
+      'Incorporate real-time night sky light pollution maps (Bortle Scale data).',
     ],
     competitionContext: 'Canisius Science Competition (CSC) Software Track',
     featured: false,
   },
   {
-    id: 'csc-p08',
+    id: 'csc-08',
     slug: 'mini-alpha-stirling-engine',
     number: '08',
-    title: 'Rancang Bangun Mesin Stirling Mini Tipe Alfa sebagai Konverter Energi Panas',
+    title: 'Alpha-Type Mini Stirling Engine Prototype for Low-Grade Heat Recovery',
     category: 'Physics / Mechanical Engineering',
     categories: ['physics', 'engineering'],
     year: 2026,
     authors: ['Reinier Louis Stefano', 'Jason Nathanael Widjasena'],
     summary:
-      'Prototipe mesin termal eksternal siklus tertutup tipe Stirling alfa yang mengonversi energi termal buangan menjadi energi kinetik rotasi poros flywheel.',
+      'Engineering a compact closed-cycle external combustion alpha Stirling engine to convert industrial waste heat gradients directly into rotational mechanical energy.',
     description:
-      'Mesin Stirling merupakan mesin pembakaran luar (external combustion engine) berefisiensi termal tinggi yang beroperasi berdasarkan ekspansi dan kompresi siklik udara pada dua silinder dengan temperatur berbeda. Riset ini merancang prototipe kompak tipe alfa untuk mempelajari hubungan antara gradien suhu silinder terhadap kecepatan sudut rotasi mesin.',
+      'Stirling engines operate on cyclic compression and expansion of air across hot and cold cylinders, offering high theoretical thermodynamic efficiency. This study designed and tested a compact alpha-configuration prototype to examine the mathematical relationship between thermal differential (ΔT) and output shaft angular velocity (RPM).',
     researchQuestion:
-      'Bagaimana korelasi antara beda temperatur sumber panas dengan silinder pendingin terhadap laju putaran (RPM) yang dihasilkan oleh poros mesin Stirling mini?',
+      'What is the quantitative correlation between cylinder temperature differentials and flywheel RPM in a miniature alpha Stirling engine?',
     hypothesis:
-      'Laju putaran (RPM) flywheel akan meningkat secara proporsional linier terhadap pertambahan suhu pada silinder panas sesuai hukum termodinamika gas ideal.',
+      'Flywheel rotational speed will exhibit a linear relationship with cylinder temperature differential once initial friction break-away torque is surpassed.',
     method: [
-      'Desain mekanik silinder panas, silinder dingin, piston penekan, dan flywheel penyeimbang.',
-      'Fabrikasi komponen presisi menggunakan komponen logam dan kaca tahan panas di lab fisika.',
-      'Pengujian operasional menggunakan burner api dengan pemantauan suhu termokopel digital.',
-      'Pengukuran putaran rotasi per menit (RPM) menggunakan tachometer digital tanpa kontak.',
+      'Precision CAD modeling and machining of hot cylinder, cold cylinder, pistons, and balanced flywheel.',
+      'Thermal instrumentation with digital thermocouple sensors.',
+      'Controlled thermal testing from 80°C to 200°C cylinder temperatures.',
+      'Non-contact optical tachometer RPM measurement.',
     ],
     observations:
-      'Mesin mulai berputar spontan setelah silinder panas mencapai suhu awal minimal 85°C dengan dorongan awal pada flywheel.',
+      'Spontaneous sustained rotation began once hot cylinder temperature reached 85°C with a minor initial flywheel push.',
     results:
-      'Pengujian membuktikan bahwa putaran flywheel meningkat secara linier dengan temperatur: menghasilkan 40 RPM pada suhu 100°C dan melonjak hingga 225 RPM pada suhu 200°C.',
+      'Flywheel RPM scaled linearly with hot cylinder temperature: producing 40 RPM at 100°C and accelerating smoothly to 225 RPM at 200°C, proving viability for micro-scale waste heat harvesting.',
     limitations: [
-      'Kerapatan seal piston silinder membutuhkan pelumasan mikro berkala untuk mencegah kebocoran tekanan udara.',
+      'Piston seal friction requires micro-lubrication to sustain longevity without gas leakage.',
     ],
     nextSteps: [
-      'Pemasangan generator magnet permanen mikro pada poros untuk menghasilkan daya listrik langsung dari panas buangan.',
+      'Mount a permanent-magnet micro-dynamo onto the shaft to generate direct electrical output.',
     ],
-    competitionContext: 'Canisius Science Competition (CSC) Engineering Showcase',
+    competitionContext: 'Canisius Science Competition (CSC) Engineering Track',
     featured: false,
   },
   {
-    id: 'csc-p09',
+    id: 'csc-09',
     slug: 'porous-asphalt-water-filtration',
     number: '09',
-    title: 'Penerapan Perkerasan Aspal Berpori (Porous Asphalt) dari Sampah Plastik & Batuan Vulkanik',
+    title: 'Porous Asphalt Pavement Using Recycled Plastics and Volcanic Aggregates',
     category: 'Civil & Environmental Engineering',
     categories: ['engineering', 'environmental'],
     year: 2024,
     authors: ['Yarra Wiryadenta', 'Joshua Viencent Tandibrata', 'Nobuhiro Komatsuda'],
     summary:
-      'Pengembangan aspal porus ramah lingkungan berbahan limbah plastik daur ulang (PET/PE) dan agregat batuan beku vulkanik untuk meningkatkan infiltrasi air hujan dan mencegah banjir.',
+      'Developing permeable urban pavement incorporating shredded PET/PE plastic waste and igneous volcanic rocks for rapid stormwater infiltration and flood prevention.',
     description:
-      'Genangan air pada permukaan jalan perkotaan Jakarta sering memicu kecelakaan lalu lintas dan banjir perkotaan akibat rendahnya resapan air. Penelitian ini merancang formula perkerasan aspal berpori menggunakan matriks plastik limbah dan batuan vulkanik untuk menciptakan saluran drainase alami vertikal, yang kinerjanya dipantau menggunakan sensor ultrasonik berbasis Arduino.',
+      'Impervious urban surfaces in Jakarta aggravate flood risks and surface runoff pollution. This research engineered permeable asphalt composites using recycled shredded plastic waste and volcanic igneous rock aggregates, forming vertical drainage channels monitored by an Arduino-based ultrasonic sensor network.',
     researchQuestion:
-      'Berapa nilai koefisien permeabilitas air dan ketahanan kuat tekan mekanis dari campuran aspal porus berbahan limbah plastik dan batuan vulkanik?',
+      'What hydraulic permeability coefficient and compressive strength can be achieved by blending recycled plastic binders with volcanic aggregate matrix?',
     hypothesis:
-      'Struktur pori yang saling terhubung (interconnected voids) pada agregat batuan beku vulkanik akan menghasilkan laju infiltrasi air tertinggi dengan daya dukung beban yang kokoh.',
+      'Interconnected macro-pore voids between angular volcanic rocks will deliver superior drainage flow rates while retaining load-bearing capacity for foot and light vehicle traffic.',
     method: [
-      'Preparasi agregat batuan beku vulkanik dan pencacahan limbah plastik jenis PET/PE.',
-      'Pencampuran binder aspal termodifikasi plastik pada suhu panas terkontrol.',
-      'Pencetakan briket spesimen aspal porus laboratorium.',
-      'Uji laju permeabilitas hidrolik vertikal (falling head permeability test).',
-      'Pengujian kuat tekan beban mekanis dan integrasi sensor ultrasonik untuk pemantauan laju resapan.',
+      'Aggregate grading of volcanic rocks and mechanical shredding of PET/PE consumer plastics.',
+      'Hot-mix formulation of plastic-modified asphalt binders.',
+      'Compaction of cylindrical test briquettes in laboratory molds.',
+      'Falling-head hydraulic permeability measurements.',
+      'Compressive stress testing up to failure under mechanical press.',
     ],
     observations:
-      'Struktur pori saling menyambung dengan baik tanpa terjadi keretakan agregat saat dialiri air dalam debit deras.',
+      'Water poured onto the specimen drained through instantly without aggregate disintegration or pooling.',
     results:
-      'Spesimen berbahan agregat batuan vulkanik mencatat permeabilitas air terbaik mencapai 0,28 cm/detik dan mampu menahan kuat tekan beban hingga 700 Newton, membuktikan kelayakannya sebagai jalan resapan perkotaan.',
+      'The volcanic composite achieved high water permeability (0.28 cm/s) and supported over 700 Newtons of compressive force, proving feasible for permeable pedestrian paths and parking bays.',
     limitations: [
-      'Penyumbatan partikel debu dan lumpur tanah (clogging) memerlukan perawatan berkala dengan penyemprotan air bertekanan.',
+      'Long-term fine sediment clogging requires periodic pressurized water cleaning maintenance.',
     ],
     nextSteps: [
-      'Penerapan uji coba perkerasan pada area parkir atau jalur pejalan kaki kampus Kolese Kanisius.',
+      'Install a pilot test walkway on the Kolese Kanisius campus.',
     ],
-    competitionContext: 'Essay Competition DISCO 7th 2024',
-    award: 'Finalis Karya Ilmiah Teknik Sipil & Lingkungan',
+    competitionContext: 'DISCO 7th National Civil Engineering Competition 2024',
+    award: 'National Civil & Environmental Engineering Finalist',
+    featured: false,
+  },
+  {
+    id: 'csc-10',
+    slug: 'underwater-current-turbine',
+    number: '10',
+    title: 'Vertical vs Horizontal Axis Underwater Turbines for Hydrokinetic Power Generation',
+    category: 'Physics / Renewable Energy',
+    categories: ['physics', 'engineering'],
+    year: 2024,
+    authors: ['Muhammad Rangga Cindraputra', 'Nobiel Utoro', 'Haposan Christian Gultom'],
+    summary:
+      'A comparative hydrodynamics study testing vertical and horizontal axis turbine prototypes to determine power generation efficiency across omnidirectional water currents.',
+    description:
+      'Hydrokinetic energy from shallow rivers and tidal flows offers clean baseload electricity without requiring large dams. This project fabricated and benchmarked vertical-axis (Savonius/Darrieus hybrid) and horizontal-axis propeller turbine models across varying flow angles and flow velocities in an experimental water channel.',
+    researchQuestion:
+      'How does turbine blade orientation (vertical vs horizontal) affect electrical output under multi-directional, turbulent water flow conditions?',
+    hypothesis:
+      'Vertical-axis turbines will maintain superior operational stability and consistent power generation under shifting, non-laminar flow vectors.',
+    method: [
+      'Fabrication of scale model vertical and horizontal axis turbines using 3D-printed blades.',
+      'Integration of low-RPM permanent magnet DC generators with rectifier circuits.',
+      'Testing inside a controlled flow flume at water speeds from 0.5 to 2.0 m/s.',
+      'Measurement of electrical voltage and rotational torque at various angles of attack.',
+    ],
+    observations:
+      'Horizontal turbines performed well in purely parallel laminar flow, but stalled frequently when current angles deviated. Vertical turbines remained rotationally stable across all angles.',
+    results:
+      'Vertical turbines delivered higher average electrical energy across variable flow directions, demonstrating ideal suitability for turbulent urban rivers and irrigation channels.',
+    limitations: [
+      'Horizontal turbines had higher peak efficiency under strictly straight, uniform laminar flow.',
+    ],
+    nextSteps: [
+      'Design modular floating pontoons for riverbank deployment.',
+    ],
+    competitionContext: 'Conscience Science Competition 2024',
+    featured: false,
+  },
+  {
+    id: 'csc-11',
+    slug: 'water-electrolysis-hydrogen-generator',
+    number: '11',
+    title: 'Low-Cost Water Electrolysis Hydrogen Generator Using Kitchenware Electrodes',
+    category: 'Chemistry / Energy',
+    categories: ['chemistry', 'engineering'],
+    year: 2025,
+    authors: ['Kenzie Levi Chandra', 'Keizo Putra Budiman'],
+    summary:
+      'Engineering an ultra-accessible DIY water electrolysis apparatus utilizing stainless steel scourers and culinary whisks to extract pure hydrogen gas.',
+    description:
+      'Electrochemical hydrogen production often relies on cost-prohibitive platinum-coated electrodes. This study tested high-surface-area kitchenware components (stainless steel scourers and wire whisks) as cathode and anode matrices to maximize electrode surface area and bubble detachment rates in alkaline water splitting.',
+    researchQuestion:
+      'Can high surface-to-volume ratio domestic stainless steel scourers match the electrolysis gas generation rates of commercial metal plates in an alkaline electrolyte?',
+    hypothesis:
+      'The multi-strand interlocking structure of stainless steel scourers will reduce overpotential by increasing active catalyst contact area, accelerating hydrogen gas evolution.',
+    method: [
+      'Assembly of airtight acrylic electrolysis cells with gas collection burettes.',
+      'Comparison of standard stainless plates vs coiled whisks vs stainless steel scourers.',
+      'Electrolyte preparation using sodium bicarbonate and dilute sodium hydroxide.',
+      'Application of low-voltage DC power (2–12V) and measurement of hydrogen displacement volume over time.',
+    ],
+    observations:
+      'Scourer electrodes produced abundant micro-bubbles immediately upon voltage application with minimal electrode discoloration.',
+    results:
+      'The scourer design produced higher volume hydrogen gas per unit mass of metal than flat plates, proving that household stainless steel can serve as an accessible educational electrolyzer.',
+    limitations: [
+      'Micro-bubbles partially trapped within dense scourer meshes require acoustic agitation or liquid circulation pumps for maximum efficiency.',
+    ],
+    nextSteps: [
+      'Incorporate a miniature vacuum siphon to assist bubble disengagement.',
+    ],
+    competitionContext: 'Canisius Science Competition (CSC) 2025',
+    featured: false,
+  },
+  {
+    id: 'csc-12',
+    slug: 'synthetic-turf-granules-safety',
+    number: '12',
+    title: 'Hazardous Substance and Emission Analysis of Synthetic Turf Rubber Granules',
+    category: 'Environmental Science / Chemistry',
+    categories: ['chemistry', 'environmental'],
+    year: 2025,
+    authors: ['Rayfael Feleon Siahaan', 'Roland Arthur Budhimulja'],
+    summary:
+      'Comparing toxic emissions, heavy metals (mercury), water leachate pH, and thermal gas releases of synthetic soccer field rubber infill versus natural cork.',
+    description:
+      'Synthetic athletic fields utilize crumb rubber infill manufactured from recycled automotive tires. This research investigated chemical safety risks—measuring mercury content, thermal gas emissions (CO/CO₂), Total Dissolved Solids, and water leachate pH from the Kolese Kanisius soccer field rubber granules in direct comparison with sustainable cork alternatives.',
+    researchQuestion:
+      'Do synthetic soccer turf rubber granules leach toxic heavy metals or release hazardous combustible gases when subjected to high tropical surface heat?',
+    hypothesis:
+      'Natural cork infill will emit significantly fewer volatile compounds and maintain safer water leachate parameters compared to synthetic recycled rubber.',
+    method: [
+      'Collection of rubber infill samples from the campus synthetic soccer pitch and commercial organic cork granules.',
+      'Chemical testing for mercury and heavy metal precipitation.',
+      'Thermal exposure testing in tube furnace with gas sensor logging (CO, flammable vapors).',
+      'Water leachate testing over 14 days measuring pH, TDS, and conductivity.',
+    ],
+    observations:
+      'Rubber granules emitted noticeable pungent fumes and high CO readings when heated above 60°C. Cork granules showed zero toxic gas release.',
+    results:
+      'Neither material contained detectable mercury. However, rubber emitted substantially higher carbon monoxide and volatile hydrocarbons under thermal stress, validating cork as a far safer, eco-friendly school sports infill.',
+    limitations: [
+      'Comprehensive polycyclic aromatic hydrocarbon (PAH) gas chromatography requires specialized university laboratory facilities.',
+    ],
+    nextSteps: [
+      'Submit recommendations to school administration for future turf infill refurbishment.',
+    ],
+    competitionContext: 'Canisius College Science Research Program',
+    featured: false,
+  },
+  {
+    id: 'csc-13',
+    slug: 'fruit-peel-composting-rates',
+    number: '13',
+    title: 'Decomposition and Microbial Maturation Rates of Orange, Banana, and Mango Peels',
+    category: 'Biology / Waste Management',
+    categories: ['biology', 'environmental'],
+    year: 2024,
+    authors: ['Wilson Thamadeus Tjahjadi', 'William Sasuga Dickension'],
+    summary:
+      'A 32-day controlled biological trial measuring decomposition speed, microbial activity, and compost maturity scores across common tropical fruit peel wastes.',
+    description:
+      'Fruit peels constitute a major percentage of organic culinary waste in Indonesia. This study tracked the composting velocity and microbial breakdown rates of banana, orange, and mango peels under uniform soil, moisture, and aeration conditions over a 32-day testing timeline.',
+    researchQuestion:
+      'Which tropical fruit peel decomposes fastest into mature organic compost, and how do natural antimicrobials in citrus peels affect decomposition kinetics?',
+    hypothesis:
+      'High-carbohydrate, thin-walled banana peels will compost significantly faster than citrus peels containing antimicrobial d-limonene oils.',
+    method: [
+      'Preparation of identical aeration composter vessels with standardized soil inoculant.',
+      'Introduction of equal masses (250g) of chopped banana, orange, and mango peels.',
+      'Daily temperature, moisture, and pH tracking.',
+      'Weekly compost maturity index scoring (Solvita scale / visual breakdown metrics) over 32 days.',
+    ],
+    observations:
+      'Banana peels darkened and broke down rapidly by week two, whereas orange peels retained structural firmness and showed stunted fungal colonization.',
+    results:
+      'Banana peels reached full maturity (Score 8) by day 26 due to easily metabolizable starches. Orange peels decomposed slowest due to antimicrobial limonene compounds inhibiting microbial proliferation.',
+    limitations: [
+      'Pre-shredding particle sizes were controlled manually rather than with an industrial grinder.',
+    ],
+    nextSteps: [
+      'Formulate optimized multi-fruit ratio compost mixtures for the school botanical garden.',
+    ],
+    competitionContext: 'Indonesia International Invention Expo (IIIEX) 2024',
+    featured: false,
+  },
+  {
+    id: 'csc-14',
+    slug: 'thermoelectric-generator-thermos',
+    number: '14',
+    title: 'Thermoelectric Energy Harvesting via Dual-Sided Thermal Flask Heat Differential',
+    category: 'Physics / Energy Harvesting',
+    categories: ['physics', 'engineering'],
+    year: 2025,
+    authors: ['Jonnevan Chandra', 'Claus Abednego Tesiman', 'Bernardinus Fernando Lili'],
+    summary:
+      'Comparative circuit analysis of Seebeck Thermoelectric Generators (TEG) configured in series vs parallel to harvest electrical energy from hot and cold liquid vessels.',
+    description:
+      'Thermoelectric generators (TEGs) produce electrical voltage directly from temperature gradients via the Seebeck effect. This experiment constructed a dual-sided thermos flask system (hot coffee/water on one side, iced liquid on the other) and evaluated single, series, and parallel electrical connections to determine peak power output.',
+    researchQuestion:
+      'Which circuit topology (series vs parallel) yields the highest total electrical power (mW) from a 65°C thermal differential between adjacent thermos chambers?',
+    hypothesis:
+      'Series circuit topologies will maximize output voltage and overcome diode drops, delivering significantly higher net power to external battery charging circuits.',
+    method: [
+      'Mounting TEG (SP1848) modules between machined copper thermal contact plates of two insulated flasks.',
+      'Establishing a controlled 65°C temperature gradient (hot water 85°C, ice water 20°C).',
+      'Configuring identical modules into single, 2-series, and 2-parallel arrangements.',
+      'Measuring voltage, current, and maximum power transfer under varying resistive loads.',
+    ],
+    observations:
+      'Series connections produced instantaneous voltage elevation that quickly surpassed the minimum threshold required for step-up DC-DC converters.',
+    results:
+      'Series configurations consistently generated the highest usable power (reaching 2.68W under 65°C differential), outperforming parallel topologies by 134% and confirming optimal wiring for consumer thermal energy harvesting.',
+    limitations: [
+      'Thermal equalization between flasks gradually reduces ΔT over a 3-hour period.',
+    ],
+    nextSteps: [
+      'Integrate heat pipes to harvest waste heat from school canteen steaming equipment.',
+    ],
+    competitionContext: 'Canisius Science Research Showcase',
+    featured: false,
+  },
+  {
+    id: 'csc-15',
+    slug: 'energy-producing-road',
+    number: '15',
+    title: 'Energy Producing Road (EPR): Thermoelectric Power Harvesting from Asphalt Pavement',
+    category: 'Physics / Civil Engineering',
+    categories: ['physics', 'engineering'],
+    year: 2025,
+    authors: ['Javier Nicholas Vito Uisan', 'Wilbert Lee'],
+    summary:
+      'Harnessing solar thermal heat stored in urban asphalt roads and cold subterranean drainage channels using embedded Thermoelectric Generators (TEG) and Coolers (TEC).',
+    description:
+      'Asphalt road surfaces in tropical Jakarta absorb intense solar radiation, frequently reaching temperatures exceeding 55°C while nearby underground stormwater conduits remain at 24°C. This project developed prototype pavement slabs embedding thermoelectric modules to generate renewable electricity from urban road heat.',
+    researchQuestion:
+      'Can embedded thermoelectric modules in concrete and asphalt slabs generate measurable electrical potential using ambient road-to-drainage temperature differentials?',
+    hypothesis:
+      'High thermal conductivity concrete with embedded Seebeck modules will produce continuous millivolt potential sufficient for low-power smart road sensor nodes.',
+    method: [
+      'Fabrication of test asphalt and concrete pavement briquettes with embedded TEG and TEC modules.',
+      'Simulation of surface asphalt heating with radiant lamps and sub-base cold water cooling loops.',
+      'Continuous logging of voltage generation across varying thermal differentials (ΔT 15°C to 35°C).',
+      'Evaluation of cloudy weather and rainfall impact on output voltage.',
+    ],
+    observations:
+      'TEC modules adapted for energy harvesting produced an average of 130.5 mV, outperforming standard commercial TEGs (47.8 mV) under moderate temperature gradients.',
+    results:
+      'Thermal energy harvesting from roads proved physically viable; overcast skies dropped output by 40–50 mV, but sunny peak hours generated steady voltage capable of trickle-charging remote traffic telemetry sensors.',
+    limitations: [
+      'Heavy vehicular loading requires reinforced protective packaging around brittle thermoelectric semiconductor ceramics.',
+    ],
+    nextSteps: [
+      'Prototype rugged polymer resin casing for full-scale road testing.',
+    ],
+    competitionContext: 'Canisius Science Competition (CSC) Research Showcase',
+    featured: false,
+  },
+  {
+    id: 'csc-16',
+    slug: 'arduino-spin-coater',
+    number: '16',
+    title: 'Low-Cost Arduino-Controlled Spin Coater for Thin-Film Nanomaterial Deposition',
+    category: 'Engineering / Nanotechnology',
+    categories: ['engineering', 'chemistry'],
+    year: 2025,
+    authors: ['Davis Leon Palsha Sitorus', 'Laszlo Uria Maleh'],
+    summary:
+      'Designing an affordable, high-precision laboratory spin coater using an Arduino microcontroller, Brushless DC (BLDC) motor, and 3D-printed chassis for thin-film fabrication.',
+    description:
+      'Commercial laboratory spin coaters used for depositing thin nanomaterial films (such as perovskites and quantum dots) cost thousands of dollars. This team engineered a budget-friendly alternative utilizing a high-speed brushless DC motor, electronic speed controller (ESC), optical tachometer, and Arduino Uno to achieve accurate rotational speeds up to 6000 RPM.',
+    researchQuestion:
+      'How does rotational speed control and deposition method (static vs dynamic) affect thin-film coating thickness and surface uniformity in an open-source spin coater?',
+    hypothesis:
+      'Closed-loop PWM speed feedback on a BLDC motor will provide stable RPM control capable of producing uniform nanometer-scale thin films comparable to commercial laboratory units.',
+    method: [
+      '3D modeling and printing of rotor chuck, fluid bowl, and motor dampening mounts.',
+      'Writing Arduino closed-loop PID control firmware with rotary encoder RPM feedback.',
+      'Spin coating acrylic polymer and CQD solutions onto glass microscope slides at varied RPM (1500 to 5000 RPM).',
+      'Microscopic inspection of film thickness and edge bead formation.',
+    ],
+    observations:
+      '3D-printed motor couplers required precision dynamic balancing to suppress micro-vibrations at speeds above 3500 RPM.',
+    results:
+      'Dynamic fluid dispensing produced exceptionally thin (19.6 nm) and uniform optical coatings, validating the DIY apparatus as an effective, low-cost research tool for high school nanomaterial synthesis.',
+    limitations: [
+      'Chassis requires weighted metal dampening to completely eliminate high-frequency harmonics during rapid acceleration.',
+    ],
+    nextSteps: [
+      'Upgrade to an aluminum CNC machined vacuum chuck for automated substrate holding.',
+    ],
+    competitionContext: 'Canisius Science Competition (CSC) Engineering Track',
     featured: false,
   },
 ];

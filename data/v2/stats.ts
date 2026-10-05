@@ -8,27 +8,27 @@ export interface Stat {
 export const clubStats: Stat[] = [
   {
     id: 'stat-01',
-    value: '03',
-    label: 'Lab Utama Lengkap',
-    description: 'Laboratorium Fisika, Biologi, dan Kimia dengan inventaris instrumen presisi dan reagen analitik.',
+    value: '16',
+    label: 'Research Papers',
+    description: 'Student-led scientific investigations spanning energy, materials, and biology.',
   },
   {
     id: 'stat-02',
-    value: '02x',
-    label: 'Pertemuan Rutin / Minggu',
-    description: 'Sesi riset dan pendampingan setiap hari Rabu dan Jumat (15.00 – 17.00 WIB) di laboratorium sekolah.',
+    value: '03',
+    label: 'Core Laboratories',
+    description: 'Physics, Chemistry, and Biology facilities with precision analytical instruments.',
   },
   {
     id: 'stat-03',
-    value: '09+',
-    label: 'Karya Penelitian Unggulan',
-    description: 'Publikasi karya ilmiah riil siswa dalam bidang energi terbarukan, nanoteknologi, dan lingkungan hidup.',
+    value: '02x',
+    label: 'Weekly Sessions',
+    description: 'Active lab time every Wednesday & Friday (15:00 – 17:00 WIB).',
   },
   {
     id: 'stat-04',
     value: '🏆',
-    label: 'Prestasi Nasional & Global',
-    description: 'Raihan Medali Emas IIIEX 2024, Medali Perak YSIF 2024, dan kompetisi riset bergengsi lainnya.',
+    label: 'National & Global Awards',
+    description: 'Gold Medals at IIIEX, Silver Medals at YSIF, and competitive science olympiad finishes.',
   },
 ];
 
@@ -37,11 +37,12 @@ export const clubInfo = {
   identifier: 'CSC',
   year: '2026',
   yearRange: '2026–2027',
-  tagline: 'Semangat Riset. Solusi Nyata. Merawat Alam Ciptaan.',
-  secondaryTagline: 'Riset STEM • Cura Personalis • Target Prestasi Lomba',
+  tagline: 'Scientific Rigor. Real-World Solutions. Care for Creation.',
+  secondaryTagline: 'Applied STEM • Cura Personalis • Academic Excellence',
   intro:
-    'Kami adalah Canisius Science Club (Ekstrakulikuler Riset) di Kolese Kanisius Jakarta. Bertemu rutin setiap hari Rabu dan Jumat di sekolah (15.00 – 17.00 WIB), kami berfokus pada penelitian ilmiah aplikatif dan persiapan kompetisi tingkat nasional maupun internasional. Semangat kami adalah menggunakan ilmu pengetahuan STEM untuk menemukan solusi atas persoalan riil di sekitar kita serta merawat seluruh alam ciptaan.',
+    'Canisius Science Club is the official STEM research extracurricular at SMA Kolese Kanisius Jakarta. We focus on hands-on experimental research, rigorous laboratory methodology, and high-impact science competition entries. Our mission is to transform scientific curiosity into tangible solutions that address everyday problems while caring for the environment.',
   joinInfo:
-    'Tertarik berkolaborasi atau ingin mengetahui kegiatan riset kami? Temui kami langsung di kompleks laboratorium SMA Kolese Kanisius. Saat ini kami berfokus pada pengembangan proyek riset berjalan dan bimbingan kompetisi lomba.',
-  meetingInfo: 'Pertemuan Rutin: Setiap Hari Rabu dan Jumat (Pukul 15.00 – 17.00 WIB) di Laboratorium STEM Kolese Kanisius, Menteng Raya 64, Jakarta Pusat.',
+    'Interested in collaborating or learning about our ongoing research? Find us directly at the Canisius College laboratory complex. Currently, we are focused on project execution and competition preparation rather than general recruitment.',
+  meetingInfo:
+    'Regular Sessions: Wednesdays & Fridays (15:00 – 17:00 WIB) at the STEM Laboratory Complex, Kolese Kanisius, Jl. Menteng Raya No. 64, Central Jakarta.',
 };

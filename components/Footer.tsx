@@ -11,8 +11,8 @@ const footerLinks = {
     { href: '/roadmap', label: 'Roadmap' },
   ],
   club: [
-    { href: '/about#visi-misi', label: 'Visi & Misi' },
-    { href: '/about#activities', label: 'Aktivitas' },
+    { href: '/about#vision-mission', label: 'Vision & Mission' },
+    { href: '/about#activities', label: 'Activities' },
     { href: '/about#join', label: 'Find Us at CC' },
   ],
 };
@@ -30,7 +30,7 @@ export default function Footer() {
               {clubInfo.tagline}
             </h2>
             <p className="text-[#888888] text-sm mt-4 max-w-xs leading-relaxed">
-              Ekstrakulikuler Riset STEM SMA Kolese Kanisius Jakarta — Mengembangkan rasa ingin tahu, daya juang kompetisi, dan solusi nyata demi merawat alam ciptaan.
+              Canisius Science Club — Student STEM research at SMA Kolese Kanisius Jakarta. Transforming curiosity into empirical investigations that serve our community and environment.
             </p>
           </div>
 
@@ -72,8 +72,8 @@ export default function Footer() {
 
         {/* Info band */}
         <div className="py-6 border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono text-[#888888]">
-          <p>SMA Kolese Kanisius Jakarta · Riset STEM & Inovasi Ilmiah</p>
-          <p className="text-[#D83933]">Cura Personalis • Sesi Rutin Rabu & Jumat</p>
+          <p>SMA Kolese Kanisius Jakarta · STEM Research & Innovation</p>
+          <p className="text-[#D83933]">Cura Personalis • Wednesday & Friday Sessions</p>
         </div>
 
         {/* Bottom row */}

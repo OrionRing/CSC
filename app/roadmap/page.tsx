@@ -1,85 +1,99 @@
 'use client';
 
 import Link from 'next/link';
-import { Clock, AlertCircle, ArrowRight } from 'lucide-react';
+import { ArrowRight, Clock, Award, Shield } from 'lucide-react';
+import { milestones, longTermGoals, statusGroups } from '@/data/v2/roadmap';
+import { SectionLabel, ArrowLink } from '@/components/ui';
+import { RoadmapItem } from '@/components/RoadmapItem';
 
 export default function RoadmapPage() {
   return (
-    <article className="min-h-screen bg-[#050505] text-white">
+    <article className="min-h-screen bg-[#FFFFFF] text-[#111111]">
       {/* Hero */}
       <section
-        className="pt-28 pb-16 border-b border-white/10"
+        className="pt-36 pb-16 bg-[#FFFFFF] border-b border-[#E8E8E4]"
         aria-labelledby="roadmap-hero-heading"
       >
         <div className="container-main">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest uppercase">
-              STATUS UPDATE
-            </span>
-            <span className="text-white/20">|</span>
-            <span className="text-xs font-mono text-white/60 uppercase">
-              CANISIUS SCIENCE CLUB
-            </span>
-          </div>
-
+          <SectionLabel className="mb-4">ROADMAP</SectionLabel>
           <h1
             id="roadmap-hero-heading"
-            className="text-4xl sm:text-6xl font-bold tracking-tight text-white mb-8 max-w-4xl leading-tight"
+            className="page-headline text-[#111111] mb-8 max-w-4xl"
           >
-            Roadmap Kegiatan & Kompetisi.
+            Where curiosity takes us next.
           </h1>
-          <p className="text-base sm:text-lg text-white/70 max-w-2xl leading-relaxed">
-            Jadwal pelaksanaan tahapan riset, sinkronisasi kalender kompetisi ilmiah remaja, dan agenda kegiatan ekstrakulikuler.
+          <p className="body-large text-[#606060] max-w-2xl leading-relaxed">
+            A chronological timeline of active laboratory experimentation, manuscript consolidation, and competition target dates for the 2026–2027 academic term.
           </p>
         </div>
       </section>
 
-      {/* On Delay Notice Card */}
-      <section className="py-20" aria-labelledby="delay-heading">
+      {/* Completed Milestones */}
+      {statusGroups.completed.length > 0 && (
+        <section className="section-spacing bg-[#FFFFFF]" aria-labelledby="completed-heading">
+          <div className="container-main">
+            <div className="flex items-center gap-4 mb-12">
+              <SectionLabel className="mb-0">COMPLETED</SectionLabel>
+              <span className="w-2 h-2 rounded-full bg-[#111111]" aria-hidden="true" />
+            </div>
+            {statusGroups.completed.map((milestone) => (
+              <RoadmapItem key={milestone.id} milestone={milestone} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Current Milestones */}
+      {statusGroups.current.length > 0 && (
+        <section className="section-spacing bg-[#F4F4F1] border-y border-[#E8E8E4]" aria-labelledby="current-heading">
+          <div className="container-main">
+            <div className="flex items-center gap-4 mb-12">
+              <SectionLabel className="mb-0">CURRENT FOCUS</SectionLabel>
+              <span className="w-2 h-2 rounded-full bg-[#D83933]" aria-hidden="true" />
+            </div>
+            {statusGroups.current.map((milestone) => (
+              <RoadmapItem key={milestone.id} milestone={milestone} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Upcoming Milestones */}
+      {statusGroups.upcoming.length > 0 && (
+        <section className="section-spacing bg-[#FFFFFF] border-b border-[#E8E8E4]" aria-labelledby="upcoming-heading">
+          <div className="container-main">
+            <div className="flex items-center gap-4 mb-12">
+              <SectionLabel className="mb-0">UPCOMING</SectionLabel>
+              <span className="w-2 h-2 rounded-full bg-[#B8B8B8]" aria-hidden="true" />
+            </div>
+            {statusGroups.upcoming.map((milestone) => (
+              <RoadmapItem key={milestone.id} milestone={milestone} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Long-Term Goals */}
+      <section className="section-dark section-spacing" aria-labelledby="longterm-heading">
         <div className="container-main">
-          <div className="max-w-3xl p-10 bg-[#0D0D0D] border border-white/10 rounded">
-            <div className="flex items-center gap-3 text-[#D83933] mb-6">
-              <Clock size={24} />
-              <span className="font-mono text-sm font-bold uppercase tracking-wider">
-                Status: On Delay / Penjadwalan Ulang
-              </span>
-            </div>
+          <SectionLabel light className="mb-5">LONG-TERM DIRECTION</SectionLabel>
+          <h2 id="longterm-heading" className="section-headline text-white mb-6">
+            2027 and Beyond.
+          </h2>
+          <p className="text-[#B8B8B8] mb-12 max-w-lg leading-relaxed">
+            Strategic directions guiding future Canisius research cohorts, laboratory upgrades, and community impact.
+          </p>
 
-            <h2 id="delay-heading" className="text-2xl sm:text-3xl font-bold text-white mb-6">
-              Roadmap Resmi Sedang Dalam Penyesuaian Kalender Akademik.
-            </h2>
-
-            <p className="text-white/70 text-base leading-relaxed mb-6">
-              Roadmap publik untuk periode semester berjalan saat ini sedang <strong>on delay</strong> sehubungan dengan penyesuaian tenggat waktu pendaftaran kompetisi ilmiah nasional (OPSI, LIPI/BRIN, EUREKA! ITB) serta kalender ujian SMA Kolese Kanisius.
-            </p>
-
-            <p className="text-white/70 text-base leading-relaxed mb-8">
-              Meskipun roadmap publik sedang dijadwalkan ulang, seluruh kelompok riset tetap aktif menjalankan eksperimen rutin setiap hari <strong>Rabu dan Jumat (15.00 – 17.00 WIB)</strong> di laboratorium sekolah.
-            </p>
-
-            <div className="p-6 bg-[#141414] border border-white/05 rounded font-mono text-xs text-white/70 space-y-2 mb-8">
-              <p className="text-[#D83933] font-bold">INFORMASI PENJADWALAN:</p>
-              <p>• Sesi Lab Rutin: Tetap berlangsung sesuai jadwal mingguan</p>
-              <p>• Pembaruan Kalender Lomba: Akan dipublikasikan setelah sinkronisasi pembimbing riset</p>
-              <p>• Pertanyaan Jadwal: Silakan hubungi koordinator ekskul riset di sekolah</p>
-            </div>
-
-            <div className="flex items-center gap-4 flex-wrap">
-              <Link
-                href="/projects"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#D83933] text-white font-mono text-xs font-bold hover:bg-[#b82e28] transition-colors duration-200 rounded"
-              >
-                <span>Lihat Karya Penelitian Berjalan</span>
-                <ArrowRight size={14} />
-              </Link>
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 text-xs font-mono text-white/60 hover:text-white transition-colors duration-200"
-              >
-                <span>Profil & Jadwal Pertemuan</span>
-                <ArrowRight size={12} className="text-[#D83933]" />
-              </Link>
-            </div>
+          <div className="max-w-3xl">
+            {longTermGoals.map((goal, i) => (
+              <div key={i} className="flex gap-8 py-6 border-t border-white/10">
+                <span className="label text-[#D83933] shrink-0 font-mono">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <p className="text-[#B8B8B8] leading-relaxed">{goal}</p>
+              </div>
+            ))}
+            <div className="border-t border-white/10" />
           </div>
         </div>
       </section>
