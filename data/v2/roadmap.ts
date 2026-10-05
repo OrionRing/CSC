@@ -13,7 +13,7 @@ export interface Milestone {
   strategicObjective: string;
   keyInitiatives: string[];
   deliverables: string[];
-  kpis?: string[];
+  notes?: string;
 }
 
 export interface StrategicPillarInfo {
@@ -31,29 +31,25 @@ export const strategicRoadmap: Milestone[] = [
     id: 'rd-01',
     pillar: 'Future Development',
     phase: 'Phase 01',
-    timeline: 'Q3–Q4 2026',
+    timeline: 'Ongoing / Q3–Q4 2026',
     date: 'Q3–Q4 2026',
-    title: 'Research Protocol Standardization & Repository Digitalization',
+    title: 'Archive Centralization & Reusable Paper Templates',
     status: 'completed',
     description:
-      'Elevate all club research methodologies to formal scientific standard with reproducible digital documentation and certified experimental tracking across all 3 labs.',
+      'Consolidate scattered research documents from club drives into a single public repository and establish standard paper templates so members don’t start from scratch.',
     strategicObjective:
-      'Establish rigorous scientific methodology standards, paper authoring conventions, and an open digital repository preserving all Canisius student investigations.',
+      'Prevent lost work between school terms by logging all 30+ past and active research papers with clean English abstracts, methodology notes, and data logs in one accessible place.',
     keyInitiatives: [
-      'Digitalize historical archives (cataloging 30+ projects into formal IEEE/scientific paper formats).',
-      'Deploy standard operating procedures (SOPs) across Physics, Chemistry, and Biology laboratories.',
-      'Implement structured electronic lab notebooks (ELNs) for real-time observation and raw data storage.',
-      'Calibrate core analytical apparatus including AC/DC kits, galvanometer setups, and optical bench equipment.',
+      'Catalog existing student papers (biodiesel, UV quantum dots, thermoelectric thermos, water biofilters) into structured formats.',
+      'Create a shared, plug-and-play writeup template (Abstract, Methods, Observations, Discussion) optimized for Indonesian national competitions (OPSI, ITB).',
+      'Inventory available school lab equipment (AC/DC sets, optical kits, galvanometers) so teams know what apparatus they can immediately borrow.',
     ],
     deliverables: [
-      'Comprehensive digital repository live on Canisius Science Club web hub with 16 fully cataloged papers.',
-      'Standardized risk assessment and laboratory chemical safety protocols.',
-      'Standard template library for research abstracts, methodologies, and statistical data plots.',
+      'Digital research archive live on the Canisius Science Club hub (16 documented papers).',
+      'One-page equipment & glassware reference sheet for quick lab planning.',
+      'Reusable paper template reducing writeup time for new projects.',
     ],
-    kpis: [
-      '100% of active projects documented in structured digital ELNs',
-      'Zero lab safety incidents across all weekly sessions',
-    ],
+    notes: 'Completed without adding extra administrative burden to weekly lab sessions.',
   },
   {
     id: 'rd-02',
@@ -61,27 +57,23 @@ export const strategicRoadmap: Milestone[] = [
     phase: 'Phase 02',
     timeline: 'Q1–Q2 2027',
     date: 'Q1–Q2 2027',
-    title: 'Applied Prototyping & Multi-Disciplinary Competition Pipeline',
+    title: 'Bench Testing Active Prototypes & Targeted Competition Entry',
     status: 'in-progress',
     description:
-      'Transition theoretical investigations into validated physical prototypes prepared for high-tier national and international STEM Olympiads.',
+      'Focus weekly lab time on finishing active hands-on experiments (like the Daun Jarak antibacterial gel) and submitting 1–2 polished entries to major competitions without burning out.',
     strategicObjective:
-      'Focus student research cohorts on tangible physical prototypes with high empirical reproducibility, targeting national and international science fairs.',
+      'Work within real student schedules by prioritizing only 1 or 2 high-potential competition targets per term rather than over-committing across multiple simultaneous contests.',
     keyInitiatives: [
-      'Advance lead project cohorts: Botanical antibacterial gels (Daun Jarak), PCM solar thermal cooling, and bio-energy cells.',
-      'Conduct rigorous bench testing, calibration curves, and statistical reproducibility trials.',
-      'Standardize competition registration workflows for OPSI, EUREKA! ITB, and international invention expos (IIIEX/YSIF).',
-      'Organize internal peer-review mock defense sessions before external submission deadlines.',
+      'Advance the Daun Jarak (Jatropha curcas) antibacterial gel: run simple zone-of-inhibition disc tests and test topical gel consistency during Wednesday lab hours.',
+      'Support other small teams (e.g., PCM cooling or Arduino sensor builds) to complete working prototypes before exam periods begin.',
+      'Pick 1–2 target competitions (e.g., OPSI Kemendikbud or ITB Science Fair) and synchronize draft deadlines with school exam schedules to avoid burnout.',
     ],
     deliverables: [
-      '3 fully characterized competition-grade physical prototypes with empirical manuscripts.',
-      'Formal submissions to regional, national, and international science judging panels.',
-      'Peer-review feedback rubrics modeled after national judging criteria.',
+      '1 validated botanical gel prototype with clear antimicrobial test data.',
+      'At least 1 high-quality team submission to a national high school science competition.',
+      'Exam-friendly project timeline with built-in pause buffers during midterm (PTS) and final (PAS) test weeks.',
     ],
-    kpis: [
-      'Minimum 4 formal competition submissions per academic year',
-      '>85% prototype experimental reproducibility across triplicated test runs',
-    ],
+    notes: 'Paced specifically for high schoolers balancing daily coursework and CC activities.',
   },
 
   // ==================== 2. SELF-SUSTAINABILITY ====================
@@ -91,27 +83,23 @@ export const strategicRoadmap: Milestone[] = [
     phase: 'Phase 03',
     timeline: 'Q3 2027',
     date: 'Q3 2027',
-    title: 'Junior Apprenticeship Architecture & Institutional Knowledge Continuity',
+    title: 'Low-Friction Knowledge Handover & Equipment Care',
     status: 'planned',
     description:
-      'Eliminate knowledge loss from graduating senior cohorts by establishing an institutionalized peer-mentoring framework independent of individual members.',
+      'Establish lightweight peer handovers so when senior members get busy with 12th grade exams or graduate, younger students can pick up right where they left off.',
     strategicObjective:
-      'Build a self-renewing talent pipeline where junior members gain direct hands-on lab competencies through co-authoring projects alongside senior researchers.',
+      'Keep the club alive and functional even with natural student turnover by turning institutional knowledge into short, casual 10-minute walkthroughs rather than heavy manuals.',
     keyInitiatives: [
-      'Establish a "Junior Researcher Apprenticeship" pairing Grade 10 students with veteran paper authors.',
-      'Develop modular laboratory crash courses in microcontroller programming, spectrophotometry, and chemical extraction.',
-      'Consolidate equipment maintenance checklists to ensure continuous operational readiness of lab apparatus.',
-      'Create asynchronous lab onboarding guides covering apparatus setup, safety, and data analysis software.',
+      'Run quick 10-minute practical demos at the start of meetings on how to operate lab apparatus (calibrating galvanometers, setting up spin coaters, safe chemical disposal).',
+      'Pair 10th graders directly with 11th grade project leads as informal co-researchers so they learn by watching and assisting.',
+      'Maintain a simple shared Google Sheet checklist for chemical reagents (alcohol, agar powder, petri dishes) to re-stock before they run out.',
     ],
     deliverables: [
-      'Internal CSC Laboratory Handbook & Research Training Syllabus.',
-      'Self-service equipment calibration guides for all 15 core lab apparatus sets.',
-      'Structured leadership transition protocol for executive club handovers.',
+      'Brief 1-page "Quickstart Equipment Guide" posted inside the CC lab locker.',
+      'Active Grade 10 apprentices ready to take over lead author roles for next term’s projects.',
+      'Shared reagent restock list reviewed once a month.',
     ],
-    kpis: [
-      '100% of Grade 10 apprentices co-author at least 1 empirical paper by term end',
-      'Zero apparatus downtime due to unlogged maintenance issues',
-    ],
+    notes: 'Designed to require zero extra meetings—everything fits inside regular weekly club hours.',
   },
   {
     id: 'rd-04',
@@ -119,27 +107,23 @@ export const strategicRoadmap: Milestone[] = [
     phase: 'Phase 04',
     timeline: 'Q4 2027',
     date: 'Q4 2027',
-    title: 'Circular Resource Procurement & Alumni Advisory Council',
+    title: 'Pragmatic Resource Sourcing & Alumni Check-Ins',
     status: 'planned',
     description:
-      'Secure long-term non-budgetary funding and material sustainability through campus waste stream integration and alumni STEM networks.',
+      'Keep project costs close to zero by utilizing campus materials (canteen waste oils, local plant cuttings) and asking alumni researchers for quick review feedback.',
     strategicObjective:
-      'Make lab operations financially and materially self-reliant through circular material sourcing and an active alumni scientific network.',
+      'Make research sustainable on a modest high school budget without relying on expensive commercial supplies or complex sponsorships.',
     keyInitiatives: [
-      'Channel school organic waste (canteen culinary oils, fruit peels, biological effluents) into ongoing biofuel and compost projects.',
-      'Form an Alumni STEM Advisory Board comprising Canisius graduates in medicine, engineering, and chemical research.',
-      'Introduce micro-grants funded through competition prize distributions to self-fund next-generation hardware.',
-      'Establish a shared chemical reagent inventory database with automated re-order thresholds.',
+      'Source everyday waste materials for experiments: canteen cooking oil for biodiesel, scrap plastic for permeable pavement, and backyard Jatropha cuttings for botanical extraction.',
+      'Coordinate with the school science department for basic lab consumables (distilled water, filter papers, glassware access).',
+      'Set up an informal group chat with CC alumni studying science/engineering at university for quick paper proofreading and sanity checks before competition submissions.',
     ],
     deliverables: [
-      'Zero-cost feedstock agreements for culinary waste oil and biomass experiments.',
-      'Charter of the Canisius Science Alumni Advisory Network for project feedback and paper pre-reviews.',
-      'Automated reagent inventory tracking system preventing experimental supply shortages.',
+      'Zero-cost feedstock channels established for ongoing student research.',
+      'Alumni review channel for quick 1-week turnaround on paper abstracts.',
+      'Basic consumable supply buffer maintained for routine Wednesday/Friday sessions.',
     ],
-    kpis: [
-      '50%+ reduction in recurring material costs through campus circular waste streams',
-      'Quarterly review sessions conducted with alumni researchers',
-    ],
+    notes: 'Low effort, high payoff. Leverages the strong Canisius community and campus resources.',
   },
 
   // ==================== 3. POTENTIAL EXPANSION ====================
@@ -149,27 +133,23 @@ export const strategicRoadmap: Milestone[] = [
     phase: 'Phase 05',
     timeline: 'Q1–Q2 2028',
     date: 'Q1–Q2 2028',
-    title: 'Inter-School Youth Science Colloquium & Civic Eco-Remediation',
+    title: 'CC Campus Science Showcase & Open Lab Sessions',
     status: 'planned',
     description:
-      'Expand Canisius Science Club from an internal school club into a regional anchor for high school youth research collaboration and ecological action.',
+      'Showcase working student prototypes during school events (like CC Day or extracurricular fairs) to inspire fellow Kanisian students and recruit curious new members.',
     strategicObjective:
-      'Scale student research from isolated laboratory benches into community-facing ecological solutions and regional academic symposiums.',
+      'Demystify research for the broader Canisius student body through hands-on, visually interesting demos (fluorescent quantum dots, spinning engines, herbal gels).',
     keyInitiatives: [
-      'Host the inaugural Canisius Invitational Youth Science Colloquium for high school student researchers across Greater Jakarta.',
-      'Deploy student-engineered water filtration (mussel biofilters / porous pavement) as pilot community service initiatives.',
-      'Open select laboratory equipment access workshops for partner junior high and elementary students.',
-      'Publish an open-access anthology of secondary school scientific papers.',
+      'Set up an interactive booth at CC Day featuring 3 physical demos with simple poster boards.',
+      'Host 1 casual "Open Lab Afternoon" where any Canisian student can drop by, try an experiment, or see how equipment works without commitment.',
+      'Publish short student-friendly summaries of our best papers in the school bulletin or Instagram.',
     ],
     deliverables: [
-      'Annual Canisius Science Symposium with published conference proceedings.',
-      'Community deployment of urban eco-remediation testbeds along the Ciliwung River corridor.',
-      'Youth STEM workshop modules delivered to middle school science classes.',
+      'Interactive CC Day exhibition table featuring real student-built hardware.',
+      'Open lab afternoon welcoming new prospective members into the club.',
+      'Handful of motivated new recruits joining active project groups.',
     ],
-    kpis: [
-      'Participation from 10+ partner high schools at the annual colloquium',
-      'Measurable water purity improvement metrics documented at community pilot sites',
-    ],
+    notes: 'Relaxed, organic recruitment—interested students can just drop by and see things work.',
   },
   {
     id: 'rd-06',
@@ -177,27 +157,23 @@ export const strategicRoadmap: Milestone[] = [
     phase: 'Phase 06',
     timeline: '2028 & Beyond',
     date: '2028 & Beyond',
-    title: 'University Research Lab Affiliations & Student Patent Incubator',
+    title: 'Local University Lab Visits & Inter-School Exchanges',
     status: 'planned',
     description:
-      'Bridge high school innovations directly with university research labs, academic journals, and intellectual property protections.',
+      'Organize occasional visits to local university laboratories (e.g., UI or ITB alumni labs) to see professional instruments and connect with other high school science clubs.',
     strategicObjective:
-      'Create institutional pathways for Canisius inventions to receive university-grade analytical characterization, peer-reviewed publication, and patent filings.',
+      'Give dedicated members a glimpse into university-level STEM research while keeping external commitments realistic and exciting.',
     keyInitiatives: [
-      'Establish formal memorandum agreements with university engineering and chemistry faculties (ITB, UI, UGM) for advanced spectroscopic characterization.',
-      'Provide patent and utility model filing support for novel mechanical and biomaterial student inventions.',
-      'Publish high-performing student papers in peer-reviewed secondary and undergraduate academic journals.',
-      'Form industry advisory liaisons to evaluate commercial viability of student prototypes.',
+      'Arrange an informal weekend or term-break lab visit to a local university engineering or chemistry facility.',
+      'Share research findings with 1 or 2 neighboring Jakarta schools interested in starting student science clubs.',
+      'Submit our best-tested projects to university-hosted youth science symposiums if the team has the bandwidth.',
     ],
     deliverables: [
-      'At least 2 patent/utility model applications filed with the Indonesian Directorate General of Intellectual Property (DJKI).',
-      'Affiliate laboratory agreements enabling specialized instrument access (SEM/TEM/FTIR).',
-      'Minimum 2 student papers accepted in indexed student research journals.',
+      '1 university lab observation tour (e.g. observing SEM or spectrophotometer operations).',
+      'Informal exchange of project ideas with fellow high school science enthusiasts.',
+      'Clear roadmap transition ready for the following year’s club leadership.',
     ],
-    kpis: [
-      '2+ filed patent/utility model applications',
-      'Direct pipeline established with 3 top Indonesian university research labs',
-    ],
+    notes: 'Optional enrichment that fits around holidays without interfering with academic terms.',
   },
 ];
 
@@ -211,7 +187,7 @@ export const strategicPillars: StrategicPillarInfo[] = [
     number: '01',
     headline: 'Strategies for Future Development',
     summary:
-      'Standardizing empirical research protocols, modernizing laboratory documentation into digital ELNs, and engineering robust physical prototypes for premier national and international STEM Olympiads.',
+      'Organizing past project archives, creating reusable paper templates, and completing active bench experiments (like Daun Jarak antibacterial gels) for 1–2 target competitions without burning out.',
     milestones: strategicRoadmap.filter((m) => m.pillar === 'Future Development'),
   },
   {
@@ -220,7 +196,7 @@ export const strategicPillars: StrategicPillarInfo[] = [
     number: '02',
     headline: 'Strategies for Self-Sustainability',
     summary:
-      'Ensuring club continuity across student generations through institutional junior apprenticeships, modular lab skills curricula, zero-cost circular feedstock procurement, and an active alumni scientific network.',
+      'Protecting the club against student turnover through 10-minute hands-on peer handovers, sourcing zero-cost materials (canteen cooking oil & garden plants), and friendly alumni paper reviews.',
     milestones: strategicRoadmap.filter((m) => m.pillar === 'Self-Sustainability'),
   },
   {
@@ -229,15 +205,15 @@ export const strategicPillars: StrategicPillarInfo[] = [
     number: '03',
     headline: 'Strategies for Potential Expansion',
     summary:
-      'Broadening external reach through an inter-school youth science colloquium, field-tested civic ecological remediation along the Ciliwung River, university lab affiliations (ITB/UI), and intellectual property filings.',
+      'Connecting with the wider school and community through a fun CC Day demo booth, casual open lab sessions, and occasional university lab visits during term breaks.',
     milestones: strategicRoadmap.filter((m) => m.pillar === 'Potential Expansion'),
   },
 ];
 
 export const longTermGoals = [
-  'Build an evergreen, self-sustaining scientific research culture at Kolese Kanisius that outlasts any single cohort.',
-  'Achieve consistent top podium honors at Indonesia’s foremost science competitions (OPSI, BRIN, ITB).',
-  'Bridge high school laboratory curiosity with commercial utility, university partnerships, and civic ecological impact.',
+  'Keep an active, friendly research environment at Kolese Kanisius that survives graduating cohorts with zero stress.',
+  'Target 1–2 prestigious national science fairs (OPSI, ITB) per year with well-tested, honest student data.',
+  'Make STEM research accessible and fun for any curious Canisian student through hands-on laboratory exploration.',
 ];
 
 export const statusGroups = {

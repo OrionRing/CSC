@@ -28,7 +28,7 @@ export default function RoadmapPage() {
             Strategies for Future Development, Self-Sustainability, and Expansion.
           </h1>
           <p className="body-large text-[#606060] max-w-3xl leading-relaxed mb-10">
-            A comprehensive institutional roadmap designed to elevate empirical rigor, insulate club operations against student turnover through self-renewing apprenticeships, and expand Canisius student innovations into university laboratories and community deployments.
+            A grounded, realistic roadmap structured around real student schedules and exam periods. Focused on finishing solid bench experiments, keeping the club resilient against member turnover, and sharing science across campus without burnout.
           </p>
 
           {/* Quick Metrics & Anchor Links */}
@@ -197,16 +197,11 @@ export default function RoadmapPage() {
                             </div>
                           </div>
 
-                          {/* KPIs if present */}
-                          {milestone.kpis && milestone.kpis.length > 0 && (
-                            <div className="mt-4 pt-3 border-t border-[#E8E8E4]/60 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs font-mono text-[#606060]">
-                              <span className="text-[#111111] font-semibold">Target KPIs:</span>
-                              {milestone.kpis.map((kpi, i) => (
-                                <span key={i} className="inline-flex items-center gap-1">
-                                  <span className="text-[#D83933]">●</span>
-                                  <span>{kpi}</span>
-                                </span>
-                              ))}
+                          {/* Schedule & Bandwidth Reality Note */}
+                          {milestone.notes && (
+                            <div className="mt-4 pt-3 border-t border-[#E8E8E4]/60 flex items-start gap-2 text-xs font-mono text-[#606060]">
+                              <span className="text-[#D83933] font-semibold shrink-0">BANDWIDTH REALITY:</span>
+                              <span className="leading-relaxed">{milestone.notes}</span>
                             </div>
                           )}
                         </div>
