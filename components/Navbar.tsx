@@ -13,18 +13,7 @@ const navLinks = [
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [pathname]);
 
   // Close menu on route change
   useEffect(() => {
@@ -46,11 +35,7 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`w-full transition-all duration-300 ${
-          scrolled
-            ? 'bg-[#050505]/95 backdrop-blur-md border-b border-white/10 shadow-lg'
-            : 'bg-[#050505] border-b border-white/10'
-        }`}
+        className="w-full bg-[#FFFFFF]"
         role="navigation"
         aria-label="Main navigation"
       >
@@ -59,10 +44,10 @@ export default function Navbar() {
             {/* Logo */}
             <Link
               href="/"
-              className="text-sm tracking-widest font-bold text-white hover:text-[#D83933] transition-colors duration-200 flex items-center gap-2"
+              className="text-sm tracking-widest font-bold text-[#111111] hover:text-[#D83933] transition-colors duration-200 flex items-center gap-2"
               aria-label="Canisius Science Club — Home"
             >
-              <span className="font-mono text-base tracking-wider">CANISIUS SCIENCE CLUB</span>
+              <span className="font-mono text-base tracking-wider font-bold">CANISIUS SCIENCE CLUB</span>
             </Link>
 
             {/* Desktop nav */}
@@ -72,17 +57,17 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={`text-sm font-medium tracking-tight transition-colors duration-200 ${
-                    pathname === link.href ? 'text-[#D83933]' : 'text-white/80 hover:text-white'
+                    pathname === link.href ? 'text-[#D83933] font-bold' : 'text-[#606060] hover:text-[#111111]'
                   }`}
                 >
                   {link.label}
                 </Link>
               ))}
 
-              {/* Join CTA */}
+              {/* Join / Find Us CTA */}
               <Link
                 href="/about#join"
-                className="flex items-center gap-2 text-sm font-semibold text-white group ml-2"
+                className="flex items-center gap-2 text-sm font-semibold text-[#111111] group ml-2"
               >
                 <span className="group-hover:text-[#D83933] transition-colors duration-200">Find Us</span>
                 <span
@@ -97,7 +82,7 @@ export default function Navbar() {
 
             {/* Mobile menu button */}
             <button
-              className="md:hidden text-white p-3 min-w-[44px] min-h-[44px] flex items-center justify-center -mr-2"
+              className="md:hidden text-[#111111] p-3 min-w-[44px] min-h-[44px] flex items-center justify-center -mr-2"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={menuOpen}
@@ -112,7 +97,7 @@ export default function Navbar() {
       {/* Mobile menu drawer */}
       <div
         id="mobile-menu"
-        className={`mobile-menu ${menuOpen ? 'mobile-menu-open' : ''} bg-[#0A0A0A]`}
+        className={`mobile-menu ${menuOpen ? 'mobile-menu-open' : ''} bg-[#FFFFFF]`}
         aria-hidden={!menuOpen}
         role="dialog"
         aria-label="Mobile navigation"
@@ -121,14 +106,14 @@ export default function Navbar() {
         <div className="flex items-center justify-between mb-12">
           <Link
             href="/"
-            className="text-sm tracking-widest font-bold text-white font-mono"
+            className="text-sm tracking-widest font-bold text-[#111111] font-mono"
             onClick={() => setMenuOpen(false)}
           >
             CANISIUS SCIENCE CLUB
           </Link>
           <button
             onClick={() => setMenuOpen(false)}
-            className="text-white p-2 min-w-[44px] min-h-[44px]"
+            className="text-[#111111] p-2 min-w-[44px] min-h-[44px]"
             aria-label="Close menu"
           >
             <X size={24} />
@@ -142,7 +127,7 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="text-white text-3xl font-bold tracking-tight py-4 border-b border-white/10
+              className="text-[#111111] text-3xl font-bold tracking-tight py-4 border-b border-[#E8E8E4]
                 hover:text-[#D83933] transition-colors duration-200"
             >
               {link.label}
@@ -155,7 +140,7 @@ export default function Navbar() {
           <Link
             href="/about#join"
             onClick={() => setMenuOpen(false)}
-            className="flex items-center justify-between py-4 px-6 bg-[#161616] border border-white/10 rounded text-white hover:border-[#D83933] transition-colors duration-200"
+            className="flex items-center justify-between py-4 px-6 bg-[#F4F4F1] border border-[#E8E8E4] rounded text-[#111111] hover:border-[#D83933] transition-colors duration-200"
           >
             <span className="text-lg font-bold">Find Us at CC</span>
             <span className="w-8 h-8 rounded-full bg-[#D83933] flex items-center justify-center text-white">
@@ -163,7 +148,7 @@ export default function Navbar() {
             </span>
           </Link>
 
-          <p className="text-xs font-mono text-[#888888] mt-6">
+          <p className="text-xs font-mono text-[#A0A0A0] mt-6">
             CANISIUS SCIENCE CLUB // 2026–2027
           </p>
         </div>

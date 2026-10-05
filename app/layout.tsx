@@ -11,12 +11,11 @@ export const metadata: Metadata = {
     template: '%s — Canisius Science Club',
   },
   description:
-    'Ekstrakulikuler Riset STEM SMA Kolese Kanisius Jakarta. Mengembangkan rasa ingin tahu, daya juang kompetisi, dan solusi nyata demi merawat alam ciptaan.',
+    'Canisius Science Club (CSC) is the STEM research extracurricular at SMA Kolese Kanisius Jakarta.',
   keywords: [
     'canisius science club',
     'kolese kanisius',
     'sma kolese kanisius',
-    'ekskul riset kanisius',
     'stem high school',
     'student research',
     'cura personalis',
@@ -30,12 +29,12 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="id"
+      lang="en"
       id="top"
       className={`${GeistSans.variable} ${GeistMono.variable}`}
     >
-      <body className="bg-[#050505] text-white">
-        <header className="sticky top-0 z-50 w-full bg-[#050505]">
+      <body className="bg-[#FFFFFF] text-[#111111]">
+        <header className="sticky top-0 z-50 w-full bg-[#FFFFFF] border-b border-[#E8E8E4]">
           <Navbar />
         </header>
         <main id="main-content" tabIndex={-1}>
