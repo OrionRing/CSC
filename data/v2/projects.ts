@@ -1,3 +1,12 @@
+export type ProjectStatus = 'completed' | 'in-progress' | 'planned' | 'research';
+
+export const statusLabels: Record<ProjectStatus, string> = {
+  completed: 'Completed',
+  'in-progress': 'In Progress',
+  planned: 'Planned',
+  research: 'Research',
+};
+
 export interface Project {
   id: string;
   slug: string;
@@ -19,6 +28,8 @@ export interface Project {
   competitionContext: string;
   award?: string;
   featured: boolean;
+  status?: ProjectStatus;
+  duration?: string;
 }
 
 export const projects: Project[] = [
