@@ -1,5 +1,3 @@
-export type ProjectStatus = 'completed' | 'in-progress' | 'planned' | 'research';
-
 export interface Project {
   id: string;
   slug: string;
@@ -8,7 +6,7 @@ export interface Project {
   category: string;
   categories: string[];
   year: number;
-  status: ProjectStatus;
+  authors: string[];
   summary: string;
   description: string;
   researchQuestion: string;
@@ -18,282 +16,345 @@ export interface Project {
   results: string;
   limitations: string[];
   nextSteps: string[];
-  team: string[];
-  duration: string;
-  image: string;
-  imageCaption: string;
+  competitionContext: string;
+  award?: string;
   featured: boolean;
-  competitionTarget?: string;
-  facilitiesUsed?: string[];
 }
 
 export const projects: Project[] = [
   {
-    id: 'cc-proj-01',
+    id: 'csc-p01',
     slug: 'cqd-acrylic-uv-shield',
     number: '01',
-    title: 'Pendopingan Akrilik Antiradiasi UV-A dengan Carbon Quantum Dots (CQD)',
+    title: 'Doping Acrylic with Carbon Quantum Dots to Produce Anti UV-A Transparent Material',
     category: 'Chemistry / Nanotechnology',
     categories: ['chemistry', 'physics'],
     year: 2026,
-    status: 'completed',
+    authors: ['Davis Leon Palsha Sitorus', 'Laszlo Uria Maleh'],
     summary:
-      'Sintesis Carbon Quantum Dots (CQD) dari limbah biomassa dan pendopingan pada matriks akrilik untuk menghasilkan panel pelindung radiasi UV-A berdaya serap tinggi tanpa mengurangi transparansi optik.',
+      'Sintesis Carbon Quantum Dots (CQD) dari asam sitrat dan urea untuk didopingkan ke dalam matriks akrilik, menghasilkan panel kaca bening penangkal radiasi UV-A dengan memanfaatkan fenomena pendaran cahaya tampak.',
     description:
-      'Penelitian ini memanfaatkan teknologi nanokimia untuk mensintesis titik kuantum karbon (CQD) yang dapat menyerap radiasi ultraviolet panjang gelombang UV-A (315–400 nm). CQD hasil sintesis diintegrasikan ke dalam lembaran akrilik transparan. Karakterisasi transmitansi dan absorbansi diukur secara presisi menggunakan Spektrofotometer UV-Vis di Lab Kimia Kolese Kanisius.',
+      'Radiasi ultraviolet gelombang panjang (UV-A: 315–400 nm) mampu menembus kaca jendela standar dan memicu kerusakan material maupun fotopenuaan kulit. Penelitian ini mensintesis Carbon Quantum Dots (CQD) berbahan baku organik ramah lingkungan. Larutan suspensi CQD dicampurkan secara homogen ke dalam resin akrilik transparan sebelum proses polimerisasi, menciptakan material proteksi radiasi yang tetap mempertahankan kejernihan optik.',
     researchQuestion:
-      'Bagaimana konsentrasi dopan Carbon Quantum Dots (CQD) mempengaruhi efisiensi absorbansi radiasi UV-A dan nilai transmitansi cahaya tampak pada matriks polimer akrilik?',
+      'Bagaimana pengaruh konsentrasi suspensi Carbon Quantum Dots (CQD) terhadap persentase pelemahan radiasi UV-A dan nilai kejernihan transparansi pada material akrilik transparan?',
     hypothesis:
-      'Doping CQD pada konsentrasi optimal 0,5% b/v akan meningkatkan penyerapan radiasi UV-A hingga >92% namun tetap mempertahankan transparansi cahaya tampak >85%, sehingga aman digunakan sebagai kaca antiradiasi.',
+      'Peningkatan konsentrasi dispersi CQD akan meningkatkan efisiensi penyerapan radiasi UV-A melalui konversi fluoresensi fotoluminesensi tanpa mengorbankan transmitansi cahaya pada spektrum kasatmata.',
     method: [
-      'Sintesis CQD menggunakan metode pirolisis hidrothermal dari biomassa lokal pada suhu 180°C selama 4 jam di Lab Kimia/Fisika.',
-      'Karakterisasi awal struktur fluoresensi dan absorbansi CQD menggunakan Spektrofotometer UV-Vis.',
-      'Pencampuran CQD ke dalam larutan prekursor akrilik (Methyl Methacrylate) dengan variasi konsentrasi 0.1%, 0.3%, 0.5%, dan 0.8%.',
-      'Pencetakan lembaran akrilik tebal 3mm dan curing bawah sinar UV.',
-      'Uji spektrum radiasi UV-A dan transmitansi spektral menggunakan Spektrofotometer UV-Vis dan sensor radiometer.',
-      'Uji ketahanan termal dan mekanis sampel akrilik.',
+      'Sintesis CQD menggunakan prekursor asam sitrat dan urea melalui metode pirolisis termal di laboratorium kimia.',
+      'Karakterisasi fotoluminesensi larutan CQD di bawah paparan lampu sinar UV 365 nm.',
+      'Pembuatan lembaran akrilik dengan variasi konsentrasi dopan CQD (0.01 g/100ml hingga 0.05 g/100ml).',
+      'Pengukuran daya serap absorbansi dan transmisi UV-A menggunakan sensor radiometer ultraviolet terkalibrasi.',
+      'Uji kejernihan optik transmitansi cahaya tampak (visible light).',
     ],
     observations:
-      'Akrilik yang didoping CQD menunjukkan fluoresensi biru kehijauan di bawah lampu UV 365 nm. Pada uji Spektrofotometer UV-Vis, grafik absorbansi menunjukkan puncak tajam pada rentang 320–380 nm.',
+      'Partikel CQD yang terdispersi dalam akrilik memancarkan fluoresensi hijau-kebiruan (greenish-blue light) yang kuat saat terpapar sinar UV. Lembaran akrilik secara visual tetap tembus pandang jernih.',
     results:
-      'Akrilik dengan doping CQD 0,5% berhasil memblokir 94,8% paparan UV-A dengan tingkat kejernihan optik (transmitansi visibel) mencapai 87,2%. Hasil ini memenuhi standar kualifikasi kompetisi riset nasional dan meraih penghargaan karya terbaik.',
+      'Pada konsentrasi suspensi 0,05 g/100ml, akrilik hasil doping CQD berhasil memblokir hingga 61,9% paparan radiasi UV-A, membuktikan potensinya sebagai material kaca pelindung hemat biaya dan ramah lingkungan.',
     limitations: [
-      'Homogenitas dispersi CQD dalam akrilik membutuhkan teknik pengadukan ultrasonik yang lebih lama.',
-      'Daya tahan CQD terhadap paparan radiasi UV ekstrem jangka panjang (>6 bulan) masih dalam tahap pengujian berkala.',
+      'Dispersi partikel nano memerlukan pengadukan ultrasonik lebih intensif untuk meminimalkan aglomerasi pada konsentrasi lebih tinggi.',
     ],
     nextSteps: [
-      'Patenkan formulasi dopan CQD akrilik.',
-      'Mengembangkan prototipe kacamata dan kaca jendela laboratorium antiradiasi UV-A.',
-      'Menyusun naskah ilmiah untuk publikasi jurnal ilmiah remaja nasional.',
+      'Pengembangan formulasi pelapisan film tipis pada kaca jendela gedung sekolah.',
+      'Pengujian stabilitas fotodegradasi CQD pada paparan sinar matahari langsung selama 6 bulan.',
     ],
-    team: ['Tim Kimia Nanomaterial CC', 'Koordinator Lab Kimia', 'Siswa Kelas XI STEM'],
-    duration: 'Sesi Rabu & Jumat (Agustus – Oktober 2026)',
-    image: '/images/project-indicators.jpg',
-    imageCaption: 'Pengujian spektrum transmitansi akrilik CQD dengan Spektrofotometer UV-Vis.',
+    competitionContext: 'Canisius Science Competition (CSC) & Publikasi Extended Abstract',
     featured: true,
-    competitionTarget: 'Finalis & Juara 1 OPSI / LIPI Youth Science Competition (Nilai A)',
-    facilitiesUsed: ['Spektrofotometer UV-Vis', 'Lab Kimia', 'Smartboard Lab'],
   },
   {
-    id: 'cc-proj-02',
-    slug: 'distillation-waste-energy',
+    id: 'csc-p02',
+    slug: 'pcm-solar-panel-cooling',
     number: '02',
-    title: 'Pembuatan Energi Listrik dari Air Buangan Alat Destilasi Aquadest',
-    category: 'Environmental Engineering / Energy',
-    categories: ['engineering', 'environmental'],
+    title: 'Sistem Pendingin Pasif Panel Surya Berbasis Phase Change Material (PCM) Alami',
+    category: 'Physics / Renewable Energy',
+    categories: ['physics', 'engineering'],
     year: 2026,
-    status: 'completed',
+    authors: ['Jonathan Paul Setiawan', 'Rafael Malaka Dala Da Gomez', 'Stevario Anathapindika Agung'],
     summary:
-      'Pendekatan Context-Problem-Solution untuk memanen energi thermal dan kinetik dari saluran air pendingin buangan alat destilator aquadest sekolah menjadi energi listrik mikro terbarukan.',
+      'Perancangan sistem pendingin pasif tanpa listrik untuk panel surya mini 12V di iklim tropis menggunakan wadah aluminium berisi Phase Change Material (minyak kelapa dan lilin kedelai) terintegrasi pipa radiator tembaga.',
     description:
-      'Context: Laboratorium Kimia Kolese Kanisius mengoperasikan alat destilasi aquadest secara rutin yang menghasilkan debit air hangat buangan cukup besar.\nProblem: Panas dan aliran air buangan tersebut terbuang sia-sia ke saluran pembuangan (thermal waste).\nSolution: Tim merancang sistem mikro-pembangkit energi hibrida menggabungkan modul Thermoelectric Generator (TEG Seebeck effect) dan turbin hidro mikro pada pipa buangan untuk memanen daya listrik.',
+      'Efisiensi konversi panel surya mengalami penurunan drastis sekitar 0,4% per setiap kenaikan suhu 1°C di atas 25°C. Di iklim tropis Indonesia, suhu permukaan panel fotovoltaik dapat mencapai 50–70°C. Proyek ini merancang mekanisme pembuangan panas pasif dengan memanfaatkan kalor laten peleburan material pengubah fase (PCM) berbasis bahan nabati (minyak kelapa dan lilin kedelai) yang ditempatkan di bagian belakang panel.',
     researchQuestion:
-      'Berapa daya listrik maksimal (mW) yang dapat dihasilkan dari konversi energi thermal dan kinetik air buangan alat destilasi aquadest 5 L/jam di laboratorium sekolah?',
+      'Seberapa besar penurunan suhu permukaan panel dan peningkatan efisiensi daya listrik (P = V × I) yang dapat dicapai melalui sistem pendingin PCM alami pada siklus leleh-beku berulang?',
     hypothesis:
-      'Kombinasi 4 modul TEG SP1848 dan 1 micro-hydro generator 5V mampu menghasilkan tegangan terakumulasi >4.2V yang cukup untuk mengisi daya powerbank baterai laboratorium.',
+      'Penyerapan panas oleh kalor laten PCM saat bertransformasi dari fase padat ke cair akan menstabilkan suhu panel di dekat titik leleh material, menghasilkan kenaikan output daya listrik yang terukur dan konsisten.',
     method: [
-      'Pemetaan suhu dan debit air buangan alat destilator aquadest (Suhu masuk pendingin: 28°C, Suhu keluar: 62°C, Debit: 1.2 L/menit).',
-      'Merancang casing konduktor tembaga yang menempel pada pipa pembuangan panas destilator.',
-      'Memasang 4 modul Seebeck TEG di antara pipa panas dan heatsink pendingin udara.',
-      'Integrasi micro hydro-generator pada ujung outlet saluran pembuangan.',
-      'Pemasangan modul Boost Converter Step-Up DC-DC dan indikator daya digital.',
-      'Pengukuran daya listrik kontinu selama 2 jam proses destilasi di Lab Kimia.',
+      'Karakterisasi termal titik leleh dan kapasitas kalor laten minyak kelapa dan lilin kedelai.',
+      'Fabrikasi wadah penampung aluminium dengan kontak termal konduktif tinggi di belakang panel surya 12V.',
+      'Pemasangan pipa tembaga eksternal sebagai radiator pasif pendingin alami untuk mempercepat pemadatan kembali PCM.',
+      'Simulasi pemanasan radiasi tropis terkontrol menggunakan lampu pemanas halogen.',
+      'Pencatatan kontinu suhu permukaan panel (°C) dan keluaran daya listrik (V, I) menggunakan multimeter digital pada beberapa siklus termal.',
     ],
     observations:
-      'Selisih suhu ΔT sebesar 31°C menghasilkan tegangan TEG stabil sebesar 3.4V. Tambahan dari mikro-turbin menambah 1.1V, menghasilkan daya total yang stabil.',
+      'Panel surya dengan pendingin PCM memperlihatkan laju kenaikan suhu yang jauh lebih lambat dibandingkan panel kontrol tanpa pendingin saat dihangatkan.',
     results:
-      'Sistem berhasil memanen energi terbuang dengan daya rerata 620 mW selama proses destilasi. Energi ini disimpan dalam modul akumulatif untuk menyalakan sensor monitor suhu lab.',
+      'Sistem pendingin PCM alami sukses meredam lonjakan panas panel, menjaga efisiensi fotovoltaik lebih tinggi dan membuktikan kestabilan performa pada siklus termal berulang tanpa mengonsumsi energi listrik tambahan.',
     limitations: [
-      'Efisiensi konversi modul TEG komersial terbatas pada ~5-8%.',
-      'Fluktuasi debit air destilasi mempengaruhi kestabilan output hidro mikro.',
+      'Pelepasan panas kembali dari cairan PCM ke udara sekitar pada malam hari memerlukan ventilasi radiator yang memadai.',
     ],
     nextSteps: [
-      'Pemasangan pipa Heat Pipe berbahan tembaga murni untuk meningkatkan ΔT.',
-      'Replikasi sistem pada alat destilasi di laboratorium biologi.',
+      'Uji coba lapangan jangka panjang di atap gedung Kolese Kanisius di bawah terik matahari Jakarta.',
+      'Optimalisasi geometri wadah penampung aluminium untuk efisiensi transfer panas maksimal.',
     ],
-    team: ['Tim Fisika & Teknik Lingkungan CC', 'Siswa Kelas XII STEM'],
-    duration: 'Sesi Pertemuan Rabu & Jumat (September 2026)',
-    image: '/images/project-water-filtration.jpg',
-    imageCaption: 'Prototipe pemanen energi TEG & mikro-turbin pada alat destilasi aquadest.',
-    featured: false,
-    competitionTarget: 'Juara 1 National STEM Energy Innovation (Nilai A)',
-    facilitiesUsed: ['Alat Destilasi Aquadest', 'Set Rangkaian Listrik Komplit', 'Lab Fisika'],
+    competitionContext: 'Science Project Competition (SPC) EUREKA! ITB 2026',
+    featured: true,
   },
   {
-    id: 'cc-proj-03',
-    slug: 'sliding-door-kinetic-generator',
+    id: 'csc-p03',
+    slug: 'rice-water-microbial-fuel-cell',
     number: '03',
-    title: 'Perakitan Sistem Generator Listrik Skala Kecil dari Pintu Geser Kelas',
+    title: 'Pemanfaatan Air Cucian Beras sebagai Substrat Double-Chamber Microbial Fuel Cell (MFC)',
+    category: 'Biology / Bio-Energy',
+    categories: ['biology', 'environmental'],
+    year: 2024,
+    authors: ['Ananda Bernard Hizkia'],
+    summary:
+      'Inovasi pemanenan energi listrik mikro ramah lingkungan berbasis bio-elektrokimia memanfaatkan air cucian beras rumah tangga yang kaya karbohidrat sebagai substrat elektrogenik.',
+    description:
+      'Air cucian beras mengandung nutrisi pati dan karbohidrat tinggi yang umumnya langsung dibuang menjadi limbah domestik. Riset ini memanfaatkan limbah organik tersebut sebagai bahan bakar nutrisi bagi koloni bakteri elektrogenik di dalam reaktor Microbial Fuel Cell (MFC) tipe dual-chamber. Reaksi metabolik bakteri melepaskan elektron pada anoda dan proton yang dialirkan menuju katoda melalui jembatan garam.',
+    researchQuestion:
+      'Bagaimana efektivitas degradasi substrat air cucian beras dalam menghasilkan kerapatan arus listrik dan voltase kontinu pada reaktor MFC dua ruang?',
+    hypothesis:
+      'Kandungan glukosa dan amilum terlarut dalam air cucian beras mampu menopang pertumbuhan bakteri bio-elektrogenik untuk menghasilkan beda potensial listrik yang stabil.',
+    method: [
+      'Preparasi reaktor akrilik double-chamber dengan anoda dan katoda serat karbon grafit.',
+      'Pembuatan jembatan garam agar-agar gelatin pekat KCl sebagai membran penghubung transfer proton.',
+      'Inokulasi lumpur aktif biologis dan substrat air cucian beras terfermentasi pada ruang anoda.',
+      'Pengukuran beda potensial Open Circuit Voltage (OCV) dan arus harian menggunakan multimeter presisi tinggi.',
+      'Pengujian kemampuan catu daya terhadap beban resistor dan lampu LED indikator.',
+    ],
+    observations:
+      'Tegangan reaktor melonjak secara bertahap dalam 48 jam pertama masa inkubasi seiring mikroba menguraikan karbohidrat cair.',
+    results:
+      'Reaktor double-chamber MFC berhasil menghasilkan tegangan stabil yang mampu menyalakan perangkat elektronik berdaya rendah, sekaligus menurunkan beban senyawa organik limbah domestik.',
+    limitations: [
+      'Resistansi dalam membran jembatan garam membatasi daya keluaran maksimum.',
+    ],
+    nextSteps: [
+      'Peningkatan efisiensi sel menggunakan elektroda berbasis Carbon Cloth dan membran penukar kation komersial.',
+    ],
+    competitionContext: 'Indonesia International Invention Expo (IIIEX) 2024',
+    award: 'Gold Medal — Environment Category (IIIEX 2024)',
+    featured: true,
+  },
+  {
+    id: 'csc-p04',
+    slug: 'arduino-tens-device-prototype',
+    number: '04',
+    title: 'Prototipe Alat Transcutaneous Electrical Nerve Stimulation (TENS) Berbasis Arduino',
+    category: 'Health / Biomedical Engineering',
+    categories: ['engineering', 'biology'],
+    year: 2024,
+    authors: ['Nobiel Utoro', 'Fransiskus Jonathan Muljadi', 'Haposan Christian Gultom', 'Nobuhiro Komatsuda'],
+    summary:
+      'Pengembangan perangkat medis portabel berbiaya terjangkau berbasis mikrokontroler Arduino Uno untuk stimulasi saraf pereda nyeri fisiologis berlandaskan Gate Control Theory.',
+    description:
+      'Transcutaneous Electrical Nerve Stimulation (TENS) merupakan metode terapi non-invasif yang menghantarkan impuls arus listrik mikro melalui elektroda kulit untuk memblokir sinyal rasa sakit menuju otak. Proyek ini merancang perangkat TENS open-source bertenaga portabel dengan pengaturan frekuensi dan lebar pulsa yang dapat dikustomisasi, dilengkapi indikator keselamatan digital.',
+    researchQuestion:
+      'Bagaimana akurasi parameter gelombang stimulasi (frekuensi 2–150 Hz dan lebar pulsa 30–260 μs) yang dapat dihasilkan oleh mikrokontroler dengan standar keamanan kelistrikan?',
+    hypothesis:
+      'Pemrograman timer mikrokontroler dan sirkuit penguat daya transistor mampu menghasilkan pulsa elektrik bifasik yang presisi dan stabil sesuai rentang terapeutik klinis.',
+    method: [
+      'Perancangan arsitektur sirkuit berbasis Arduino Uno dan modul pengatur modulasi lebar pulsa (PWM).',
+      'Pemrograman antarmuka pengguna digital dengan potensiometer dan layar LCD/LED indikator parameter.',
+      'Pengujian karakterisasi bentuk gelombang dan tegangan keluaran menggunakan osiloskop laboratorium fisika.',
+      'Penerapan modul proteksi arus berlebih (overcurrent safety cutoff).',
+    ],
+    observations:
+      'Sinyal gelombang elektrik pulsa yang diamati pada layar osiloskop memperlihatkan kestabilan frekuensi yang presisi pada rentang uji 2 Hz hingga 150 Hz.',
+    results:
+      'Prototipe perangkat TENS sukses mensimulasikan gelombang pulsa analgesik terapeutik secara akurat dalam batas voltase aman, serta meraih penghargaan internasional di bidang inovasi sains terapan.',
+    limitations: [
+      'Protokol uji coba klinis pada subjek manusia dibatasi oleh pertimbangan kode etik riset sekolah.',
+    ],
+    nextSteps: [
+      'Miniaturisasi PCB sirkuit ke dalam modul enclosure cetak 3D seukuran saku dengan baterai isi ulang.',
+    ],
+    competitionContext: 'Youth International Science Fair (YSIF) 2024',
+    award: 'Silver Medal — Innovation Science Category (YSIF 2024)',
+    featured: false,
+  },
+  {
+    id: 'csc-p05',
+    slug: 'biodiesel-catalyst-optimization',
+    number: '05',
+    title: 'Optimasi Penggunaan Katalis NaOH dalam Produksi Biodiesel dari Minyak Jelantah',
+    category: 'Chemistry / Biofuel',
+    categories: ['chemistry', 'environmental'],
+    year: 2025,
+    authors: ['Reinier Louis Stefano', 'Theodore Rex Semita'],
+    summary:
+      'Eksperimen transesterifikasi untuk menentukan takaran optimal katalis Natrium Hidroksida (NaOH) guna memaksimalkan rendemen Fatty Acid Methyl Ester (FAME) dari limbah minyak goreng bekas.',
+    description:
+      'Limbah minyak jelantah berpotensi mencemari perairan jika dibuang sembarangan namun kaya akan trigliserida yang dapat dikonversi menjadi bahan bakar alternatif biodiesel. Penelitian ini menganalisis titik kritis konsentrasi katalis basa NaOH untuk mencegah reaksi samping penyabunan (saponifikasi) yang merugikan.',
+    researchQuestion:
+      'Berapa massa katalis NaOH paling optimal untuk menghasilkan rendemen metil ester tertinggi tanpa memicu pembentukan emulsi sabun yang mengentalkan produk?',
+    hypothesis:
+      'Penambahan katalis NaOH pada batas massa 0,2 gram per 100 gram minyak jelantah akan memberikan konversi transesterifikasi tertinggi dengan angka asam terendah.',
+    method: [
+      'Penyaringan kotoran fisik dan pemanasan awal minyak jelantah untuk menghilangkan kadar air sisa.',
+      'Preparasi larutan metoksida dengan melarutkan variasi massa NaOH (0.1g, 0.2g, 0.3g, 0.5g, dan 0.8g) ke dalam metanol murni.',
+      'Reaksi transesterifikasi pada suhu terkontrol 60°C selama 60 menit menggunakan magnetic hotplate stirrer.',
+      'Pemisahan fase gliserol dan metil ester pada corong pisah laboratorium.',
+      'Pencucian (water washing) biodiesel dan uji rendemen massa metil ester yang dihasilkan.',
+    ],
+    observations:
+      'Pada penambahan NaOH di atas 0,5 gram, campuran larutan berubah kental berbusa pekat akibat pembentukan sabun berlebih yang mempersulit pemisahan gliserol.',
+    results:
+      'Massa optimum katalis terbukti berada pada 0,2 gram NaOH, yang menghasilkan rendemen tertinggi sebesar 46,7 gram metil ester murni dengan penurunan kadar asam lemak bebas (FFA) paling efektif.',
+    limitations: [
+      'Kualitas minyak jelantah awal yang bervariasi membutuhkan tahapan pra-esterifikasi asam jika angka asam awal terlampau tinggi.',
+    ],
+    nextSteps: [
+      'Pengujian nilai viskositas kinematik dan densitas biodiesel mengacu pada standar SNI Biodiesel.',
+    ],
+    competitionContext: 'Canisius Science Competition (CSC) 2025',
+    featured: false,
+  },
+  {
+    id: 'csc-p06',
+    slug: 'mussel-biofilter-ciliwung',
+    number: '06',
+    title: 'Efektivitas Kerang Hijau, Kerang Dara, dan Kijing sebagai Biofilter Air Sungai Ciliwung',
+    category: 'Environmental Science / Biology',
+    categories: ['biology', 'environmental'],
+    year: 2026,
+    authors: ['Javier Nicholas Vito Uisan', 'Vincenso Marco Pujianto', 'Wilbert Lee'],
+    summary:
+      'Uji perbandingan 3 spesies bivalvia sebagai agen filter-feeder biologis untuk mereduksi parameter pencemar fisik dan kimiawi sampel air Sungai Ciliwung.',
+    description:
+      'Sungai Ciliwung yang melintasi Jakarta menghadapi tekanan polutan berat berupa partikel tersuspensi, kesadahan tinggi, nitrat, dan nitrit. Penelitian ini mengeksplorasi potensi bioremediasi alami menggunakan tiga jenis kerang (Perna viridis, Tegillarca granosa, dan Pilsbryoconcha exilis) sebagai organisme penyaring polutan air tanpa bahan kimia sintetis.',
+    researchQuestion:
+      'Spesies kerang manakah yang memiliki kapasitas biosorpsi tertinggi dalam menurunkan kesadahan, senyawa nitrogen, dan kekeruhan air limbah sungai?',
+    hypothesis:
+      'Setiap spesies memiliki afinitas penyerapan yang spesifik terhadap ion tertentu; kerang air tawar (kijing) akan memiliki daya tahan fisiologis lebih baik dalam media air sungai.',
+    method: [
+      'Pengambilan sampel air uji dari titik representatif aliran Sungai Ciliwung Jakarta.',
+      'Aklimatisasi kelompok kerang pada tangki aerasi laboratorium biologi.',
+      'Pemaparan sampel kerang dalam akuarium uji dengan volume dan durasi waktu filtrasi terukur.',
+      'Pengujian parameter kualitas air laboratorium: pH, Total Dissolved Solids (TDS), kesadahan total, asam sianurat, nitrat, nitrit, dan fluorida.',
+    ],
+    observations:
+      'Kerang dara melepaskan senyawa hemoglobin ke dalam air saat kondisi stres sehingga mengubah air menjadi agak kemerahan, sedangkan kerang hijau memperlihatkan laju pembersihan air yang sangat aktif.',
+    results:
+      'Kerang hijau (Perna viridis) terbukti paling efektif dalam mereduksi kadar asam sianurat, fluorida, serta senyawa nitrat dan nitrit. Sementara kerang dara paling unggul dalam menurunkan kesadahan air.',
+    limitations: [
+      'Toleransi salinitas kerang laut saat ditempatkan di air tawar sungai membatasi durasi filtrasi biologis langsung.',
+    ],
+    nextSteps: [
+      'Riset sistem biofilter hibrida berbasis cangkang kerang teraktivasi untuk filtrasi pasif jangka panjang.',
+    ],
+    competitionContext: 'Canisius Science Competition (CSC) Research Paper',
+    featured: false,
+  },
+  {
+    id: 'csc-p07',
+    slug: 'star-trails-webgl-simulator',
+    number: '07',
+    title: 'Pengembangan Visualisasi 3D Star Trails Berbasis WebGL Menggunakan Three.js',
+    category: 'Computer Science / Astronomy',
+    categories: ['engineering', 'physics'],
+    year: 2026,
+    authors: ['Darrel Jeremiah Rondonuwu', 'Natalius Gabriel'],
+    summary:
+      'Aplikasi simulasi komputasi visual berbasis web untuk memprediksi dan memodelkan pola lintasan jejak bintang (star trails) bagi astrofotografer dengan koordinat geografis nyata.',
+    description:
+      'Astrofotografi jejak bintang membutuhkan perencanaan sudut bidik kamera dan durasi eksposur yang matang agar menghasilkan komposisi melingkar kutub langit yang sempurna. Menggunakan Three.js, WebGL, dan SvelteKit, penelitian ini membangun platform interaktif 3D yang mengkalkulasi koordinat bola langit secara real-time berdasarkan posisi lintang, bujur, dan waktu pengamatan pengguna.',
+    researchQuestion:
+      'Bagaimana optimalisasi algoritma rendering WebGL dalam memvisualisasikan puluhan ribu lintasan rotasi bintang dengan waktu komputasi responsif (<500 ms)?',
+    hypothesis:
+      'Pemanfaatan matriks transformasi GPU melalui shader WebGL kustom akan mempercepat komputasi kalkulasi rotasi lintasan bintang tanpa membebani performa browser klien.',
+    method: [
+      'Pemetaan katalog posisi koordinat ekuatorial bintang terang (Right Ascension & Declination).',
+      'Formulasi matematika konversi koordinat ekuatorial ke koordinat horizontal horizon lokal pengamat.',
+      'Implementasi rendering mesh lintasan orbit bintang menggunakan pustaka Three.js.',
+      'Tolok ukur (benchmarking) waktu komputasi render terhadap variasi durasi eksposur kamera (1 jam hingga 8 jam).',
+    ],
+    observations:
+      'Rendering interaktif berjalan mulus pada 60 FPS pada pengujian perangkat browser modern standar.',
+    results:
+      'Aplikasi berhasil memvisualisasikan kurva star trails secara presisi dengan waktu re-rendering di bawah 500 ms untuk perubahan durasi, serta 1,7–3,1 detik untuk kalkulasi ulang penuh koordinat geografis.',
+    limitations: [
+      'Kepadatan visualisasi bintang teropong pada sudut pandang sangat lebar memerlukan penyesuaian level-of-detail (LOD).',
+    ],
+    nextSteps: [
+      'Integrasi data polusi cahaya langit malam (Bortle Scale) ke dalam sistem simulasi pencahayaan.',
+    ],
+    competitionContext: 'Canisius Science Competition (CSC) Software Track',
+    featured: false,
+  },
+  {
+    id: 'csc-p08',
+    slug: 'mini-alpha-stirling-engine',
+    number: '08',
+    title: 'Rancang Bangun Mesin Stirling Mini Tipe Alfa sebagai Konverter Energi Panas',
     category: 'Physics / Mechanical Engineering',
     categories: ['physics', 'engineering'],
     year: 2026,
-    status: 'in-progress',
+    authors: ['Reinier Louis Stefano', 'Jason Nathanael Widjasena'],
     summary:
-      'Perakitan mekanisme pemanen energi mekanik (energy harvesting) dari gerakan translasi pintu geser ruang kelas Kolese Kanisius untuk menghasilkan daya listrik ramah lingkungan.',
+      'Prototipe mesin termal eksternal siklus tertutup tipe Stirling alfa yang mengonversi energi termal buangan menjadi energi kinetik rotasi poros flywheel.',
     description:
-      'Setiap hari, pintu geser ruang kelas di Kolese Kanisius dibuka dan ditutup puluhan kali oleh siswa dan guru. Penelitian ini merancang sistem mekanis rack-and-pinion terintegrasi dengan flywheel mini dan generator DC magnet permanen untuk mengubah energi kinetik geseran pintu menjadi energi listrik simpanan.',
+      'Mesin Stirling merupakan mesin pembakaran luar (external combustion engine) berefisiensi termal tinggi yang beroperasi berdasarkan ekspansi dan kompresi siklik udara pada dua silinder dengan temperatur berbeda. Riset ini merancang prototipe kompak tipe alfa untuk mempelajari hubungan antara gradien suhu silinder terhadap kecepatan sudut rotasi mesin.',
     researchQuestion:
-      'Bagaimana efisiensi rasio roda gigi (gear ratio) pada mekanisme rack-and-pinion pintu geser terhadap jumlah daya listrik yang dapat disimpan per 50 kali bukaan pintu?',
+      'Bagaimana korelasi antara beda temperatur sumber panas dengan silinder pendingin terhadap laju putaran (RPM) yang dihasilkan oleh poros mesin Stirling mini?',
     hypothesis:
-      'Rasio gear 1:12 terintegrasi superkapasitor mampu menghasilkan daya simpan yang cukup untuk menyalakan lampu indikator kedatangan guru dan lampu darurat kelas.',
+      'Laju putaran (RPM) flywheel akan meningkat secara proporsional linier terhadap pertambahan suhu pada silinder panas sesuai hukum termodinamika gas ideal.',
     method: [
-      'Studi kinematika lintasan pintu geser kelas (panjang lintasan 1.2 meter, kecepatan rerata bukaan 0.8 m/s).',
-      'Fabrikasi rel gerigi (rack) presisi dengan teknologi 3D printer di Lab Fisika.',
-      'Perakitan kotak transmisi roda gigi (pinion gear ratio 1:6, 1:12, dan 1:18) tersambung ke generator stepper/DC.',
-      'Pemasangan penyearah jembatan dioda (bridge rectifier) dan modul manajemen pengisian superkapasitor 5.5V.',
-      'Pengujian jumlah dorongan pintu vs kenaikan tegangan pada superkapasitor.',
+      'Desain mekanik silinder panas, silinder dingin, piston penekan, dan flywheel penyeimbang.',
+      'Fabrikasi komponen presisi menggunakan komponen logam dan kaca tahan panas di lab fisika.',
+      'Pengujian operasional menggunakan burner api dengan pemantauan suhu termokopel digital.',
+      'Pengukuran putaran rotasi per menit (RPM) menggunakan tachometer digital tanpa kontak.',
     ],
     observations:
-      'Pengujian mekanis menunjukkan bukaan pintu yang halus tanpa menambah beban berat berarti saat didorong oleh siswa. Generator merespons cepat pada gear ratio 1:12.',
+      'Mesin mulai berputar spontan setelah silinder panas mencapai suhu awal minimal 85°C dengan dorongan awal pada flywheel.',
     results:
-      'Prototipe tahap 1 mampu menghasilkan tegangan puncak 6.8V per sekali bukaan pintu cepat. Data pengumpulan energi harian sedang berlangsung.',
+      'Pengujian membuktikan bahwa putaran flywheel meningkat secara linier dengan temperatur: menghasilkan 40 RPM pada suhu 100°C dan melonjak hingga 225 RPM pada suhu 200°C.',
     limitations: [
-      'Gesekan mekanis pada gerigi membutuhkan pelumasan berkala.',
-      'Penyesuaian agar dorongan pintu tetap terasa ringan bagi pengguna.',
+      'Kerapatan seal piston silinder membutuhkan pelumasan mikro berkala untuk mencegah kebocoran tekanan udara.',
     ],
     nextSteps: [
-      'Pemasangan pada 4 kelas utama di gedung SMA Kolese Kanisius.',
-      'Menghubungkan output listrik ke sistem pencahayaan indikator IoT kelas.',
+      'Pemasangan generator magnet permanen mikro pada poros untuk menghasilkan daya listrik langsung dari panas buangan.',
     ],
-    team: ['Tim Mekatronika & Fisika CC', 'Siswa Kelas X & XI STEM'],
-    duration: 'Sesi Rutin Rabu & Jumat (Oktober 2026 – Sekarang)',
-    image: '/images/project-solar.jpg',
-    imageCaption: 'Mekanisme transmisi gear dan generator DC pada miniatur pintu geser kelas.',
+    competitionContext: 'Canisius Science Competition (CSC) Engineering Showcase',
     featured: false,
-    competitionTarget: 'Finalis Lomba Karya Cipta Teknologi Muda (Nilai A)',
-    facilitiesUsed: ['Set Rangkaian Listrik', 'Lab Fisika', 'Smartboard Lab'],
   },
   {
-    id: 'cc-proj-04',
-    slug: 'eco-enzyme-microbial-fuel-cell',
-    number: '04',
-    title: 'Penerapan Microbial Fuel Cell (MFC) dari Eco-Enzyme',
-    category: 'Biology / Bio-Energy',
-    categories: ['biology', 'environmental'],
-    year: 2026,
-    status: 'in-progress',
+    id: 'csc-p09',
+    slug: 'porous-asphalt-water-filtration',
+    number: '09',
+    title: 'Penerapan Perkerasan Aspal Berpori (Porous Asphalt) dari Sampah Plastik & Batuan Vulkanik',
+    category: 'Civil & Environmental Engineering',
+    categories: ['engineering', 'environmental'],
+    year: 2024,
+    authors: ['Yarra Wiryadenta', 'Joshua Viencent Tandibrata', 'Nobuhiro Komatsuda'],
     summary:
-      'Pemanfaatan substrat organik Eco-Enzyme hasil fermentasi limbah buah kantin sekolah dalam sistem sel bahan bakar mikrobia dual-chamber untuk memanen bio-listrik dan pengolahan limbah.',
+      'Pengembangan aspal porus ramah lingkungan berbahan limbah plastik daur ulang (PET/PE) dan agregat batuan beku vulkanik untuk meningkatkan infiltrasi air hujan dan mencegah banjir.',
     description:
-      'Eco-Enzyme kaya akan asam organik dan konsorsium mikroorganisme aktif hasil fermentasi 3 bulan sampah buah & sayur. Penelitian ini menguji formulasi Eco-Enzyme sebagai substrat biologis pada anoda Microbial Fuel Cell (MFC) dengan elektroda grafit berdoping karbon aktif untuk menghasilkan arus listrik ramah lingkungan sekaligus merawat alam ciptaan.',
+      'Genangan air pada permukaan jalan perkotaan Jakarta sering memicu kecelakaan lalu lintas dan banjir perkotaan akibat rendahnya resapan air. Penelitian ini merancang formula perkerasan aspal berpori menggunakan matriks plastik limbah dan batuan vulkanik untuk menciptakan saluran drainase alami vertikal, yang kinerjanya dipantau menggunakan sensor ultrasonik berbasis Arduino.',
     researchQuestion:
-      'Bagaimana pengaruh variasi konsentrasi larutan Eco-Enzyme terhadap kerapatan daya (power density mW/m²) dan penurunan nilai Chemical Oxygen Demand (COD) substrat dalam sel MFC?',
+      'Berapa nilai koefisien permeabilitas air dan ketahanan kuat tekan mekanis dari campuran aspal porus berbahan limbah plastik dan batuan vulkanik?',
     hypothesis:
-      'Substrat Eco-Enzyme konsentrasi 30% v/v akan memberikan aktivitas mikroba elektrogenik tertinggi, menghasilkan kerapatan daya maksimum dan penurunan COD >70%.',
+      'Struktur pori yang saling terhubung (interconnected voids) pada agregat batuan beku vulkanik akan menghasilkan laju infiltrasi air tertinggi dengan daya dukung beban yang kokoh.',
     method: [
-      'Fermentasi limbah kulit buah kantin Kolese Kanisius dengan molase dan air (rasio 3:1:10) selama 90 hari di Lab Biologi.',
-      'Fabrikasi reaktor MFC dual-chamber akrilik dengan jembatan garam (salt bridge) agar gelatin-KCl.',
-      'Menyiapkan elektroda grafit felt yang dikondisikan dengan aktivasi asam.',
-      'Pengukuran kurva polarisasi, tegangan terbuka (Open Circuit Voltage/OCV), dan arus listrik menggunakan multimeter digital presisi.',
-      'Analisis kadar asam organik dan pH Eco-Enzyme sebelum dan sesudah uji MFC.',
+      'Preparasi agregat batuan beku vulkanik dan pencacahan limbah plastik jenis PET/PE.',
+      'Pencampuran binder aspal termodifikasi plastik pada suhu panas terkontrol.',
+      'Pencetakan briket spesimen aspal porus laboratorium.',
+      'Uji laju permeabilitas hidrolik vertikal (falling head permeability test).',
+      'Pengujian kuat tekan beban mekanis dan integrasi sensor ultrasonik untuk pemantauan laju resapan.',
     ],
     observations:
-      'Tegangan OCV mencapai titik stabil 680 mV setelah 48 jam masa inkubasi sel. Larutan Eco-Enzyme menunjukkan aktivitas bio-elektrogenik yang konsisten.',
+      'Struktur pori saling menyambung dengan baik tanpa terjadi keretakan agregat saat dialiri air dalam debit deras.',
     results:
-      'Reaktor MFC Eco-Enzyme berhasil mengoperasikan jam digital dan indikator LED secara kontinu selama 7 hari tanpa henti, membuktikan potensi bio-energi berkelanjutan.',
+      'Spesimen berbahan agregat batuan vulkanik mencatat permeabilitas air terbaik mencapai 0,28 cm/detik dan mampu menahan kuat tekan beban hingga 700 Newton, membuktikan kelayakannya sebagai jalan resapan perkotaan.',
     limitations: [
-      'Resistansi internal jembatan garam masih cukup tinggi dibanding membran pemutar proton (PEM) komersial.',
-      'Membutuhkan penjagaan derajat keasaman (pH) substrat agar mikroba elektrogenik tidak terhambat.',
+      'Penyumbatan partikel debu dan lumpur tanah (clogging) memerlukan perawatan berkala dengan penyemprotan air bertekanan.',
     ],
     nextSteps: [
-      'Ganti jembatan garam dengan membran serat selulosa biopolimer hasil riset mandiri.',
-      'Menyusun modul panduan pengolahan sampah organik berbasis MFC untuk komunitas sekolah.',
+      'Penerapan uji coba perkerasan pada area parkir atau jalur pejalan kaki kampus Kolese Kanisius.',
     ],
-    team: ['Tim Bioteknologi & Lingkungan CC', 'Siswa Kelas XI STEM'],
-    duration: 'Sesi Rutin Rabu & Jumat (Agustus – Desember 2026)',
-    image: '/images/project-plant-growth.jpg',
-    imageCaption: 'Reaktor Microbial Fuel Cell (MFC) berbahan substrat Eco-Enzyme di Lab Biologi.',
+    competitionContext: 'Essay Competition DISCO 7th 2024',
+    award: 'Finalis Karya Ilmiah Teknik Sipil & Lingkungan',
     featured: false,
-    competitionTarget: 'Finalis & Juara International Science Project Olympiad (Nilai A)',
-    facilitiesUsed: ['Lab Biologi', 'Set Rangkaian Listrik', 'Smartboard Lab'],
-  },
-  {
-    id: 'cc-proj-05',
-    slug: 'local-ingredient-nutribar',
-    number: '05',
-    title: 'Pembuatan Nutribar dari Bahan Pangan Lokal',
-    category: 'Applied Chemistry / Food Technology',
-    categories: ['chemistry', 'biology'],
-    year: 2026,
-    status: 'completed',
-    summary:
-      'Formulasi sereal batang (nutribar) berbasis bahan pangan lokal terjangkau (sorgum, kelor, ubi ungu) sebagai solusi pangan darurat dan pencegahan stunting berkalori tinggi.',
-    description:
-      'Dalam semangat keberlanjutan dan kepedulian terhadap permasalahan gizi masyarakat, riset ini memformulasikan produk nutribar padat gizi menggunakan tepung sorgum lokal, ekstrak daun kelor (Moringa oleifera), dan ubi ungu sebagai sumber serat, antioksidan, serta zat besi tinggi.',
-    researchQuestion:
-      'Berapa komposisi formulasi terbaik pangan lokal (sorgum: kelor: ubi ungu) yang menghasilkan nutribar berdaya simpan tinggi, kandungan energi >400 kcal/100g, serta dapat diterima secara organoleptik?',
-    hypothesis:
-      'Formulasi rasio 50:15:35 menghasilkan nilai gizi paling seimbang dengan kandungan protein >12%, antioksidan tinggi, serta tekstur renyah yang disukai.',
-    method: [
-      'Preparasi dan pengeringan bahan pangan lokal di oven laboratorium.',
-      'Formulasi variasi adonan dengan perekat alami (madu dan minyak kelapa murni).',
-      'Pencetakan dan pemanggangan nutribar pada suhu 150°C.',
-      'Uji proksimat kandungan protein, kadar air, karbohidrat, dan lemak di Lab Kimia.',
-      'Uji organoleptik (rasa, aroma, warna, tekstur) melibatkan 50 panelis siswa Kolese Kanisius.',
-      'Uji ketahanan simpan dan aktivitas air (aw).',
-    ],
-    observations:
-      'Nutribar formulasi 50:15:35 memiliki warna ungu keemasan yang menarik dengan aroma khas sorgum panggang. Panelis memberikan skor penerimaan 4.6/5.0.',
-    results:
-      'Nutribar berhasil dibuat dengan kandungan energi total 435 kcal per 100 gram, protein 13.2%, dan kaya zat besi. Produk ini sangat potensial sebagai suplemen pangan tanggap darurat.',
-    limitations: [
-      'Pengujian kadar vitamin lengkap memerlukan fasilitas analisis laboratorium eksternal terakreditasi.',
-    ],
-    nextSteps: [
-      'Pengemasan vakum alumunium foil untuk memperpanjang masa simpan hingga 12 bulan.',
-      'Mengajukan prototipe ke ajang inovasi pangan pemuda.',
-    ],
-    team: ['Tim Kimia Pangan & Kesehatan CC', 'Siswa Kelas X & XII STEM'],
-    duration: 'Sesi Rutin Rabu & Jumat (September – Oktober 2026)',
-    image: '/images/project-cooling.jpg',
-    imageCaption: 'Nutribar pangan lokal hasil formulasi riset laboratorium kimia Kanisius.',
-    featured: false,
-    competitionTarget: 'Juara 1 Youth Food Technology Competition (Nilai A)',
-    facilitiesUsed: ['Lab Kimia', 'Smartboard Lab'],
-  },
-  {
-    id: 'cc-proj-06',
-    slug: 'sound-wave-fire-damper',
-    number: '06',
-    title: 'Pembuatan Alat Peredam dan Supresi Api Berbasis Gelombang Akustik',
-    category: 'Physics / Robotics & Fire Safety',
-    categories: ['physics', 'engineering'],
-    year: 2027,
-    status: 'research',
-    summary:
-      'Inovasi alat peredam dan supresi api otomatis memanfaatkan gelombang suara frekuensi rendah (sound wave fire extinguisher) serta katup peredam untuk proteksi laboratorium.',
-    description:
-      'Kebakaran di laboratorium kimia/fisika membutuhkan penanganan cepat tanpa bahan kimia basah yang merusak alat presisi. Penelitian ini mengembangkan alat peredam api yang menggunakan gelombang akustik frekuensi 30–60 Hz untuk menekan pasokan oksigen di sekitar titik api (acoustic flame suppression). Alat dilengkapi sensor nyala api (flame sensor) dan katup peredam otomatis.',
-    researchQuestion:
-      'Berapa frekuensi (Hz) dan dekibel (dB) gelombang suara terbaik yang efektif memadamkan kobaran api hidrokarbon kecil dalam waktu <5 detik?',
-    hypothesis:
-      'Gelombang suara frekuensi 45 Hz pada intensitas >100 dB mampu mendistorsi batas nyala api dan menghentikan reaksi pembakaran secara instan tanpa residu.',
-    method: [
-      'Studi literatur akustik dan dinamika fluida pembakaran.',
-      'Merancang tabung kolimator akustik (vortex generator) berbahan akrilik dan aluminium.',
-      'Integrasi subwoofer daya tinggi 100W dengan sinyal generator frekuensi variabel.',
-      'Pemasangan sensor inframerah flame detector dan sistem kendali Arduino/ESP32.',
-      'Uji coba pemadaman api uji ukuran 5x5 cm pada kondisi terkontrol aman di Lab Fisika di bawah pengawasan guru advisor.',
-    ],
-    observations:
-      'Tahap simulasi awal di Lab Fisika menunjukkan nyala api lilin dan burner kecil bergoyang hebat dan padam saat diterpa gelombang 40–50 Hz.',
-    results:
-      'Riset tahap awal membuktikan pemadaman api konsisten dalam kurun waktu 3.2 detik pada frekuensi 44 Hz. Prototipe lengkap sedang disempurnakan untuk lomba tingkat internasional.',
-    limitations: [
-      'Jangkauan efektif pemadam gelombang suara saat ini terbatas pada jarak <1 meter.',
-      'Suara frekuensi rendah memerlukan peredam kebisingan pendukung untuk keamanan pendengaran operator.',
-    ],
-    nextSteps: [
-      'Peningkatan amplifier daya dan pembuatan nozzle pengarah gelombang suara terfokus.',
-      'Integrasi dengan sistem katup peredam otomatis pada lemari asam lab.',
-    ],
-    team: ['Tim Fisika Akustik & Otomasi CC', 'Koordinator Lab Fisika', 'Siswa Kelas XI STEM'],
-    duration: 'Sesi Rutin Rabu & Jumat (Riset Berjalan – Target Final 2027)',
-    image: '/images/project-biodiversity.jpg',
-    imageCaption: 'Tabung kolimator gelombang akustik peredam api dalam uji coba di Lab Fisika.',
-    featured: false,
-    competitionTarget: 'Target Juara International Applied Science Olympiad (Nilai A)',
-    facilitiesUsed: ['Alat Pyrolisis', 'Set Rangkaian Listrik', 'Lab Fisika', 'Smartboard Lab'],
   },
 ];
 
@@ -304,10 +365,3 @@ export function getProjectBySlug(slug: string): Project | undefined {
 export function getFeaturedProject(): Project {
   return projects.find((p) => p.featured) ?? projects[0];
 }
-
-export const statusLabels: Record<ProjectStatus, string> = {
-  'completed': 'Completed (Juara/Finalis)',
-  'in-progress': 'In Progress (Rabu & Jumat)',
-  'planned': 'Planned (Persiapan Lomba)',
-  'research': 'Research Phase (Lab CC)',
-};

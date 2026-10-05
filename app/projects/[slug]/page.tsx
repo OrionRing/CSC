@@ -1,48 +1,34 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
-import { projects as projectsV1, getProjectBySlug as getProjectV1 } from '@/data/v1/projects';
-import { projects as projectsV2, getProjectBySlug as getProjectV2 } from '@/data/v2/projects';
-import {
-  SectionLabel,
-  StatusBadge,
-  ImagePlaceholder,
-  ArrowLink,
-} from '@/components/ui';
+import { ArrowLeft, Award } from 'lucide-react';
+import { projects, getProjectBySlug } from '@/data/v2/projects';
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
-  const allProjects = [...projectsV1, ...projectsV2];
-  const uniqueSlugs = Array.from(new Set(allProjects.map((p) => p.slug)));
-  return uniqueSlugs.map((slug) => ({ slug }));
-}
-
-function findProject(slug: string) {
-  return getProjectV2(slug) || getProjectV1(slug);
+  return projects.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const project = findProject(slug);
+  const project = getProjectBySlug(slug);
   if (!project) return { title: 'Project Not Found' };
 
   return {
-    title: project.title,
+    title: `${project.title} — Canisius Science Club`,
     description: project.summary,
   };
 }
 
 export default async function ProjectDetailPage({ params }: Props) {
   const { slug } = await params;
-  const project = findProject(slug);
+  const project = getProjectBySlug(slug);
   if (!project) notFound();
 
-  const allProjects = [...projectsV2, ...projectsV1];
-  const related = allProjects
+  const related = projects
     .filter(
       (p) =>
         p.slug !== project.slug &&
@@ -50,281 +36,205 @@ export default async function ProjectDetailPage({ params }: Props) {
     )
     .slice(0, 2);
 
-  const isPlannedOrResearch =
-    project.status === 'planned' || project.status === 'research';
-
   return (
-    <>
-      {/* Back link + hero */}
-      <section className="pt-28 pb-0 bg-[#FFFFFF]" aria-labelledby="project-title">
+    <article className="min-h-screen bg-[#050505] text-white">
+      {/* Header section */}
+      <section className="pt-28 pb-16 border-b border-white/10" aria-labelledby="project-title">
         <div className="container-main">
-          {/* Back */}
+          {/* Back link */}
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 label text-[#606060] hover:text-[#111111]
-              transition-colors duration-200 mb-10 group"
-            aria-label="Back to all projects"
+            className="inline-flex items-center gap-2 text-xs font-mono text-white/60 hover:text-white transition-colors duration-200 mb-8 group"
+            aria-label="Kembali ke semua karya penelitian"
           >
             <ArrowLeft
               size={14}
               className="transition-transform duration-200 group-hover:-translate-x-1"
               aria-hidden="true"
             />
-            All Projects
+            <span>SEMUA KARYA PENELITIAN</span>
           </Link>
 
           {/* Meta */}
-          <div className="flex items-center gap-3 mb-6 flex-wrap">
-            <span className="label text-[#606060]">PROJECT {project.number}</span>
-            <span className="label text-[#E8E8E4]">—</span>
-            <span className="label text-[#606060]">{project.category.toUpperCase()}</span>
-            <span className="label text-[#606060]">{project.year}</span>
+          <div className="flex items-center gap-3 mb-6 flex-wrap text-xs font-mono text-[#888888]">
+            <span className="text-[#D83933] font-bold">PROJECT {project.number}</span>
+            <span>—</span>
+            <span>{project.category.toUpperCase()}</span>
+            <span>—</span>
+            <span>{project.year}</span>
           </div>
 
           {/* Title */}
           <h1
             id="project-title"
-            className="page-headline text-[#111111] mb-8 max-w-4xl"
+            className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-6 max-w-4xl leading-tight"
           >
             {project.title}
           </h1>
 
-          {/* Status + duration */}
-          <div className="flex flex-wrap items-center gap-4 mb-12">
-            <StatusBadge status={project.status} />
-            <span className="label text-[#B8B8B8]">·</span>
-            <span className="label text-[#606060]">{project.duration}</span>
-            {(project as any).competitionTarget && (
-              <span className="label bg-emerald-100 text-emerald-800 px-3 py-1 rounded font-mono font-semibold">
-                🎯 {(project as any).competitionTarget}
-              </span>
-            )}
+          {/* Authors */}
+          <div className="flex items-center gap-2 mb-6 font-mono text-sm text-white/80">
+            <span className="text-[#D83933] font-bold">Peneliti:</span>
+            <span>{project.authors.join(', ')}</span>
           </div>
-        </div>
 
-        {/* Feature image — full width */}
-        <div className="container-main px-0 lg:px-0">
-          <ImagePlaceholder
-            label={`PROJECT ${project.number} · ${project.category.toUpperCase()}`}
-            sublabel={project.imageCaption}
-            caption={`${project.imageCaption}`}
-            className="aspect-[16/7]"
-            aspectRatio=""
-          />
+          {/* Award badge */}
+          {project.award && (
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-[#D83933]/15 text-[#D83933] text-xs font-mono border border-[#D83933]/30">
+              <Award size={14} className="shrink-0" />
+              <span>{project.award}</span>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* Article body */}
-      <section className="section-spacing bg-[#FFFFFF]">
+      {/* Main body */}
+      <section className="py-16">
         <div className="container-main">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-            {/* Main content */}
-            <div className="lg:col-span-7">
-
-              {/* Overview */}
-              <div className="mb-14">
-                <SectionLabel className="mb-4">OVERVIEW & SUMMARY</SectionLabel>
-                <p className="body-large text-[#606060] leading-relaxed">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+            {/* Left column: Content */}
+            <div className="lg:col-span-8 space-y-12">
+              {/* Summary & Description */}
+              <div>
+                <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest block mb-3">
+                  RINGKASAN EKSEKUTIF
+                </span>
+                <p className="text-base sm:text-lg text-white/80 leading-relaxed">
                   {project.description}
                 </p>
               </div>
 
-              <hr className="mb-14" />
-
-              {/* Research question */}
-              <div className="mb-14">
-                <SectionLabel className="mb-4">RESEARCH QUESTION</SectionLabel>
-                <blockquote className="border-l-2 border-[#D83933] pl-6">
-                  <p className="text-[#111111] text-xl font-medium leading-relaxed italic">
-                    {project.researchQuestion}
+              <div className="border-t border-white/10 pt-10">
+                <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest block mb-3">
+                  RUMUSAN MASALAH / RESEARCH QUESTION
+                </span>
+                <blockquote className="border-l-2 border-[#D83933] pl-6 py-1">
+                  <p className="text-lg sm:text-xl font-medium text-white italic leading-relaxed">
+                    &ldquo;{project.researchQuestion}&rdquo;
                   </p>
                 </blockquote>
               </div>
 
-              <hr className="mb-14" />
-
-              {/* Hypothesis */}
-              <div className="mb-14">
-                <SectionLabel className="mb-4">HYPOTHESIS</SectionLabel>
-                <p className="text-[#606060] leading-relaxed">
+              <div className="border-t border-white/10 pt-10">
+                <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest block mb-3">
+                  HIPOTESIS
+                </span>
+                <p className="text-sm sm:text-base text-white/70 leading-relaxed">
                   {project.hypothesis}
                 </p>
               </div>
 
-              <hr className="mb-14" />
-
               {/* Method */}
-              <div className="mb-14">
-                <SectionLabel className="mb-4">
-                  METHOD & PROCEDURES{isPlannedOrResearch ? ' (PLANNED)' : ''}
-                </SectionLabel>
-                {isPlannedOrResearch && (
-                  <p className="label text-[#D83933] mb-4">
-                    PLANNED INVESTIGATION — method undergoing lab preparation
-                  </p>
-                )}
+              <div className="border-t border-white/10 pt-10">
+                <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest block mb-6">
+                  METODOLOGI & PROSEDUR EKSPERIMEN
+                </span>
                 <ol className="space-y-4">
                   {project.method.map((step, i) => (
                     <li key={i} className="flex gap-4">
-                      <span className="label text-[#B8B8B8] shrink-0 mt-0.5 font-mono">
-                        {String(i + 1).padStart(2, '0')}
+                      <span className="text-xs font-mono text-[#D83933] font-bold shrink-0 mt-0.5">
+                        {String(i + 1).padStart(2, '0')}.
                       </span>
-                      <p className="text-[#606060] leading-relaxed">{step}</p>
+                      <p className="text-sm text-white/70 leading-relaxed">{step}</p>
                     </li>
                   ))}
                 </ol>
               </div>
 
-              <hr className="mb-14" />
-
               {/* Observations */}
-              <div className="mb-14">
-                <SectionLabel className="mb-4">
-                  LAB OBSERVATIONS & DATA
-                </SectionLabel>
-                <p className="text-[#606060] leading-relaxed">
+              <div className="border-t border-white/10 pt-10">
+                <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest block mb-3">
+                  OBSERVASI LABORATORIUM
+                </span>
+                <p className="text-sm sm:text-base text-white/70 leading-relaxed">
                   {project.observations}
                 </p>
               </div>
 
-              <hr className="mb-14" />
-
               {/* Results */}
-              <div className="mb-14">
-                <SectionLabel className="mb-4">RESULTS & FINDINGS</SectionLabel>
-                <p className="text-[#606060] leading-relaxed">
+              <div className="border-t border-white/10 pt-10">
+                <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest block mb-3">
+                  HASIL PENELITIAN & ANALISIS
+                </span>
+                <p className="text-sm sm:text-base text-white/80 leading-relaxed">
                   {project.results}
                 </p>
               </div>
 
-              <hr className="mb-14" />
-
-              {/* Limitations */}
-              <div className="mb-14">
-                <SectionLabel className="mb-4 font-mono">LIMITATIONS</SectionLabel>
-                <ul className="space-y-3">
-                  {project.limitations.map((lim, i) => (
-                    <li key={i} className="flex gap-3">
-                      <span className="text-[#D83933] mt-1.5 shrink-0" aria-hidden="true">
-                        —
-                      </span>
-                      <p className="text-[#606060] leading-relaxed">{lim}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <hr className="mb-14" />
-
-              {/* Next steps */}
-              <div className="mb-14">
-                <SectionLabel className="mb-4 font-mono">NEXT STEPS</SectionLabel>
-                <ul className="space-y-3">
-                  {project.nextSteps.map((step, i) => (
-                    <li key={i} className="flex gap-3">
-                      <span className="label text-[#B8B8B8] shrink-0 mt-0.5 font-mono">
-                        {String(i + 1).padStart(2, '0')}
-                      </span>
-                      <p className="text-[#606060] leading-relaxed">{step}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            {/* Sidebar */}
-            <aside className="lg:col-span-5 lg:col-start-9">
-              <div className="sticky top-24">
-                {/* Project info card */}
-                <div className="bg-[#F4F4F1] p-8 mb-8">
-                  <SectionLabel className="mb-6">PROJECT METADATA</SectionLabel>
-
-                  <dl className="space-y-5">
-                    <div>
-                      <dt className="label text-[#B8B8B8] mb-1">STATUS</dt>
-                      <dd>
-                        <StatusBadge status={project.status} />
-                      </dd>
-                    </div>
-                    <div>
-                      <dt className="label text-[#B8B8B8] mb-1">CATEGORY</dt>
-                      <dd className="text-[#111111] text-sm font-medium">
-                        {project.category}
-                      </dd>
-                    </div>
-                    <div>
-                      <dt className="label text-[#B8B8B8] mb-1">YEAR</dt>
-                      <dd className="label text-[#111111]">{project.year}</dd>
-                    </div>
-                    <div>
-                      <dt className="label text-[#B8B8B8] mb-1">DURATION</dt>
-                      <dd className="text-[#606060] text-sm">{project.duration}</dd>
-                    </div>
-                    {(project as any).facilitiesUsed && (
-                      <div>
-                        <dt className="label text-[#B8B8B8] mb-1">LAB FACILITIES USED</dt>
-                        <dd className="text-xs font-mono text-emerald-800 bg-emerald-50 p-2 rounded">
-                          {(project as any).facilitiesUsed.join(' • ')}
-                        </dd>
-                      </div>
-                    )}
-                  </dl>
-                </div>
-
-                {/* Team */}
-                <div className="bg-[#F4F4F1] p-8">
-                  <SectionLabel className="mb-5">RESEARCH TEAM</SectionLabel>
-                  <ul className="space-y-3">
-                    {project.team.map((member, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <span className="text-[#D83933] mt-1 shrink-0" aria-hidden="true">
-                          ·
-                        </span>
-                        <span className="text-[#606060] text-sm">{member}</span>
+              {/* Limitations & Next Steps */}
+              <div className="border-t border-white/10 pt-10 grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div>
+                  <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest block mb-3">
+                    BATASAN PENELITIAN
+                  </span>
+                  <ul className="space-y-2 text-xs text-white/60 leading-relaxed">
+                    {project.limitations.map((lim, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="text-[#D83933]">•</span>
+                        <span>{lim}</span>
                       </li>
                     ))}
                   </ul>
+                </div>
+
+                <div>
+                  <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest block mb-3">
+                    LANGKAH LANJUTAN
+                  </span>
+                  <ul className="space-y-2 text-xs text-white/60 leading-relaxed">
+                    {project.nextSteps.map((step, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="text-[#D83933]">•</span>
+                        <span>{step}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Right column: Sidebar metadata */}
+            <aside className="lg:col-span-4">
+              <div className="p-8 bg-[#0D0D0D] border border-white/10 sticky top-24 space-y-6 text-xs font-mono">
+                <span className="text-[#D83933] font-bold tracking-widest uppercase block">
+                  METADATA PENELITIAN
+                </span>
+
+                <div>
+                  <p className="text-white/40 mb-1">KOMPETISI / KONTEKS</p>
+                  <p className="text-white font-semibold">{project.competitionContext}</p>
+                </div>
+
+                {project.award && (
+                  <div>
+                    <p className="text-white/40 mb-1">PENGHARGAAN</p>
+                    <p className="text-[#D83933] font-bold">{project.award}</p>
+                  </div>
+                )}
+
+                <div>
+                  <p className="text-white/40 mb-1">TIM PENELITI</p>
+                  <ul className="space-y-1 text-white">
+                    {project.authors.map((author, i) => (
+                      <li key={i}>• {author}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <p className="text-white/40 mb-1">INSTITUSI</p>
+                  <p className="text-white">SMA Kolese Kanisius Jakarta</p>
+                </div>
+
+                <div>
+                  <p className="text-white/40 mb-1">BIDANG RISET</p>
+                  <p className="text-white">{project.category}</p>
                 </div>
               </div>
             </aside>
           </div>
         </div>
       </section>
-
-      {/* Related projects */}
-      {related.length > 0 && (
-        <section className="section-spacing-sm bg-[#F4F4F1] border-t border-[#E8E8E4]">
-          <div className="container-main">
-            <SectionLabel className="mb-10">RELATED RESEARCH</SectionLabel>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
-              {related.map((rp) => (
-                <article key={rp.id} className="border-t border-[#E8E8E4] pt-6">
-                  <div className="image-zoom mb-4">
-                    <Link href={`/projects/${rp.slug}`} tabIndex={-1} aria-hidden="true">
-                      <ImagePlaceholder
-                        label={`PROJECT ${rp.number}`}
-                        sublabel={rp.category.toUpperCase()}
-                        caption={rp.title}
-                        className="aspect-[4/3]"
-                      />
-                    </Link>
-                  </div>
-                  <div className="flex items-center gap-2 mb-3 flex-wrap">
-                    <span className="label text-[#606060] text-xs">{rp.category.toUpperCase()}</span>
-                    <StatusBadge status={rp.status} />
-                  </div>
-                  <h3 className="text-[#111111] font-bold text-xl tracking-tight mb-3">
-                    {rp.title}
-                  </h3>
-                  <ArrowLink href={`/projects/${rp.slug}`}>
-                    Explore project
-                  </ArrowLink>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-    </>
+    </article>
   );
 }

@@ -1,134 +1,90 @@
 'use client';
 
 import { useState } from 'react';
-import { useVersion } from '@/context/VersionContext';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+import { projects, Project } from '@/data/v2/projects';
 import { ProjectCard } from '@/components/ProjectComponents';
-import { SectionLabel } from '@/components/ui';
 
-type Filter = 'all' | 'biology' | 'physics' | 'chemistry' | 'engineering' | 'environmental';
-
-const filters: { value: Filter; label: string }[] = [
-  { value: 'all', label: 'All' },
-  { value: 'biology', label: 'Biology' },
-  { value: 'physics', label: 'Physics' },
-  { value: 'chemistry', label: 'Chemistry' },
-  { value: 'engineering', label: 'Engineering' },
-  { value: 'environmental', label: 'Environmental' },
-];
+const categories = [
+  'Semua Kategori',
+  'Chemistry / Nanotechnology',
+  'Physics / Renewable Energy',
+  'Biology / Bio-Energy',
+  'Health / Biomedical Engineering',
+  'Environmental Science / Biology',
+  'Civil & Environmental Engineering',
+  'Computer Science / Astronomy',
+] as const;
 
 export default function ProjectsPage() {
-  const { version, projects } = useVersion();
-  const [activeFilter, setActiveFilter] = useState<Filter>('all');
-  const isV2 = version === 'v2';
+  const [selectedCategory, setSelectedCategory] = useState<string>('Semua Kategori');
 
-  const filtered =
-    activeFilter === 'all'
-      ? projects
-      : projects.filter((p: any) => p.categories.includes(activeFilter));
+  const filteredProjects = projects.filter((project) => {
+    if (selectedCategory === 'Semua Kategori') return true;
+    return project.category === selectedCategory;
+  });
 
   return (
     <>
       {/* Hero */}
       <section
-        className="pt-32 pb-16 bg-[#F4F4F1] border-b border-[#E8E8E4]"
+        className="pt-28 pb-16 bg-[#050505] text-white border-b border-white/10"
         aria-labelledby="projects-hero-heading"
       >
         <div className="container-main">
-          <div className="flex items-center gap-2 mb-5">
-            <SectionLabel>PROJECTS</SectionLabel>
-            {isV2 && (
-              <span className="bg-emerald-500/20 text-emerald-800 text-[10px] font-mono px-2 py-0.5 rounded font-semibold border border-emerald-500/30">
-                KOLESE KANISIUS RESEARCH (V2)
-              </span>
-            )}
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest uppercase">
+              RESEARCH REPOSITORY
+            </span>
+            <span className="text-white/20">|</span>
+            <span className="text-xs font-mono text-white/60 uppercase">
+              CANISIUS SCIENCE CLUB
+            </span>
           </div>
+
           <h1
             id="projects-hero-heading"
-            className="page-headline text-[#111111] mb-6 max-w-4xl"
+            className="text-4xl sm:text-6xl font-bold tracking-tight text-white mb-8 max-w-4xl leading-tight"
           >
-            {isV2
-              ? 'Daftar Penelitian & Prototipe Riset STEM.'
-              : 'Questions worth investigating.'}
+            Karya Inovasi & Riset Ilmiah.
           </h1>
-          <p className="body-large text-[#606060] max-w-2xl leading-relaxed">
-            {isV2
-              ? 'Kumpulan proyek penelitian nyata siswa Kolese Kanisius (CQD Akrilik UV-A, TEG Destilator Aquadest, Generator Pintu Geser, Eco-Enzyme MFC, Nutribar Lokal, Supresi Api Akustik) yang dikembangkan pada sesi Rabu & Jumat untuk kompetisi nasional dan pemenuhan Nilai A.'
-              : 'Our projects begin with curiosity and develop through research, experimentation, observation, and iteration.'}
+          <p className="text-base sm:text-lg text-white/70 max-w-2xl leading-relaxed">
+            Koleksi publikasi karya penelitian siswa SMA Kolese Kanisius. Seluruh proyek berbasis pengujian eksperimen laboratorium dengan hipotesis terukur dan metodologi saintifik yang dapat dipertanggungjawabkan.
           </p>
         </div>
       </section>
 
-      {/* Filter bar */}
-      <section aria-label="Filter projects by category">
-        <div className="container-main py-6 border-b border-[#E8E8E4]">
-          <div className="flex items-center gap-3 flex-wrap" role="group" aria-label="Category filters">
-            <span className="label text-[#606060] mr-2 hidden sm:inline">FILTER</span>
-            {filters.map((f) => (
+      {/* Projects Grid & Category Filter */}
+      <section className="py-20 bg-[#0A0A0A] text-white" aria-labelledby="all-projects-heading">
+        <div className="container-main">
+          {/* Category Filter Pills */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-12 scrollbar-none">
+            {categories.map((cat) => (
               <button
-                key={f.value}
-                onClick={() => setActiveFilter(f.value)}
-                className={`filter-btn ${activeFilter === f.value ? 'filter-btn-active' : ''}`}
-                aria-pressed={activeFilter === f.value}
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-4 py-2 text-xs font-mono rounded whitespace-nowrap transition-colors duration-200 ${
+                  selectedCategory === cat
+                    ? 'bg-[#D83933] text-white font-bold'
+                    : 'bg-[#141414] text-white/70 hover:text-white border border-white/10'
+                }`}
               >
-                {f.label}
+                {cat}
               </button>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Projects grid */}
-      <section className="section-spacing bg-[#FFFFFF]" aria-live="polite" aria-atomic="true">
-        <div className="container-main">
-          {/* Count */}
-          <p className="label text-[#606060] mb-10">
-            {filtered.length} {filtered.length === 1 ? 'PROJECT' : 'PROJECTS'}
-            {activeFilter !== 'all' && ` · ${activeFilter.toUpperCase()}`}
-          </p>
+          {/* Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredProjects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </div>
 
-          {filtered.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 border-b border-[#E8E8E4]">
-              {filtered.map((project: any, i: number) => (
-                <div
-                  key={project.id}
-                  className={`p-6 lg:p-10 border-t border-[#E8E8E4]
-                    ${i % 3 !== 2 ? 'lg:border-r lg:border-r-[#E8E8E4]' : ''}
-                    ${i % 2 !== 1 ? 'sm:border-r sm:border-r-[#E8E8E4]' : ''}
-                  `}
-                >
-                  <ProjectCard project={project} />
-                  {isV2 && project.competitionTarget && (
-                    <div className="mt-4 pt-3 border-t border-[#E8E8E4] text-[11px] font-mono text-emerald-700 bg-emerald-50 p-2 rounded">
-                      🎯 <strong>Target:</strong> {project.competitionTarget}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="py-24 text-center">
-              <p className="label text-[#B8B8B8] mb-4">NO PROJECTS FOUND</p>
-              <p className="text-[#606060]">
-                No projects match the selected filter.{' '}
-                <button
-                  onClick={() => setActiveFilter('all')}
-                  className="underline hover:text-[#111111] transition-colors"
-                >
-                  View all projects
-                </button>
-              </p>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* Image library note */}
-      <section className="bg-[#F4F4F1] py-10 border-t border-[#E8E8E4]">
-        <div className="container-main">
-          <p className="label text-[#B8B8B8]">
-            {isV2
-              ? 'Versi 2: Kolese Kanisius (All-Boys High School) • Pertemuan Rabu & Jumat • Target Finalis Lomba (Nilai A) • Cura Personalis'
-              : 'Image placeholders are active. Replace with club photography in /public/images/'}
+          {/* Bottom count notice */}
+          <p className="text-xs font-mono text-white/40 mt-12 text-center">
+            Menampilkan {filteredProjects.length} dari {projects.length} karya penelitian terdaftar
           </p>
         </div>
       </section>

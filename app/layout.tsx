@@ -4,43 +4,23 @@ import { GeistMono } from 'geist/font/mono';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { VersionProvider } from '@/context/VersionContext';
-import VersionBanner from '@/components/VersionBanner';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Science Club — Explore. Experiment. Discover.',
-    template: '%s — Science Club',
+    default: 'Canisius Science Club — SMA Kolese Kanisius Jakarta',
+    template: '%s — Canisius Science Club',
   },
   description:
-    'A student-led high school Science Club exploring science through experiments, research, engineering, and collaboration.',
+    'Ekstrakulikuler Riset STEM SMA Kolese Kanisius Jakarta. Mengembangkan rasa ingin tahu, daya juang kompetisi, dan solusi nyata demi merawat alam ciptaan.',
   keywords: [
-    'science club',
-    'high school science',
-    'student research',
-    'experiments',
-    'biology',
-    'chemistry',
-    'physics',
-    'environmental science',
-    'engineering',
+    'canisius science club',
     'kolese kanisius',
-    'canisius college',
+    'sma kolese kanisius',
+    'ekskul riset kanisius',
+    'stem high school',
+    'student research',
+    'cura personalis',
   ],
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    siteName: 'Science Club',
-    title: 'Science Club — Explore. Experiment. Discover.',
-    description:
-      'A student-led high school Science Club exploring science through experiments, research, engineering, and collaboration.',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Science Club — Explore. Experiment. Discover.',
-    description:
-      'A student-led high school Science Club exploring science through experiments, research, engineering, and collaboration.',
-  },
 };
 
 export default function RootLayout({
@@ -50,23 +30,19 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="id"
       id="top"
       className={`${GeistSans.variable} ${GeistMono.variable}`}
     >
-      <body>
-        <VersionProvider>
-          <header className="sticky top-0 z-50 w-full bg-[#050505]">
-            <VersionBanner />
-            <Navbar />
-          </header>
-          <main id="main-content" tabIndex={-1}>
-            {children}
-          </main>
-          <Footer />
-        </VersionProvider>
+      <body className="bg-[#050505] text-white">
+        <header className="sticky top-0 z-50 w-full bg-[#050505]">
+          <Navbar />
+        </header>
+        <main id="main-content" tabIndex={-1}>
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );
 }
-

@@ -1,8 +1,7 @@
 import type { MetadataRoute } from 'next';
-import { projects } from '@/data/projects';
-import { journalPosts } from '@/data/journal';
+import { projects } from '@/data/v2/projects';
 
-const baseUrl = 'https://scienceclub.school';
+const baseUrl = 'https://canisiusscienceclub.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -10,7 +9,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/projects`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/roadmap`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/journal`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
   ];
 
   const projectRoutes: MetadataRoute.Sitemap = projects.map((p) => ({
@@ -20,12 +18,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const journalRoutes: MetadataRoute.Sitemap = journalPosts.map((p) => ({
-    url: `${baseUrl}/journal/${p.slug}`,
-    lastModified: new Date(p.dateISO),
-    changeFrequency: 'never' as const,
-    priority: 0.6,
-  }));
-
-  return [...staticRoutes, ...projectRoutes, ...journalRoutes];
+  return [...staticRoutes, ...projectRoutes];
 }

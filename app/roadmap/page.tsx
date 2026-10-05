@@ -1,134 +1,88 @@
 'use client';
 
-import { useVersion } from '@/context/VersionContext';
-import { SectionLabel } from '@/components/ui';
-import { RoadmapItem } from '@/components/RoadmapItem';
+import Link from 'next/link';
+import { Clock, AlertCircle, ArrowRight } from 'lucide-react';
 
 export default function RoadmapPage() {
-  const { version, statusGroups, longTermGoals } = useVersion();
-  const isV2 = version === 'v2';
-
   return (
-    <>
+    <article className="min-h-screen bg-[#050505] text-white">
       {/* Hero */}
       <section
-        className="pt-32 pb-16 bg-[#050505]"
+        className="pt-28 pb-16 border-b border-white/10"
         aria-labelledby="roadmap-hero-heading"
       >
         <div className="container-main">
-          <div className="flex items-center gap-2 mb-5">
-            <SectionLabel light>ROADMAP</SectionLabel>
-            {isV2 && (
-              <span className="bg-emerald-500/20 text-emerald-300 text-[10px] font-mono px-2 py-0.5 rounded font-semibold border border-emerald-500/30">
-                TAHAPAN KOMPETISI KANISIUS (V2)
-              </span>
-            )}
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-xs font-mono text-[#D83933] font-bold tracking-widest uppercase">
+              STATUS UPDATE
+            </span>
+            <span className="text-white/20">|</span>
+            <span className="text-xs font-mono text-white/60 uppercase">
+              CANISIUS SCIENCE CLUB
+            </span>
           </div>
+
           <h1
             id="roadmap-hero-heading"
-            className="page-headline text-white mb-8 max-w-4xl"
+            className="text-4xl sm:text-6xl font-bold tracking-tight text-white mb-8 max-w-4xl leading-tight"
           >
-            {isV2 ? 'Roadmap Kompetisi & Target Nilai A.' : 'Where curiosity takes us next.'}
+            Roadmap Kegiatan & Kompetisi.
           </h1>
-          <p className="body-large text-[#B8B8B8] max-w-2xl leading-relaxed">
-            {isV2
-              ? 'Tahapan kronologis riset STEM Kolese Kanisius mulai dari orientasi lab, eksperimen sesi Rabu & Jumat, seleksi naskah ilmiah, hingga pengiriman karya ke kompetisi nasional.'
-              : 'A chronological view of what we have done, what is in progress, and where the club is heading.'}
+          <p className="text-base sm:text-lg text-white/70 max-w-2xl leading-relaxed">
+            Jadwal pelaksanaan tahapan riset, sinkronisasi kalender kompetisi ilmiah remaja, dan agenda kegiatan ekstrakulikuler.
           </p>
         </div>
       </section>
 
-      {/* Completed */}
-      {statusGroups.completed.length > 0 && (
-        <section
-          className="section-spacing bg-[#FFFFFF]"
-          aria-labelledby="completed-heading"
-        >
-          <div className="container-main">
-            <div className="flex items-center gap-4 mb-12">
-              <SectionLabel className="mb-0">COMPLETED</SectionLabel>
-              <span className="w-2 h-2 rounded-full bg-[#111111]" aria-hidden="true" />
-            </div>
-            {statusGroups.completed.map((milestone: any) => (
-              <RoadmapItem key={milestone.id} milestone={milestone} />
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* Current */}
-      {statusGroups.current.length > 0 && (
-        <section
-          className="section-spacing bg-[#F4F4F1] border-y border-[#E8E8E4]"
-          aria-labelledby="current-heading"
-        >
-          <div className="container-main">
-            <div className="flex items-center gap-4 mb-12">
-              <SectionLabel className="mb-0">CURRENT</SectionLabel>
-              <span className="w-2 h-2 rounded-full bg-[#D83933]" aria-hidden="true" />
-            </div>
-            {statusGroups.current.map((milestone: any) => (
-              <RoadmapItem key={milestone.id} milestone={milestone} />
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* Upcoming */}
-      {statusGroups.upcoming.length > 0 && (
-        <section
-          className="section-spacing bg-[#FFFFFF]"
-          aria-labelledby="upcoming-heading"
-        >
-          <div className="container-main">
-            <div className="flex items-center gap-4 mb-12">
-              <SectionLabel className="mb-0">UPCOMING</SectionLabel>
-              <span className="w-2 h-2 rounded-full bg-[#B8B8B8]" aria-hidden="true" />
-            </div>
-            {statusGroups.upcoming.map((milestone: any) => (
-              <RoadmapItem key={milestone.id} milestone={milestone} />
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* Long-term direction */}
-      <section
-        className="section-dark section-spacing"
-        aria-labelledby="longterm-heading"
-      >
+      {/* On Delay Notice Card */}
+      <section className="py-20" aria-labelledby="delay-heading">
         <div className="container-main">
-          <SectionLabel light className="mb-5">
-            {isV2 ? 'STRATEGI JANGKA PANJANG KANISIUS' : 'LONG-TERM DIRECTION'}
-          </SectionLabel>
-          <h2 id="longterm-heading" className="section-headline text-white mb-4">
-            {isV2 ? 'Visi Inovasi 2027 & Keberlanjutan.' : '2027 and beyond.'}
-          </h2>
-          <p className="text-[#B8B8B8] mb-12 max-w-lg">
-            {isV2
-              ? 'Target strategis ekskul riset Kolese Kanisius dalam pemenuhan keunggulan akademis dan dampak nyata bagi masyarakat.'
-              : 'These are directions we are working toward — goals rather than confirmed plans.'}
-          </p>
+          <div className="max-w-3xl p-10 bg-[#0D0D0D] border border-white/10 rounded">
+            <div className="flex items-center gap-3 text-[#D83933] mb-6">
+              <Clock size={24} />
+              <span className="font-mono text-sm font-bold uppercase tracking-wider">
+                Status: On Delay / Penjadwalan Ulang
+              </span>
+            </div>
 
-          <div className="max-w-3xl">
-            {longTermGoals.map((goal, i) => (
-              <div
-                key={i}
-                className="flex gap-8 py-6 border-t border-white/10"
+            <h2 id="delay-heading" className="text-2xl sm:text-3xl font-bold text-white mb-6">
+              Roadmap Resmi Sedang Dalam Penyesuaian Kalender Akademik.
+            </h2>
+
+            <p className="text-white/70 text-base leading-relaxed mb-6">
+              Roadmap publik untuk periode semester berjalan saat ini sedang <strong>on delay</strong> sehubungan dengan penyesuaian tenggat waktu pendaftaran kompetisi ilmiah nasional (OPSI, LIPI/BRIN, EUREKA! ITB) serta kalender ujian SMA Kolese Kanisius.
+            </p>
+
+            <p className="text-white/70 text-base leading-relaxed mb-8">
+              Meskipun roadmap publik sedang dijadwalkan ulang, seluruh kelompok riset tetap aktif menjalankan eksperimen rutin setiap hari <strong>Rabu dan Jumat (15.00 – 17.00 WIB)</strong> di laboratorium sekolah.
+            </p>
+
+            <div className="p-6 bg-[#141414] border border-white/05 rounded font-mono text-xs text-white/70 space-y-2 mb-8">
+              <p className="text-[#D83933] font-bold">INFORMASI PENJADWALAN:</p>
+              <p>• Sesi Lab Rutin: Tetap berlangsung sesuai jadwal mingguan</p>
+              <p>• Pembaruan Kalender Lomba: Akan dipublikasikan setelah sinkronisasi pembimbing riset</p>
+              <p>• Pertanyaan Jadwal: Silakan hubungi koordinator ekskul riset di sekolah</p>
+            </div>
+
+            <div className="flex items-center gap-4 flex-wrap">
+              <Link
+                href="/projects"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#D83933] text-white font-mono text-xs font-bold hover:bg-[#b82e28] transition-colors duration-200 rounded"
               >
-                <span
-                  className="label text-[#D83933] shrink-0 mt-0.5 font-mono"
-                  aria-hidden="true"
-                >
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <p className="text-[#B8B8B8] leading-relaxed">{goal}</p>
-              </div>
-            ))}
-            <div className="border-t border-white/10" />
+                <span>Lihat Karya Penelitian Berjalan</span>
+                <ArrowRight size={14} />
+              </Link>
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 text-xs font-mono text-white/60 hover:text-white transition-colors duration-200"
+              >
+                <span>Profil & Jadwal Pertemuan</span>
+                <ArrowRight size={12} className="text-[#D83933]" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
-    </>
+    </article>
   );
 }
