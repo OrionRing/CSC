@@ -7,12 +7,9 @@ import { projects } from '@/data/v2/projects';
 import { milestones } from '@/data/v2/roadmap';
 import { SectionLabel, ArrowLink, CircularCTA } from '@/components/ui';
 import { ProjectCard } from '@/components/ProjectComponents';
-import { RoadmapItem } from '@/components/RoadmapItem';
 
 export default function HomePage() {
   const featuredProjects = projects.slice(0, 3);
-  const currentFocus = projects[1] || projects[0]; // PCM Solar Cooling project
-  const roadmapPreview = milestones.slice(0, 3);
 
   return (
     <>
@@ -31,7 +28,7 @@ export default function HomePage() {
             </span>
             <span className="label text-white/30">·</span>
             <span className="label text-white/60">
-              KOLLESE KANISIUS JAKARTA / 2026–2027
+              KOLESE KANISIUS JAKARTA / 2026–2027
             </span>
           </div>
 
@@ -150,7 +147,7 @@ export default function HomePage() {
       </section>
 
       {/* =====================================================
-          CURRENT FOCUS / FEATURED HIGHLIGHT
+          CURRENT FOCUS: BIOMEDICAL & NATURAL BOTANICAL RESEACH
           ===================================================== */}
       <section
         className="section-spacing bg-[#FFFFFF] text-[#111111] border-b border-[#E8E8E4]"
@@ -161,30 +158,34 @@ export default function HomePage() {
 
           <div className="p-8 lg:p-14 bg-[#F4F4F1] border border-[#E8E8E4]">
             <div className="flex items-center gap-3 mb-4 text-xs font-mono text-[#606060]">
-              <span className="text-[#D83933] font-bold uppercase">{currentFocus.category}</span>
+              <span className="text-[#D83933] font-bold uppercase">Biomedical Science / Natural Therapeutics</span>
               <span>—</span>
-              <span>PROJECT {currentFocus.number}</span>
+              <span>ACTIVE LAB INITIATIVE</span>
               <span>—</span>
-              <span>{currentFocus.year}</span>
+              <span>2026–2027</span>
             </div>
 
             <h2
               id="focus-heading"
               className="text-2xl lg:text-4xl font-bold tracking-tight text-[#111111] mb-4 leading-tight"
             >
-              {currentFocus.title}
+              Biomedical Extraction: Jatropha Leaf (Daun Jarak) Antibacterial Gel Formulations
             </h2>
 
             <p className="label text-[#606060] mb-6">
-              Authors: {currentFocus.authors.join(', ')}
+              Active Focus: Student Biomedical Cohort • Botanical Secondary Metabolites
             </p>
 
-            <p className="body-large text-[#606060] max-w-3xl leading-relaxed mb-8">
-              {currentFocus.summary}
+            <p className="body-large text-[#606060] max-w-3xl leading-relaxed mb-6">
+              Members are currently pursuing individual investigations in medical and biomedical sciences, focusing on extracting bioactive phytochemicals from local flora. One active trial investigates saponin and flavonoid extracts from <em>Jatropha curcas</em> (Daun Jarak) to formulate topically stable, natural antibacterial gels that inhibit common pathogenic bacteria without reliance on synthetic biocides.
             </p>
 
-            <ArrowLink href={`/projects/${currentFocus.slug}`}>
-              Read full project paper & experimental data
+            <p className="text-sm font-mono text-[#A0A0A0] mb-8">
+              Ongoing Lab Procedures: Ethanolic maceration, rotary evaporation, disk diffusion zone-of-inhibition assays, and viscometric formulation stability testing.
+            </p>
+
+            <ArrowLink href="/about#equipment">
+              View laboratory apparatus used for extraction & testing
             </ArrowLink>
           </div>
         </div>
@@ -202,11 +203,11 @@ export default function HomePage() {
             <div>
               <SectionLabel className="mb-4">RESEARCH REPOSITORY</SectionLabel>
               <h2 id="projects-heading" className="section-headline text-[#111111]">
-                Recent Scientific Papers.
+                Archived Scientific Papers.
               </h2>
             </div>
             <ArrowLink href="/projects" className="shrink-0">
-              View all {projects.length} research papers
+              View all 16 cataloged research papers
             </ArrowLink>
           </div>
 
@@ -219,18 +220,18 @@ export default function HomePage() {
       </section>
 
       {/* =====================================================
-          ROADMAP PREVIEW
+          ROADMAP PREVIEW — VERTICAL TIMELINE DESIGN
           ===================================================== */}
       <section
         className="section-spacing bg-[#FFFFFF] text-[#111111] border-b border-[#E8E8E4]"
         aria-labelledby="roadmap-preview-heading"
       >
         <div className="container-main">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16">
             <div>
-              <SectionLabel className="mb-4">TIMELINE & ROADMAP</SectionLabel>
+              <SectionLabel className="mb-4">ACTIVE TIMELINE</SectionLabel>
               <h2 id="roadmap-preview-heading" className="section-headline text-[#111111]">
-                Active Research Agenda.
+                Term Execution Schedule.
               </h2>
             </div>
             <ArrowLink href="/roadmap" className="shrink-0">
@@ -238,9 +239,39 @@ export default function HomePage() {
             </ArrowLink>
           </div>
 
-          <div>
-            {roadmapPreview.map((milestone) => (
-              <RoadmapItem key={milestone.id} milestone={milestone} />
+          {/* Compact Timeline Container */}
+          <div className="relative pl-6 sm:pl-8 border-l-2 border-[#111111] ml-3 sm:ml-4 space-y-10 max-w-3xl">
+            {milestones.map((m) => (
+              <div key={m.id} className="relative group">
+                {/* Node indicator */}
+                <span
+                  className={`absolute -left-[31px] sm:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-white ${
+                    m.status === 'completed'
+                      ? 'bg-[#111111]'
+                      : m.status === 'in-progress'
+                      ? 'bg-[#D83933] ring-4 ring-[#D83933]/20'
+                      : 'bg-[#B8B8B8]'
+                  }`}
+                  aria-hidden="true"
+                />
+
+                <div className="flex items-center gap-3 mb-1">
+                  <span className="label text-[#D83933] text-xs font-mono font-bold">
+                    {m.shortDate}
+                  </span>
+                  <span className="label text-[#A0A0A0] text-[10px]">
+                    {m.status.toUpperCase()}
+                  </span>
+                </div>
+
+                <h3 className="text-xl font-bold text-[#111111] tracking-tight mb-2">
+                  {m.title}
+                </h3>
+
+                <p className="text-sm text-[#606060] leading-relaxed">
+                  {m.description}
+                </p>
+              </div>
             ))}
           </div>
         </div>

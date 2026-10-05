@@ -42,7 +42,7 @@ export default function ProjectsPage() {
             Student Research & Investigations.
           </h1>
           <p className="body-large text-[#606060] max-w-2xl leading-relaxed">
-            A comprehensive catalog of {projects.length} original experimental research papers conducted by students of SMA Kolese Kanisius. Each project includes empirical hypotheses, laboratory methods, observations, and findings.
+            With over 30+ investigations initiated across biomedical, physical, and chemical disciplines, this repository archives 16 fully documented experimental research papers conducted by students of SMA Kolese Kanisius.
           </p>
         </div>
       </section>

@@ -8,21 +8,21 @@ export interface Stat {
 export const clubStats: Stat[] = [
   {
     id: 'stat-01',
-    value: '16',
-    label: 'Research Papers',
-    description: 'Student-led scientific investigations spanning energy, materials, and biology.',
+    value: '30+',
+    label: 'Research Projects',
+    description: '16 peer-reviewed papers archived in our digital repository, with ongoing lab trials currently underway.',
   },
   {
     id: 'stat-02',
     value: '03',
     label: 'Core Laboratories',
-    description: 'Physics, Chemistry, and Biology facilities with precision analytical instruments.',
+    description: 'Dedicated Physics, Chemistry, and Biology spaces equipped with precision analytical tools and certified reagents.',
   },
   {
     id: 'stat-03',
     value: '02x',
     label: 'Weekly Sessions',
-    description: 'Active lab time every Wednesday & Friday (15:00 – 17:00 WIB).',
+    description: 'Active laboratory experimentation every Wednesday & Friday (15:00 – 17:00 WIB).',
   },
   {
     id: 'stat-04',

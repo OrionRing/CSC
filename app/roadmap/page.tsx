@@ -1,10 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Clock, Award, Shield } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Clock, Calendar } from 'lucide-react';
 import { milestones, longTermGoals, statusGroups } from '@/data/v2/roadmap';
 import { SectionLabel, ArrowLink } from '@/components/ui';
-import { RoadmapItem } from '@/components/RoadmapItem';
 
 export default function RoadmapPage() {
   return (
@@ -15,7 +14,7 @@ export default function RoadmapPage() {
         aria-labelledby="roadmap-hero-heading"
       >
         <div className="container-main">
-          <SectionLabel className="mb-4">ROADMAP</SectionLabel>
+          <SectionLabel className="mb-4">ROADMAP & TIMELINE</SectionLabel>
           <h1
             id="roadmap-hero-heading"
             className="page-headline text-[#111111] mb-8 max-w-4xl"
@@ -23,55 +22,72 @@ export default function RoadmapPage() {
             Where curiosity takes us next.
           </h1>
           <p className="body-large text-[#606060] max-w-2xl leading-relaxed">
-            A chronological timeline of active laboratory experimentation, manuscript consolidation, and competition target dates for the 2026–2027 academic term.
+            An integrated chronological timeline tracking laboratory preparation, manuscript consolidation, competition filing deadlines, and internal exhibition milestones.
           </p>
         </div>
       </section>
 
-      {/* Completed Milestones */}
-      {statusGroups.completed.length > 0 && (
-        <section className="section-spacing bg-[#FFFFFF]" aria-labelledby="completed-heading">
-          <div className="container-main">
-            <div className="flex items-center gap-4 mb-12">
-              <SectionLabel className="mb-0">COMPLETED</SectionLabel>
-              <span className="w-2 h-2 rounded-full bg-[#111111]" aria-hidden="true" />
-            </div>
-            {statusGroups.completed.map((milestone) => (
-              <RoadmapItem key={milestone.id} milestone={milestone} />
-            ))}
-          </div>
-        </section>
-      )}
+      {/* Modern Compact Timeline Section */}
+      <section className="section-spacing bg-[#FFFFFF] border-b border-[#E8E8E4]" aria-labelledby="timeline-heading">
+        <div className="container-main">
+          <div className="max-w-4xl">
+            <SectionLabel className="mb-10">2026–2027 ACADEMIC SCHEDULE</SectionLabel>
 
-      {/* Current Milestones */}
-      {statusGroups.current.length > 0 && (
-        <section className="section-spacing bg-[#F4F4F1] border-y border-[#E8E8E4]" aria-labelledby="current-heading">
-          <div className="container-main">
-            <div className="flex items-center gap-4 mb-12">
-              <SectionLabel className="mb-0">CURRENT FOCUS</SectionLabel>
-              <span className="w-2 h-2 rounded-full bg-[#D83933]" aria-hidden="true" />
-            </div>
-            {statusGroups.current.map((milestone) => (
-              <RoadmapItem key={milestone.id} milestone={milestone} />
-            ))}
-          </div>
-        </section>
-      )}
+            {/* Vertical timeline spine */}
+            <div className="relative pl-8 sm:pl-10 border-l-2 border-[#111111] ml-4 sm:ml-6 space-y-14">
+              {milestones.map((m, idx) => {
+                const isCompleted = m.status === 'completed';
+                const isCurrent = m.status === 'in-progress';
 
-      {/* Upcoming Milestones */}
-      {statusGroups.upcoming.length > 0 && (
-        <section className="section-spacing bg-[#FFFFFF] border-b border-[#E8E8E4]" aria-labelledby="upcoming-heading">
-          <div className="container-main">
-            <div className="flex items-center gap-4 mb-12">
-              <SectionLabel className="mb-0">UPCOMING</SectionLabel>
-              <span className="w-2 h-2 rounded-full bg-[#B8B8B8]" aria-hidden="true" />
+                return (
+                  <div key={m.id} className="relative group">
+                    {/* Node Dot */}
+                    <span
+                      className={`absolute -left-[39px] sm:-left-[47px] top-1.5 w-4 h-4 rounded-full border-2 border-white transition-transform duration-200 group-hover:scale-125 ${
+                        isCompleted
+                          ? 'bg-[#111111]'
+                          : isCurrent
+                          ? 'bg-[#D83933] ring-4 ring-[#D83933]/20 animate-pulse'
+                          : 'bg-[#B8B8B8]'
+                      }`}
+                      aria-hidden="true"
+                    />
+
+                    {/* Timeline Card */}
+                    <div className="p-6 sm:p-8 bg-[#F4F4F1] border border-[#E8E8E4] rounded">
+                      <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span className="label text-[#D83933] font-bold font-mono">
+                          PHASE {String(idx + 1).padStart(2, '0')} // {m.date}
+                        </span>
+
+                        <span
+                          className={`label px-2.5 py-0.5 rounded text-[10px] font-mono font-semibold ${
+                            isCompleted
+                              ? 'bg-[#111111] text-white'
+                              : isCurrent
+                              ? 'bg-[#D83933] text-white'
+                              : 'bg-white text-[#606060] border border-[#E8E8E4]'
+                          }`}
+                        >
+                          {m.status.toUpperCase()}
+                        </span>
+                      </div>
+
+                      <h2 className="text-xl sm:text-2xl font-bold text-[#111111] tracking-tight mb-3">
+                        {m.title}
+                      </h2>
+
+                      <p className="body-large text-[#606060] text-sm sm:text-base leading-relaxed">
+                        {m.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-            {statusGroups.upcoming.map((milestone) => (
-              <RoadmapItem key={milestone.id} milestone={milestone} />
-            ))}
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* Long-Term Goals */}
       <section className="section-dark section-spacing" aria-labelledby="longterm-heading">
