@@ -279,13 +279,16 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Compact Timeline Container */}
-          <div className="relative pl-6 sm:pl-8 border-l-2 border-[#111111] ml-3 sm:ml-4 space-y-8 max-w-3xl">
+          {/* Timeline Container with Generous Spacing and Padded Cards */}
+          <div className="relative pl-8 sm:pl-12 border-l-2 border-[#111111] ml-4 sm:ml-6 space-y-12 sm:space-y-16 mt-20 sm:mt-24 max-w-4xl">
             {strategicRoadmap.slice(0, 3).map((m) => (
-              <div key={m.id} className="relative group">
-                {/* Node indicator */}
+              <div
+                key={m.id}
+                className="relative group p-8 sm:p-10 bg-[#FBFBFA] border border-[#E8E8E4] rounded-lg hover:border-[#111111] transition-all shadow-sm"
+              >
+                {/* Node indicator on timeline rail */}
                 <span
-                  className={`absolute -left-[31px] sm:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-white ${
+                  className={`absolute -left-[49px] sm:-left-[65px] top-10 w-4 h-4 rounded-full border-2 border-white ${
                     m.status === 'completed'
                       ? 'bg-[#111111]'
                       : m.status === 'in-progress'
@@ -295,22 +298,34 @@ export default function HomePage() {
                   aria-hidden="true"
                 />
 
-                <div className="flex items-center gap-3 mb-1">
+                <div className="flex flex-wrap items-center gap-3 mb-4">
                   <span className="label text-[#D83933] text-xs font-mono font-bold">
                     {m.phase} // {m.timeline}
                   </span>
-                  <span className="label text-[#A0A0A0] text-[10px]">
+                  <span className="label text-[#606060] text-[10px] bg-[#E8E8E4] px-2.5 py-0.5 rounded font-mono font-semibold uppercase">
                     {m.status.toUpperCase()}
                   </span>
                 </div>
 
-                <h3 className="text-lg sm:text-xl font-bold text-[#111111] tracking-tight mb-2">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#111111] tracking-tight mb-3">
                   {m.title}
                 </h3>
 
-                <p className="text-sm text-[#606060] leading-relaxed">
+                <p className="text-sm sm:text-base text-[#606060] leading-relaxed mb-6 max-w-2xl">
                   {m.strategicObjective}
                 </p>
+
+                <div className="pt-4 border-t border-[#E8E8E4] flex items-center justify-between">
+                  <span className="text-xs font-mono text-[#A0A0A0]">
+                    Pillar: {m.pillar}
+                  </span>
+                  <Link
+                    href={`/roadmap#${m.id}`}
+                    className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#D83933] hover:underline"
+                  >
+                    View phase details →
+                  </Link>
+                </div>
               </div>
             ))}
           </div>

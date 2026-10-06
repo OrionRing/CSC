@@ -135,8 +135,8 @@ export default function RoadmapPage() {
                   </p>
                 </div>
 
-                {/* Milestones Container - Spacious 2-Column Cards */}
-                <div className="space-y-36 sm:space-y-48">
+                {/* Milestones Container - Spacious 2-Column Cards with Clear Margins */}
+                <div className="space-y-28 sm:space-y-36 lg:space-y-44">
                   {pillarSection.milestones.map((milestone, idx) => {
                     const isCompleted = milestone.status === 'completed';
                     const isCurrent = milestone.status === 'in-progress';
@@ -144,25 +144,25 @@ export default function RoadmapPage() {
                     return (
                       <div
                         key={milestone.id}
-                        className="p-10 sm:p-14 lg:p-16 bg-[#FBFBFA] border border-[#E8E8E4] rounded-lg transition-all duration-300 hover:border-[#111111] hover:shadow-sm"
+                        className="my-12 sm:my-16 lg:my-20 p-8 sm:p-12 lg:p-16 bg-[#FBFBFA] border border-[#E8E8E4] rounded-xl transition-all duration-300 hover:border-[#111111] hover:shadow-md"
                       >
-                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-                          {/* Left Column: Concise Content (7 cols) */}
-                          <div className="lg:col-span-7 flex flex-col justify-between">
+                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch">
+                          {/* Left Column: Dedicated Padded Text Container (7 cols) */}
+                          <div className="lg:col-span-7 p-8 sm:p-10 lg:p-12 bg-[#FFFFFF] border border-[#E8E8E4] rounded-lg flex flex-col justify-between shadow-sm">
                             <div>
                               {/* Metadata Badge */}
-                              <div className="flex flex-wrap items-center gap-3 mb-4">
+                              <div className="flex flex-wrap items-center gap-3 mb-6">
                                 <span className="font-mono text-xs text-[#D83933] font-bold uppercase tracking-wider">
                                   {milestone.phase} // {milestone.timeline}
                                 </span>
 
                                 <span
-                                  className={`label px-2.5 py-0.5 rounded text-[10px] font-mono font-semibold ${
+                                  className={`label px-3 py-1 rounded text-[10px] font-mono font-semibold ${
                                     isCompleted
                                       ? 'bg-[#111111] text-white'
                                       : isCurrent
                                       ? 'bg-[#D83933] text-white'
-                                      : 'bg-white text-[#606060] border border-[#E8E8E4]'
+                                      : 'bg-[#F4F4F1] text-[#606060] border border-[#E8E8E4]'
                                   }`}
                                 >
                                   {milestone.status.toUpperCase()}
@@ -174,19 +174,19 @@ export default function RoadmapPage() {
                                 {milestone.title}
                               </h3>
 
-                              {/* Concise Core Focus */}
+                              {/* Core Objective */}
                               <p className="text-base text-[#606060] leading-relaxed mb-8">
                                 {milestone.strategicObjective}
                               </p>
 
-                              {/* Deliverable Tags (Concise & Punchy) */}
-                              <div className="space-y-2.5 mb-6">
+                              {/* Deliverable Tags (Padded Cards) */}
+                              <div className="space-y-3 mb-8">
                                 {milestone.deliverables.map((item, dIdx) => (
                                   <div
                                     key={dIdx}
-                                    className="flex items-start gap-3 text-sm text-[#111111]"
+                                    className="flex items-center gap-3 text-sm text-[#111111] bg-[#F4F4F1] px-4 py-3 rounded border border-[#E8E8E4]/60"
                                   >
-                                    <span className="text-[#D83933] font-bold shrink-0 mt-0.5 font-mono text-xs">
+                                    <span className="text-[#D83933] font-bold shrink-0 font-mono text-xs">
                                       ✓
                                     </span>
                                     <span className="leading-snug">{item}</span>
@@ -204,8 +204,8 @@ export default function RoadmapPage() {
                             )}
                           </div>
 
-                          {/* Right Column: Technical Illustration (5 cols) */}
-                          <div className="lg:col-span-5 w-full">
+                          {/* Right Column: Technical Illustration in Padded Frame (5 cols) */}
+                          <div className="lg:col-span-5 w-full p-6 sm:p-8 bg-[#FFFFFF] border border-[#E8E8E4] rounded-lg shadow-sm flex items-center justify-center">
                             {renderIllustration(milestone.id)}
                           </div>
                         </div>
