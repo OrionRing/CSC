@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { clubStats, clubInfo } from '@/data/v2/stats';
 import { projects } from '@/data/v2/projects';
@@ -22,15 +23,30 @@ export default function HomePage() {
         aria-labelledby="hero-headline"
       >
         <div className="container-main pb-20 pt-36">
-          {/* Metadata */}
-          <div className="flex items-center gap-3 mb-8">
-            <span className="label text-[#D83933] font-bold">
-              CANISIUS SCIENCE CLUB
-            </span>
-            <span className="label text-white/30">·</span>
-            <span className="label text-white/60">
-              KOLESE KANISIUS JAKARTA / 2026–2027
-            </span>
+          {/* Metadata with Official Logo */}
+          <div className="flex items-center gap-4 mb-8">
+            <Image
+              src="/csc-logo.png"
+              alt="Canisius Science Club Logo"
+              width={52}
+              height={52}
+              className="rounded-full border border-white/20 shadow-md shrink-0"
+              priority
+            />
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="label text-[#D83933] font-bold text-sm tracking-wider">
+                  CANISIUS SCIENCE CLUB
+                </span>
+                <span className="label text-white/30">·</span>
+                <span className="label text-white/60 text-xs">
+                  SMA KOLESE KANISIUS
+                </span>
+              </div>
+              <span className="label text-white/40 text-[11px] font-mono block mt-0.5">
+                LABORATORY OF SCIENTIFIC INQUIRY // 2026–2027
+              </span>
+            </div>
           </div>
 
           {/* Headline */}
@@ -279,16 +295,17 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Timeline Container with Generous Spacing and Padded Cards */}
-          <div className="relative pl-8 sm:pl-12 border-l-2 border-[#111111] ml-4 sm:ml-6 space-y-12 sm:space-y-16 mt-20 sm:mt-24 max-w-4xl">
+          {/* Timeline Container with Guaranteed Spacing and Padded Cards */}
+          <div className="roadmap-timeline-rail ml-4 sm:ml-6">
             {strategicRoadmap.slice(0, 3).map((m) => (
               <div
                 key={m.id}
-                className="relative group p-8 sm:p-10 bg-[#FBFBFA] border border-[#E8E8E4] rounded-lg hover:border-[#111111] transition-all shadow-sm"
+                className="roadmap-timeline-card relative group hover:border-[#111111]"
+                style={{ marginBottom: '3rem' }}
               >
                 {/* Node indicator on timeline rail */}
                 <span
-                  className={`absolute -left-[49px] sm:-left-[65px] top-10 w-4 h-4 rounded-full border-2 border-white ${
+                  className={`absolute -left-[41px] sm:-left-[57px] top-10 w-4 h-4 rounded-full border-2 border-white ${
                     m.status === 'completed'
                       ? 'bg-[#111111]'
                       : m.status === 'in-progress'
@@ -298,16 +315,16 @@ export default function HomePage() {
                   aria-hidden="true"
                 />
 
-                <div className="flex flex-wrap items-center gap-3 mb-4">
+                <div className="flex flex-wrap items-center gap-3 mb-5">
                   <span className="label text-[#D83933] text-xs font-mono font-bold">
                     {m.phase} // {m.timeline}
                   </span>
-                  <span className="label text-[#606060] text-[10px] bg-[#E8E8E4] px-2.5 py-0.5 rounded font-mono font-semibold uppercase">
+                  <span className="label text-[#606060] text-[10px] bg-[#E8E8E4] px-3 py-1 rounded font-mono font-semibold uppercase">
                     {m.status.toUpperCase()}
                   </span>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-bold text-[#111111] tracking-tight mb-3">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#111111] tracking-tight mb-4">
                   {m.title}
                 </h3>
 
@@ -315,8 +332,8 @@ export default function HomePage() {
                   {m.strategicObjective}
                 </p>
 
-                <div className="pt-4 border-t border-[#E8E8E4] flex items-center justify-between">
-                  <span className="text-xs font-mono text-[#A0A0A0]">
+                <div className="pt-5 border-t border-[#E8E8E4] flex items-center justify-between">
+                  <span className="text-xs font-mono text-[#888888]">
                     Pillar: {m.pillar}
                   </span>
                   <Link

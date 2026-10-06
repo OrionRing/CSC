@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowUp } from 'lucide-react';
 import { clubInfo } from '@/data/v2/stats';
 
@@ -25,7 +26,19 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pb-16 border-b border-white/10">
           {/* Brand */}
           <div className="md:col-span-1">
-            <p className="label text-[#D83933] font-mono mb-3">{clubInfo.name.toUpperCase()}</p>
+            <div className="flex items-center gap-3.5 mb-4">
+              <Image
+                src="/csc-logo.png"
+                alt="Canisius Science Club Logo"
+                width={44}
+                height={44}
+                className="rounded-full border border-white/20 shadow-md shrink-0"
+              />
+              <div>
+                <p className="label text-[#D83933] font-mono">{clubInfo.name.toUpperCase()}</p>
+                <p className="text-[11px] font-mono text-white/50">SMA KOLESE KANISIUS</p>
+              </div>
+            </div>
             <h2 className="text-white text-xl font-bold tracking-tight leading-snug max-w-xs">
               {clubInfo.tagline}
             </h2>

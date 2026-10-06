@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { ArrowRight, Menu, X } from 'lucide-react';
@@ -44,9 +45,16 @@ export default function Navbar() {
             {/* Logo */}
             <Link
               href="/"
-              className="text-sm tracking-widest font-bold text-[#111111] hover:text-[#D83933] transition-colors duration-200 flex items-center gap-2"
+              className="text-sm tracking-widest font-bold text-[#111111] hover:text-[#D83933] transition-colors duration-200 flex items-center gap-3"
               aria-label="Canisius Science Club — Home"
             >
+              <Image
+                src="/csc-logo.png"
+                alt="CSC Logo"
+                width={36}
+                height={36}
+                className="rounded-full"
+              />
               <span className="font-mono text-base tracking-wider font-bold">CANISIUS SCIENCE CLUB</span>
             </Link>
 
@@ -106,9 +114,16 @@ export default function Navbar() {
         <div className="flex items-center justify-between mb-12">
           <Link
             href="/"
-            className="text-sm tracking-widest font-bold text-[#111111] font-mono"
+            className="text-sm tracking-widest font-bold text-[#111111] font-mono flex items-center gap-3"
             onClick={() => setMenuOpen(false)}
           >
+            <Image
+              src="/csc-logo.png"
+              alt="CSC Logo"
+              width={32}
+              height={32}
+              className="rounded-full"
+            />
             CANISIUS SCIENCE CLUB
           </Link>
           <button

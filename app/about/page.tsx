@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Clock, Award, Search, Sparkles } from 'lucide-react';
 import { labEquipmentList } from '@/data/v2/inventory';
 import { clubInfo } from '@/data/v2/stats';
@@ -37,7 +38,17 @@ export default function AboutPage() {
         aria-labelledby="about-hero-heading"
       >
         <div className="container-main">
-          <SectionLabel className="mb-4">ABOUT CSC</SectionLabel>
+          <div className="flex items-center gap-3.5 mb-6">
+            <Image
+              src="/csc-logo.png"
+              alt="Canisius Science Club Logo"
+              width={38}
+              height={38}
+              className="rounded-full border border-[#E8E8E4] shadow-sm shrink-0"
+              priority
+            />
+            <SectionLabel>ABOUT CSC // SMAS KOLESE KANISIUS</SectionLabel>
+          </div>
           <h1
             id="about-hero-heading"
             className="page-headline text-[#111111] mb-8 max-w-4xl"

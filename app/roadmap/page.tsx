@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { SectionLabel, ArrowLink } from '@/components/ui';
 import { strategicPillars, longTermGoals, strategicRoadmap } from '@/data/v2/roadmap';
 import {
@@ -47,7 +48,16 @@ export default function RoadmapPage() {
         aria-labelledby="roadmap-hero-heading"
       >
         <div className="container-main">
-          <SectionLabel className="mb-4">STRATEGIC TIMELINE 2026–2028</SectionLabel>
+          <div className="flex items-center gap-3 mb-4">
+            <Image
+              src="/csc-logo.png"
+              alt="CSC Emblem"
+              width={28}
+              height={28}
+              className="rounded-full shadow-sm border border-[#E8E8E4]"
+            />
+            <SectionLabel>STRATEGIC TIMELINE 2026–2028</SectionLabel>
+          </div>
           <h1
             id="roadmap-hero-heading"
             className="page-headline text-[#111111] mb-6 max-w-4xl"
@@ -136,7 +146,7 @@ export default function RoadmapPage() {
                 </div>
 
                 {/* Milestones Container - Spacious 2-Column Cards with Clear Margins */}
-                <div className="space-y-28 sm:space-y-36 lg:space-y-44">
+                <div className="roadmap-page-milestone-list">
                   {pillarSection.milestones.map((milestone, idx) => {
                     const isCompleted = milestone.status === 'completed';
                     const isCurrent = milestone.status === 'in-progress';
@@ -144,11 +154,12 @@ export default function RoadmapPage() {
                     return (
                       <div
                         key={milestone.id}
-                        className="my-12 sm:my-16 lg:my-20 p-8 sm:p-12 lg:p-16 bg-[#FBFBFA] border border-[#E8E8E4] rounded-xl transition-all duration-300 hover:border-[#111111] hover:shadow-md"
+                        className="roadmap-page-card transition-all duration-300 hover:border-[#111111] hover:shadow-md"
+                        style={{ marginBottom: '4.5rem' }}
                       >
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch">
                           {/* Left Column: Dedicated Padded Text Container (7 cols) */}
-                          <div className="lg:col-span-7 p-8 sm:p-10 lg:p-12 bg-[#FFFFFF] border border-[#E8E8E4] rounded-lg flex flex-col justify-between shadow-sm">
+                          <div className="lg:col-span-7 roadmap-text-box flex flex-col justify-between">
                             <div>
                               {/* Metadata Badge */}
                               <div className="flex flex-wrap items-center gap-3 mb-6">
@@ -205,7 +216,7 @@ export default function RoadmapPage() {
                           </div>
 
                           {/* Right Column: Technical Illustration in Padded Frame (5 cols) */}
-                          <div className="lg:col-span-5 w-full p-6 sm:p-8 bg-[#FFFFFF] border border-[#E8E8E4] rounded-lg shadow-sm flex items-center justify-center">
+                          <div className="lg:col-span-5 roadmap-illustration-box w-full">
                             {renderIllustration(milestone.id)}
                           </div>
                         </div>

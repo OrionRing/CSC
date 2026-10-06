@@ -25,8 +25,6 @@
 /* Reset & base */
 *, *::before, *::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 html {
@@ -629,5 +627,111 @@ hr {
 
 .animate-page-enter {
   animation: pageEnter 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ============================================================
+   ROADMAP SPACIOUS LAYOUT SYSTEM (Guaranteed padding & margins)
+   ============================================================ */
+
+.roadmap-timeline-rail {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3.5rem !important; /* Guaranteed 56px between cards */
+  margin-top: 5rem !important;
+  position: relative;
+  border-left: 2px solid #111111;
+  padding-left: 2rem;
+  max-width: 56rem;
+}
+
+@media (min-width: 640px) {
+  .roadmap-timeline-rail {
+    gap: 4.5rem !important; /* Guaranteed 72px between cards */
+    margin-top: 6rem !important;
+    padding-left: 3rem;
+  }
+}
+
+.roadmap-timeline-card {
+  padding: 2.25rem 2rem !important;
+  background-color: #FBFBFA;
+  border: 1px solid #E8E8E4;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  margin-bottom: 1.5rem !important;
+}
+
+@media (min-width: 640px) {
+  .roadmap-timeline-card {
+    padding: 2.75rem 2.5rem !important;
+  }
+}
+
+.roadmap-page-milestone-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6rem !important; /* Guaranteed 96px gap between milestones */
+  margin-top: 3rem !important;
+}
+
+@media (min-width: 1024px) {
+  .roadmap-page-milestone-list {
+    gap: 8rem !important; /* Guaranteed 128px gap between milestones */
+  }
+}
+
+.roadmap-page-card {
+  padding: 3rem 2rem !important;
+  background-color: #FBFBFA;
+  border: 1px solid #E8E8E4;
+  border-radius: 1rem;
+  margin-top: 2rem !important;
+  margin-bottom: 3.5rem !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+@media (min-width: 640px) {
+  .roadmap-page-card {
+    padding: 3.5rem 3rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .roadmap-page-card {
+    padding: 4.5rem 4rem !important;
+    margin-bottom: 4.5rem !important;
+  }
+}
+
+.roadmap-text-box {
+  padding: 2.5rem 2rem !important;
+  background-color: #FFFFFF;
+  border: 1px solid #E8E8E4;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+@media (min-width: 640px) {
+  .roadmap-text-box {
+    padding: 3rem 2.5rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .roadmap-text-box {
+    padding: 3.5rem 3rem !important;
+  }
+}
+
+.roadmap-illustration-box {
+  padding: 2.5rem 2rem !important;
+  background-color: #FFFFFF;
+  border: 1px solid #E8E8E4;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
