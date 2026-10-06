@@ -619,6 +619,250 @@ export const projects: Project[] = [
     competitionContext: 'Canisius Science Competition (CSC) Engineering Track',
     featured: false,
   },
+  {
+    id: 'csc-17',
+    slug: 'layered-pcm-vaccine-cold-chain',
+    number: '17',
+    title: 'Layered Phase Change Material System for Tropical Vaccine Cold Chain Preservation',
+    category: 'Physics / Thermal Engineering',
+    categories: ['physics', 'engineering', 'environmental'],
+    year: 2026,
+    authors: [
+      'Kresna Nicolas Sutrisno',
+      'Brayden Nicholas Kwenandar',
+      'Patrick Polana Kho',
+      'Naveen Xavier Dante',
+      'Armadeo Bintang Puspanjono',
+    ],
+    summary:
+      'Designing a two-stage passive cooling container using water ice and 5% saline solution to prevent sub-zero freeze damage to vaccines in tropical transport without active power.',
+    description:
+      'Most routine childhood vaccines (e.g. Hepatitis B, DTP, Tetanus) suffer permanent, irreversible loss of potency if frozen below 0°C. Standard tropical cold boxes rely on frozen ice packs melting at 0°C, frequently freezing vaccines during transport. This research engineered a two-stage layered passive Phase Change Material (PCM) configuration in a polystyrene container (20×29×25 cm) surrounding a 300 mL payload. By placing water ice (0°C) on the outside to absorb ambient tropical heat and 5% saline solution (−3°C) on the inside separated from direct payload contact, the system establishes a thermal buffer preventing sub-zero excursions.',
+    researchQuestion:
+      'Can a layered configuration of ordinary household PCMs (ice outer, saline inner) hold a payload within the 2–8°C safe window longer and avoid sub-zero freezing excursions under tropical ambient sunlight?',
+    hypothesis:
+      'The layered ice-saline configuration will prevent freezing excursions below 2°C compared to saline alone, while slowing temperature rise relative to single-material cooling media.',
+    method: [
+      'Preparation of five cooling configurations (300g total PCM mass each): Ice alone, 5% Saline alone, Coconut oil alone, Two-layer Ice/Saline, and Three-layer Coconut oil/Ice/Saline.',
+      'Pre-chilling simulated water payload to 4°C in 300 mL glass containers.',
+      'Simultaneous outdoor testing under direct equatorial sunlight (28–33°C ambient).',
+      'Continuous calibrated digital thermocouple logging at 5-minute intervals for 50 minutes.',
+      'Analysis of temperature plateaus, latent heat capacity, and thermal coupling resistance.',
+    ],
+    observations:
+      'Saline alone dropped the payload to 1.3°C within five minutes (violating the 2°C minimum safe threshold). The two-layer Ice/Saline arrangement maintained the payload safely inside the 2–8°C window from start to finish.',
+    results:
+      'The two-layer configuration achieved the lowest mean temperature (8.1°C) and completely eliminated the early freeze excursion seen with saline alone. Coconut oil (melting point 24.5°C) failed to buffer, confirming that PCMs must be thermally active within the target operating window.',
+    limitations: [
+      'Air gaps between the PCM pouches and the glass payload container limited thermal coupling hold time to 30–35 minutes.',
+    ],
+    nextSteps: [
+      'Design contoured internal carrier walls to minimize void air gaps and test hold time over extended 12-hour transport runs.',
+    ],
+    competitionContext: 'Canisius Science Club Research Archive 2026',
+    featured: true,
+  },
+  {
+    id: 'csc-18',
+    slug: 'pcm-waste-heat-recovery-distiller',
+    number: '18',
+    title: 'Thermoelectric Waste Heat Recovery Using Paraffin-Jacketed Copper Delivery Pipelines',
+    category: 'Physics / Clean Energy',
+    categories: ['physics', 'engineering'],
+    year: 2026,
+    authors: [
+      'Matthew Sulistio',
+      'Kresna Nicolas Sutrisno',
+      'Bastien Ray Pramono',
+      'Bianca Madoka Rianto',
+      'Cathleen Mulan Tyas Ho',
+      'Rommel Zemar Arkansyah Biran',
+    ],
+    summary:
+      'Integrating paraffin wax as a phase change thermal buffer around copper transport piping to stabilize intermittent waste heat from a water distiller, increasing TEG cumulative energy 2.3-fold.',
+    description:
+      'Laboratory water distillers continuously discharge low-grade waste hot water (close to 80°C), but small-scale recovery via Thermoelectric Generators (TEGs) is hindered by radial heat loss along connecting tubing and thermal instability during thermostatic on-off cycles. This team developed a copper pipe delivery line encased in a wooden shell filled with paraffin wax PCM. The latent heat of paraffin stabilizes water temperatures reaching the hot-side waterblock during distiller off-cycles, sustaining continuous electrical generation.',
+    researchQuestion:
+      'How does enclosing hot-water copper delivery piping in a paraffin wax PCM buffer affect the minimum sustained temperature difference (ΔT) and cumulative electrical energy harvested by a TEG array during intermittent on-off heating cycles?',
+    hypothesis:
+      'Paraffin wax latent heat buffering will reduce delivery heat loss during active heating and slow hot-side cooling during off-cycles by more than 3-fold compared to standard silicone tubing.',
+    method: [
+      'Assembly of a 5-module Seebeck TEG array (SP1848-27145SA in series) mounted between dual aluminium waterblocks.',
+      'Encapsulation of copper transport piping in a 20×6×6 cm wooden housing cast with solid paraffin wax.',
+      'Comparison against baseline uninsulated silicone tubing under identical 15-minute on/off duty cycles.',
+      'Multi-point temperature logging (distiller outlet, transport line, hot-side waterblock, cold tap water) and electrical output monitoring.',
+      'Storage of converted power in a 12V 6Ah LiFePO4 battery via a solar charge controller.',
+    ],
+    observations:
+      'During steady heating, the copper-paraffin line cut heat loss from 6.3°C to 2.3°C. During off-phases, the hot-side waterblock cooled 3.5–4.2 times slower than the silicone baseline.',
+    results:
+      'The paraffin-buffered system sustained 4.7 times higher minimum electrical power during off-cycles (1.02 W vs 0.22 W) and yielded 2.3 times more cumulative energy per 60-minute run (1.12 Wh vs 0.49 Wh) without output degradation.',
+    limitations: [
+      'Testing was limited to two 60-minute trial repetitions under laboratory conditions.',
+    ],
+    nextSteps: [
+      'Instrument the system for continuous 24-hour operation and test varying paraffin layer thicknesses to optimize cost-efficiency.',
+    ],
+    competitionContext: 'Canisius Science Club & SMA Santa Ursula Collaborative Research 2026',
+    featured: true,
+  },
+  {
+    id: 'csc-19',
+    slug: 'hydrovoltaic-generator-cqd',
+    number: '19',
+    title: 'Evaporation-Driven Hydrovoltaic Electricity Generation via N,S-Doped Carbon Quantum Dots',
+    category: 'Chemistry / Nanotechnology',
+    categories: ['chemistry', 'physics', 'environmental'],
+    year: 2026,
+    authors: [
+      'Owen Benedict Tanjung',
+      'Kennard Kustiadi',
+      'Jonathan Maximillian Effendi',
+      'Dave Alexander Jayadi',
+      'Matthew Orotodan',
+      'Kresna Nicolas Sutrisno',
+    ],
+    summary:
+      'Synthesizing biomass-derived nitrogen and sulfur co-doped Carbon Quantum Dots (N,S-CQDs) on filter paper substrates with PAA and H2O2 surface functionalization to generate continuous voltage from ambient water evaporation.',
+    description:
+      'Evaporation-driven hydrovoltaic generators produce clean electricity from spontaneous ambient water evaporation through porous media. While previous studies rely on expensive graphene oxide or toxic carbon nanotubes, this study synthesized eco-friendly N,S-doped Carbon Quantum Dots via one-step bottom-up pyrolysis of citric acid and thiourea. Coated onto cellulose filter paper and functionalized with poly(acrylic acid) (PAA) and hydrogen peroxide (H2O2), the enhanced surface charge density builds a robust Electric Double Layer (EDL), driving continuous streaming potential.',
+    researchQuestion:
+      'How does surface functionalization of biomass-derived N,S-CQDs with PAA and H2O2 enhance Electric Double Layer (EDL) formation and electrical power output under ambient water evaporation?',
+    hypothesis:
+      'Co-doping quantum dots with nitrogen and sulfur combined with PAA carboxyl functionalization will significantly boost EDL surface charge density, yielding higher steady-state voltages than untreated filter paper.',
+    method: [
+      'Bottom-up pyrolysis synthesis of N,S-CQDs at 200°C for 7 minutes using citric acid and thiourea.',
+      'Confirmation of blue fluorescence under 365 nm UV illumination.',
+      'Full factorial 2^3 experimental design testing 8 treatment groups across hanging, submerged, and evaporation conditions.',
+      'Substrate coating of 3×8 cm filter paper strips with copper-tape electrodes and digital multimeter logging in 10-second intervals.',
+      'Calculation of internal resistance and power output using Ohm’s and Joule’s electrical laws.',
+    ],
+    observations:
+      'Evaporative capillary flow generated stable, consistent voltage across all testing periods, with treated papers showing immediate response upon wetting.',
+    results:
+      'Fully treated N,S-CQD paper with PAA and H2O2 generated a steady-state open-circuit voltage of 415 mV and power output of 8.703 µW—over 4 times higher than plain filter paper (1.954 µW). Submerged PAA-treated CQD paper reached a peak power of 32.198 µW.',
+    limitations: [
+      'Batch-mode evaporation eventually slows as salt accumulates at the upper electrode boundary.',
+    ],
+    nextSteps: [
+      'Develop modular multi-cell paper stacks wired in series to illuminate low-power LED indicators.',
+    ],
+    competitionContext: 'Canisius Science Club Research Archive 2026',
+    featured: true,
+  },
+  {
+    id: 'csc-20',
+    slug: 'p2w-microbial-fuel-cell',
+    number: '20',
+    title: 'P2W (Plants to Watts): Sustainable Microbial Fuel Cells Utilizing Fruit Eco-Enzymes and Biochar',
+    category: 'Biology / Bio-Energy',
+    categories: ['biology', 'environmental', 'chemistry'],
+    year: 2026,
+    authors: ['Matthew Sulistio', 'Eden James Paterson', 'Kresna Nicolas Sutrisno'],
+    summary:
+      'Constructing dual-chamber microbial fuel cells powered by fermented citrus leaf, banana, and apple eco-enzymes using upcycled coconut husk biochar electrodes and rope-agar-KCl salt bridges.',
+    description:
+      'Microbial Fuel Cells (MFCs) harness electrochemically active bacteria to simultaneously remediate organic waste and generate electricity. This project engineered "Plants to Watts" (P2W), an accessible waste-to-energy MFC system. Replacing costly graphite with upcycled coconut husk biochar wrapped around carbon rods, the cell utilizes fermented eco-enzymes (1:3:10 ratio of molasses, fruit waste, and water) as liquid organic substrates. The remaining spent sludge functions as liquid biofertilizer, achieving a zero-waste circular model.',
+    researchQuestion:
+      'How does substrate composition in fermented eco-enzymes (citrus leaf, banana peel, apple) affect microbial electron transfer rates, open-circuit voltage, and operational stability in a biochar-electrode MFC?',
+    hypothesis:
+      'Citrus leaf eco-enzymes, containing balanced soluble sugars and natural flavonoid redox mediators, will generate higher and more stable voltage than high-acid apple or rapidly depleting banana substrates.',
+    method: [
+      'Fermentation of three eco-enzyme batches (apple, banana peel, citrus leaf) over 3 months.',
+      'Fabrication of dual 500 mL glass chambers connected by a 20 mm PVC pipe salt bridge (rope boiled in 3:30:100 agar-KCl gel).',
+      'Preparation of anode using pre-washed coconut husk biochar packed in gauze pouches around a carbon collector rod.',
+      'Continuous aeration of cathode chamber using a 3 L/min aquarium pump.',
+      'Continuous voltage monitoring across 48+ hours using digital voltmeters.',
+    ],
+    observations:
+      'Citrus leaf eco-enzyme produced an immediate, stable electrical potential with minimal odor, while banana substrate exhibited sharp initial output followed by rapid acidification.',
+    results:
+      'Citrus leaf eco-enzyme generated the highest and most stable voltage at 0.70 V (Day 1) and 0.61 V (Day 2). Banana yielded 0.40 V declining to 0.30 V, and apple produced 0.10 V due to high organic acid and phenolic inhibition. Total prototype construction cost was under Rp 150.000.',
+    limitations: [
+      'Batch mode operation experienced gradual voltage drop after 48 hours as readily available carbohydrates were metabolized.',
+    ],
+    nextSteps: [
+      'Connect multiple P2W cells in series to power soil moisture sensors, and deploy the effluent as garden biofertilizer.',
+    ],
+    competitionContext: 'Canisius Science Club Bio-Innovation Series 2026',
+    featured: true,
+  },
+  {
+    id: 'csc-21',
+    slug: 'palm-oil-tkks-bioenergy-briquettes',
+    number: '21',
+    title: 'Thermochemical Conversion of Palm Empty Fruit Bunches (TKKS) into Bioenergy Briquettes',
+    category: 'Chemistry / Biomass Energy',
+    categories: ['chemistry', 'environmental'],
+    year: 2026,
+    authors: ['Kresna Nicolas Sutrisno', 'Matthew Sulistio', 'Rayfael Feleon Siahaan'],
+    summary:
+      'Comparative evaluation of Hydrothermal Carbonization (HTC at 121°C) and dry torrefaction pyrolysis (160°C & 240°C) for converting raw oil palm empty fruit bunch waste into coal-substitute solid fuel.',
+    description:
+      'Indonesia is the world’s largest palm oil producer, generating massive volumes of Empty Fruit Bunch (TKKS) agricultural waste. High inherent moisture (60%) and low energy density prevent direct combustion. This study comparatively investigated low-temperature thermochemical conversion methods: wet Hydrothermal Carbonization (HTC at 121°C in an autoclave) versus dry mild pyrolysis (160°C and 240°C). Biochar products were densified into briquettes with tapioca binder and evaluated using a calibrated water calorimeter.',
+    researchQuestion:
+      'Which thermochemical method—subcritical HTC at 121°C or dry pyrolysis at 160°C/240°C—most effectively upgrades the heating value (HHV) and combustion stability of palm TKKS waste?',
+    hypothesis:
+      'Dry pyrolysis at 160°C will yield higher heating values than wet HTC due to effective moisture expulsion and relative fixed-carbon concentration through hemicellulose decomposition.',
+    method: [
+      'Collection, drying, and mechanical size reduction of oil palm empty fruit bunches (TKKS).',
+      'HTC treatment at 121°C for 2 hours in a pressurized autoclave; dry pyrolysis at 160°C (1.5 h) and 240°C (1 h).',
+      'Briquette densification using gelatinized tapioca starch binder.',
+      'Water calorimeter testing calibrated against pure paraffin wax standards (30.35% thermal efficiency factor).',
+      'Calculation of corrected high heating value (kcal/kg) and combustion duration.',
+    ],
+    observations:
+      'Raw untreated TKKS completely failed to sustain combustion once external flames were removed. In contrast, pyrolyzed and HTC briquettes produced steady, long-lasting ember coals.',
+    results:
+      'Pyrolysis at 160°C achieved the highest corrected heating value at 3,409.95 kcal/kg, transforming non-combustible waste into quality sub-bituminous coal substitute fuel. HTC reached 2,169.98 kcal/kg, while mixed leaf/TKKS briquettes showed the most durable physical ember stability.',
+    limitations: [
+      'Simple water calorimeter has a 69.65% ambient heat loss factor; bomb calorimetry is recommended for final industrial certification.',
+    ],
+    nextSteps: [
+      'Test higher torrefaction temperatures (250–300°C) using hydraulic press briquetting to achieve commercial 4,500 kcal/kg targets.',
+    ],
+    competitionContext: 'Science Project Competition IYREF 2026',
+    award: 'Finalist / Official IYREF 2026 Submission',
+    featured: true,
+  },
+  {
+    id: 'csc-22',
+    slug: 'warteg-hybrid-teg-microhydro',
+    number: '22',
+    title: 'WARTEG: Hybrid Thermoelectric and Pipeline Microhydro Harvester from Laboratory Water Distillers',
+    category: 'Physics / Renewable Energy',
+    categories: ['physics', 'engineering'],
+    year: 2025,
+    authors: ['Matthew Sulistio', 'Kresna Nicolas Sutrisno', 'Rayfael Feleon Siahaan'],
+    summary:
+      'Dual-harvesting waste energy from laboratory water distillers by pairing a 5-module Seebeck TEG array on boiling effluent with an inline pipeline microhydro turbine on cooling water to charge LiFePO4 batteries.',
+    description:
+      'Laboratory water distillers consume significant electrical energy while discharging hot wastewater (80°C) and fast-flowing condenser cooling water into the drain. The WARTEG (Water and Residual Thermoelectric Generator) project engineered a dual-mechanism waste energy recovery system. Thermoelectric Generator (TEG) modules capture Seebeck voltage across the hot water effluent and cold tap lines, while an in-line microhydro turbine harvests the kinetic energy of cooling water before discharge.',
+    researchQuestion:
+      'How much electrical energy can be harvested simultaneously from water distiller thermal effluent and cooling water flow using a hybrid TEG and pipeline microhydro turbine system?',
+    hypothesis:
+      'Combining 5 series TEG modules with an inline microhydro turbine will yield continuous combined power exceeding 1.8 W, sufficient to sustainably charge low-voltage laboratory sensor batteries.',
+    method: [
+      'Assembly of 5 bismuth telluride TEG modules (SP1848-27145SA) in series between dual aluminium waterblocks with thermal paste.',
+      'Integration of a 0–80V pipeline microhydro turbine into the condenser cooling water feed line.',
+      'Parallel electrical routing of TEG output (6.5V, 0.18A) and turbine output (4.0V, 0.20A) into a PWM solar charge controller.',
+      'Charging of a 12.8V 6Ah LiFePO4 lithium battery under continuous water distillation runs.',
+      'Calculation of system power, ΔT stability (51°C across blocks), and conversion efficiency (92%).',
+    ],
+    observations:
+      'Distiller effluent maintained a steady 78°C hot-side waterblock temperature while tap water kept the cold block at 27°C, maintaining a continuous 51°C temperature gradient without active fans.',
+    results:
+      'The hybrid system generated 1.17 W from the TEG array and 0.80 W from the microhydro turbine (1.97 W gross). The solar charge controller delivered 1.81 W net into the LiFePO4 battery with 92% efficiency, yielding 43.4 Wh per 24 hours of operation.',
+    limitations: [
+      'Requires continuous water flow; battery charging rate is optimized for slow-charging sensor nodes rather than high-drain loads.',
+    ],
+    nextSteps: [
+      'Scale up waterblock contact area and integrate automatic flow valves for automated laboratory power backup.',
+    ],
+    competitionContext: 'Science Project Competition MCE ITB 2025',
+    award: 'Official MCE ITB 2025 Entry',
+    featured: true,
+  },
 ];
 
 export function getProjectBySlug(slug: string): Project | undefined {

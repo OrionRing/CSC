@@ -38,18 +38,16 @@ export const strategicRoadmap: Milestone[] = [
     description:
       'Consolidate scattered research documents from club drives into a single public repository and establish standard paper templates so members don’t start from scratch.',
     strategicObjective:
-      'Prevent lost work between school terms by logging all 30+ past and active research papers with clean English abstracts, methodology notes, and data logs in one accessible place.',
+      'Consolidate all student research into a public digital repository with standard writeup templates and equipment indexes.',
     keyInitiatives: [
-      'Catalog existing student papers (biodiesel, UV quantum dots, thermoelectric thermos, water biofilters) into structured formats.',
-      'Create a shared, plug-and-play writeup template (Abstract, Methods, Observations, Discussion) optimized for Indonesian national competitions (OPSI, ITB).',
-      'Inventory available school lab equipment (AC/DC sets, optical kits, galvanometers) so teams know what apparatus they can immediately borrow.',
+      'Catalog existing student papers into structured formats with English abstracts and data logs.',
+      'Provide plug-and-play writeup templates optimized for Indonesian national competitions (OPSI, ITB).',
     ],
     deliverables: [
-      'Digital research archive live on the Canisius Science Club hub (16 documented papers).',
-      'One-page equipment & glassware reference sheet for quick lab planning.',
-      'Reusable paper template reducing writeup time for new projects.',
+      'Digital repository live on hub (22 documented papers).',
+      'Reusable competition paper template for incoming members.',
     ],
-    notes: 'Completed without adding extra administrative burden to weekly lab sessions.',
+    notes: 'Completed with zero administrative friction during lab sessions.',
   },
   {
     id: 'rd-02',
@@ -62,18 +60,16 @@ export const strategicRoadmap: Milestone[] = [
     description:
       'Focus weekly lab time on finishing active hands-on experiments (like the Daun Jarak antibacterial gel) and submitting 1–2 polished entries to major competitions without burning out.',
     strategicObjective:
-      'Work within real student schedules by prioritizing only 1 or 2 high-potential competition targets per term rather than over-committing across multiple simultaneous contests.',
+      'Concentrate weekly lab sessions on completing active botanical gels and physical harvesters for 1–2 target science fairs.',
     keyInitiatives: [
-      'Advance the Daun Jarak (Jatropha curcas) antibacterial gel: run simple zone-of-inhibition disc tests and test topical gel consistency during Wednesday lab hours.',
-      'Support other small teams (e.g., PCM cooling or Arduino sensor builds) to complete working prototypes before exam periods begin.',
-      'Pick 1–2 target competitions (e.g., OPSI Kemendikbud or ITB Science Fair) and synchronize draft deadlines with school exam schedules to avoid burnout.',
+      'Advance the Daun Jarak (Jatropha curcas) antibacterial gel: run zone-of-inhibition disc assays.',
+      'Support energy harvesting builds (PCM, TEG) to complete prototypes before exam periods.',
     ],
     deliverables: [
-      '1 validated botanical gel prototype with clear antimicrobial test data.',
-      'At least 1 high-quality team submission to a national high school science competition.',
-      'Exam-friendly project timeline with built-in pause buffers during midterm (PTS) and final (PAS) test weeks.',
+      'Validated Daun Jarak antibacterial gel prototype with clear inhibition zones.',
+      'Targeted submission to national science competitions (OPSI/ITB).',
     ],
-    notes: 'Paced specifically for high schoolers balancing daily coursework and CC activities.',
+    notes: 'Paced specifically for high schoolers balancing daily coursework.',
   },
 
   // ==================== 2. SELF-SUSTAINABILITY ====================
@@ -88,18 +84,16 @@ export const strategicRoadmap: Milestone[] = [
     description:
       'Establish lightweight peer handovers so when senior members get busy with 12th grade exams or graduate, younger students can pick up right where they left off.',
     strategicObjective:
-      'Keep the club alive and functional even with natural student turnover by turning institutional knowledge into short, casual 10-minute walkthroughs rather than heavy manuals.',
+      'Transfer apparatus operating skills to younger grades through brief 10-minute demonstrations during regular meetings.',
     keyInitiatives: [
-      'Run quick 10-minute practical demos at the start of meetings on how to operate lab apparatus (calibrating galvanometers, setting up spin coaters, safe chemical disposal).',
-      'Pair 10th graders directly with 11th grade project leads as informal co-researchers so they learn by watching and assisting.',
-      'Maintain a simple shared Google Sheet checklist for chemical reagents (alcohol, agar powder, petri dishes) to re-stock before they run out.',
+      'Run 10-minute practical apparatus walkthroughs during Wednesday lab sessions.',
+      'Pair 10th grade apprentices directly with 11th grade project leads.',
     ],
     deliverables: [
-      'Brief 1-page "Quickstart Equipment Guide" posted inside the CC lab locker.',
-      'Active Grade 10 apprentices ready to take over lead author roles for next term’s projects.',
-      'Shared reagent restock list reviewed once a month.',
+      '1-page equipment quickstart posted in the laboratory.',
+      'Grade 10 co-investigators prepared for lead research roles.',
     ],
-    notes: 'Designed to require zero extra meetings—everything fits inside regular weekly club hours.',
+    notes: 'Integrated into regular weekly hours without extra meetings.',
   },
   {
     id: 'rd-04',
@@ -112,18 +106,16 @@ export const strategicRoadmap: Milestone[] = [
     description:
       'Keep project costs close to zero by utilizing campus materials (canteen waste oils, local plant cuttings) and asking alumni researchers for quick review feedback.',
     strategicObjective:
-      'Make research sustainable on a modest high school budget without relying on expensive commercial supplies or complex sponsorships.',
+      'Maintain near-zero experiment costs by utilizing campus waste streams and informal alumni mentorship.',
     keyInitiatives: [
-      'Source everyday waste materials for experiments: canteen cooking oil for biodiesel, scrap plastic for permeable pavement, and backyard Jatropha cuttings for botanical extraction.',
-      'Coordinate with the school science department for basic lab consumables (distilled water, filter papers, glassware access).',
-      'Set up an informal group chat with CC alumni studying science/engineering at university for quick paper proofreading and sanity checks before competition submissions.',
+      'Source everyday waste materials: canteen cooking oil, scrap plastic, and garden cuttings.',
+      'Connect with university alumni for rapid paper abstract feedback.',
     ],
     deliverables: [
-      'Zero-cost feedstock channels established for ongoing student research.',
-      'Alumni review channel for quick 1-week turnaround on paper abstracts.',
-      'Basic consumable supply buffer maintained for routine Wednesday/Friday sessions.',
+      'Zero-cost feedstock channels established for student research.',
+      'Alumni review network for fast competition abstract feedback.',
     ],
-    notes: 'Low effort, high payoff. Leverages the strong Canisius community and campus resources.',
+    notes: 'Leverages the strong Canisius community and campus resources.',
   },
 
   // ==================== 3. POTENTIAL EXPANSION ====================
@@ -138,18 +130,16 @@ export const strategicRoadmap: Milestone[] = [
     description:
       'Showcase working student prototypes during school events (like CC Day or extracurricular fairs) to inspire fellow Kanisian students and recruit curious new members.',
     strategicObjective:
-      'Demystify research for the broader Canisius student body through hands-on, visually interesting demos (fluorescent quantum dots, spinning engines, herbal gels).',
+      'Share student-built hardware and live experiments during CC Day to inspire the broader school community.',
     keyInitiatives: [
-      'Set up an interactive booth at CC Day featuring 3 physical demos with simple poster boards.',
-      'Host 1 casual "Open Lab Afternoon" where any Canisian student can drop by, try an experiment, or see how equipment works without commitment.',
-      'Publish short student-friendly summaries of our best papers in the school bulletin or Instagram.',
+      'Host an interactive demonstration table during CC Day with live working prototypes.',
+      'Organize a casual open-lab afternoon for curious prospective members.',
     ],
     deliverables: [
-      'Interactive CC Day exhibition table featuring real student-built hardware.',
-      'Open lab afternoon welcoming new prospective members into the club.',
-      'Handful of motivated new recruits joining active project groups.',
+      'Interactive CC Day demo station with working prototypes.',
+      'Open lab afternoon welcoming prospective student scientists.',
     ],
-    notes: 'Relaxed, organic recruitment—interested students can just drop by and see things work.',
+    notes: 'Organic recruitment where students experience science hands-on.',
   },
   {
     id: 'rd-06',
@@ -162,18 +152,16 @@ export const strategicRoadmap: Milestone[] = [
     description:
       'Organize occasional visits to local university laboratories (e.g., UI or ITB alumni labs) to see professional instruments and connect with other high school science clubs.',
     strategicObjective:
-      'Give dedicated members a glimpse into university-level STEM research while keeping external commitments realistic and exciting.',
+      'Connect club members with university laboratories and peer high school science groups during term breaks.',
     keyInitiatives: [
-      'Arrange an informal weekend or term-break lab visit to a local university engineering or chemistry facility.',
-      'Share research findings with 1 or 2 neighboring Jakarta schools interested in starting student science clubs.',
-      'Submit our best-tested projects to university-hosted youth science symposiums if the team has the bandwidth.',
+      'Arrange term-break observation visits to local university STEM facilities.',
+      'Exchange project ideas with high school science clubs across Jakarta.',
     ],
     deliverables: [
-      '1 university lab observation tour (e.g. observing SEM or spectrophotometer operations).',
-      'Informal exchange of project ideas with fellow high school science enthusiasts.',
-      'Clear roadmap transition ready for the following year’s club leadership.',
+      'University laboratory observation visit (spectrophotometry & advanced analysis).',
+      'Knowledge exchange with peer high school science clubs.',
     ],
-    notes: 'Optional enrichment that fits around holidays without interfering with academic terms.',
+    notes: 'Enrichment opportunities scheduled around term holidays.',
   },
 ];
 

@@ -7,6 +7,7 @@ import { projects } from '@/data/v2/projects';
 import { strategicRoadmap, strategicPillars } from '@/data/v2/roadmap';
 import { SectionLabel, ArrowLink, CircularCTA } from '@/components/ui';
 import { ProjectCard } from '@/components/ProjectComponents';
+import { BotanicalExtractionIllustration } from '@/components/ScientificIllustrations';
 
 export default function HomePage() {
   const featuredProjects = projects.slice(0, 3);
@@ -127,17 +128,17 @@ export default function HomePage() {
             ].map((pillar) => (
               <div
                 key={pillar.num}
-                className="py-8 flex flex-col md:flex-row md:items-baseline justify-between gap-4 group"
+                className="py-10 flex flex-col md:flex-row md:items-center justify-between gap-6 group"
               >
-                <div className="flex items-baseline gap-6 md:w-1/3">
-                  <span className="label text-[#D83933] font-bold font-mono text-sm">
+                <div className="flex items-center gap-6 md:w-5/12">
+                  <span className="label text-[#D83933] font-bold font-mono text-base">
                     {pillar.num}
                   </span>
                   <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">
                     {pillar.title}
                   </h3>
                 </div>
-                <p className="text-sm md:text-base text-white/60 leading-relaxed md:w-2/3 max-w-xl">
+                <p className="text-sm md:text-base text-white/70 leading-relaxed md:w-7/12 max-w-xl">
                   {pillar.desc}
                 </p>
               </div>
@@ -156,37 +157,45 @@ export default function HomePage() {
         <div className="container-main">
           <SectionLabel className="mb-6">CURRENT FOCUS</SectionLabel>
 
-          <div className="p-8 lg:p-14 bg-[#F4F4F1] border border-[#E8E8E4]">
-            <div className="flex items-center gap-3 mb-4 text-xs font-mono text-[#606060]">
-              <span className="text-[#D83933] font-bold uppercase">Biomedical Science / Natural Therapeutics</span>
-              <span>—</span>
-              <span>ACTIVE LAB INITIATIVE</span>
-              <span>—</span>
-              <span>2026–2027</span>
+          <div className="p-8 lg:p-14 bg-[#F4F4F1] border border-[#E8E8E4] rounded">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              <div className="lg:col-span-7">
+                <div className="flex items-center gap-3 mb-4 text-xs font-mono text-[#606060]">
+                  <span className="text-[#D83933] font-bold uppercase">Biomedical Science / Natural Therapeutics</span>
+                  <span>—</span>
+                  <span>ACTIVE LAB INITIATIVE</span>
+                  <span>—</span>
+                  <span>2026–2027</span>
+                </div>
+
+                <h2
+                  id="focus-heading"
+                  className="text-2xl lg:text-3xl font-bold tracking-tight text-[#111111] mb-4 leading-tight"
+                >
+                  Biomedical Extraction: Jatropha Leaf (Daun Jarak) Antibacterial Gel Formulations
+                </h2>
+
+                <p className="label text-[#606060] mb-4">
+                  Active Focus: Student Biomedical Cohort • Botanical Secondary Metabolites
+                </p>
+
+                <p className="body-large text-[#606060] max-w-2xl leading-relaxed mb-4">
+                  Members are currently pursuing individual investigations in medical and biomedical sciences, focusing on extracting bioactive phytochemicals from local flora. One active trial investigates saponin and flavonoid extracts from <em>Jatropha curcas</em> (Daun Jarak) to formulate topically stable, natural antibacterial gels that inhibit common pathogenic bacteria without reliance on synthetic biocides.
+                </p>
+
+                <p className="text-sm font-mono text-[#A0A0A0] mb-6">
+                  Ongoing Lab Procedures: Ethanolic maceration, rotary evaporation, disk diffusion zone-of-inhibition assays, and viscometric formulation stability testing.
+                </p>
+
+                <ArrowLink href="/about#equipment">
+                  View laboratory apparatus used for extraction & testing
+                </ArrowLink>
+              </div>
+
+              <div className="lg:col-span-5 w-full">
+                <BotanicalExtractionIllustration />
+              </div>
             </div>
-
-            <h2
-              id="focus-heading"
-              className="text-2xl lg:text-4xl font-bold tracking-tight text-[#111111] mb-4 leading-tight"
-            >
-              Biomedical Extraction: Jatropha Leaf (Daun Jarak) Antibacterial Gel Formulations
-            </h2>
-
-            <p className="label text-[#606060] mb-6">
-              Active Focus: Student Biomedical Cohort • Botanical Secondary Metabolites
-            </p>
-
-            <p className="body-large text-[#606060] max-w-3xl leading-relaxed mb-6">
-              Members are currently pursuing individual investigations in medical and biomedical sciences, focusing on extracting bioactive phytochemicals from local flora. One active trial investigates saponin and flavonoid extracts from <em>Jatropha curcas</em> (Daun Jarak) to formulate topically stable, natural antibacterial gels that inhibit common pathogenic bacteria without reliance on synthetic biocides.
-            </p>
-
-            <p className="text-sm font-mono text-[#A0A0A0] mb-8">
-              Ongoing Lab Procedures: Ethanolic maceration, rotary evaporation, disk diffusion zone-of-inhibition assays, and viscometric formulation stability testing.
-            </p>
-
-            <ArrowLink href="/about#equipment">
-              View laboratory apparatus used for extraction & testing
-            </ArrowLink>
           </div>
         </div>
       </section>
@@ -207,7 +216,7 @@ export default function HomePage() {
               </h2>
             </div>
             <ArrowLink href="/projects" className="shrink-0">
-              View all 16 cataloged research papers
+              View all 22 cataloged research papers
             </ArrowLink>
           </div>
 

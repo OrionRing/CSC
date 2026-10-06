@@ -108,12 +108,12 @@ export default function RoadmapPage() {
             <section
               key={pillarSection.id}
               id={pillarSection.id}
-              className="py-24 sm:py-32 bg-[#FFFFFF] scroll-mt-20"
+              className="py-36 sm:py-48 bg-[#FFFFFF] scroll-mt-20"
               aria-labelledby={`${pillarSection.id}-heading`}
             >
               <div className="container-main">
                 {/* Pillar Header */}
-                <div className="max-w-3xl mb-20">
+                <div className="max-w-3xl mb-24 sm:mb-32">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="px-3 py-1 bg-[#D83933] text-white font-mono text-xs font-bold rounded">
                       PILLAR {pillarSection.number}
@@ -136,7 +136,7 @@ export default function RoadmapPage() {
                 </div>
 
                 {/* Milestones Container - Spacious 2-Column Cards */}
-                <div className="space-y-20">
+                <div className="space-y-36 sm:space-y-48">
                   {pillarSection.milestones.map((milestone, idx) => {
                     const isCompleted = milestone.status === 'completed';
                     const isCurrent = milestone.status === 'in-progress';
@@ -144,9 +144,9 @@ export default function RoadmapPage() {
                     return (
                       <div
                         key={milestone.id}
-                        className="p-8 sm:p-12 bg-[#FBFBFA] border border-[#E8E8E4] rounded-lg transition-all duration-300 hover:border-[#111111] hover:shadow-sm"
+                        className="p-10 sm:p-14 lg:p-16 bg-[#FBFBFA] border border-[#E8E8E4] rounded-lg transition-all duration-300 hover:border-[#111111] hover:shadow-sm"
                       >
-                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                           {/* Left Column: Concise Content (7 cols) */}
                           <div className="lg:col-span-7 flex flex-col justify-between">
                             <div>
@@ -222,7 +222,7 @@ export default function RoadmapPage() {
       {/* =====================================================
           LONG-TERM DIRECTION (Spacious Dark Container)
           ===================================================== */}
-      <section className="section-dark py-24 sm:py-32" aria-labelledby="longterm-heading">
+      <section className="section-dark py-32 sm:py-44" aria-labelledby="longterm-heading">
         <div className="container-main">
           <SectionLabel light className="mb-5">LONG-TERM DIRECTION</SectionLabel>
           <h2 id="longterm-heading" className="section-headline text-white mb-6">
@@ -252,7 +252,7 @@ export default function RoadmapPage() {
               href="/projects"
               className="inline-flex items-center gap-2 px-8 py-4 bg-[#D83933] text-white font-mono text-xs uppercase font-bold tracking-wider rounded hover:bg-[#b82e28] transition-colors"
             >
-              Explore 16 Archived Research Papers →
+              Explore 22 Archived Research Papers →
             </Link>
             <Link
               href="/about"

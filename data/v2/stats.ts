@@ -10,7 +10,7 @@ export const clubStats: Stat[] = [
     id: 'stat-01',
     value: '30+',
     label: 'Research Projects',
-    description: '16 peer-reviewed papers archived in our digital repository, with ongoing lab trials currently underway.',
+    description: '22 empirical papers cataloged in our digital repository, with ongoing lab trials currently underway.',
   },
   {
     id: 'stat-02',

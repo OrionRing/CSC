@@ -6,6 +6,7 @@ import { ArrowRight, Clock, Award, Search, Sparkles } from 'lucide-react';
 import { labEquipmentList } from '@/data/v2/inventory';
 import { clubInfo } from '@/data/v2/stats';
 import { SectionLabel, CircularCTA } from '@/components/ui';
+import { LabApparatusIllustration, WeeklyRhythmIllustration } from '@/components/ScientificIllustrations';
 
 const categories = [
   'All Equipment',
@@ -135,6 +136,11 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
+
+          <div className="mt-12 max-w-2xl border-t border-white/10 pt-8">
+            <span className="label text-white/50 block mb-3 font-mono text-xs">FLOW SCHEMATIC // CYCLE</span>
+            <WeeklyRhythmIllustration />
+          </div>
         </div>
       </section>
 
@@ -147,14 +153,19 @@ export default function AboutPage() {
         aria-labelledby="equipment-heading"
       >
         <div className="container-main">
-          <div className="max-w-3xl mb-12">
-            <SectionLabel className="mb-4">LABORATORY INVENTORY</SectionLabel>
-            <h2 id="equipment-heading" className="section-headline text-[#111111]">
-              Apparatus & Chemical Reagents.
-            </h2>
-            <p className="body-large text-[#606060] mt-4 leading-relaxed">
-              Kolese Kanisius maintains three fully-equipped STEM laboratories with high-precision analytical equipment, support tools, and certified compounds.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-12">
+            <div className="lg:col-span-7">
+              <SectionLabel className="mb-4">LABORATORY INVENTORY</SectionLabel>
+              <h2 id="equipment-heading" className="section-headline text-[#111111]">
+                Apparatus & Chemical Reagents.
+              </h2>
+              <p className="body-large text-[#606060] mt-4 leading-relaxed">
+                Kolese Kanisius maintains three fully-equipped STEM laboratories with high-precision analytical equipment, support tools, and certified compounds.
+              </p>
+            </div>
+            <div className="lg:col-span-5 w-full">
+              <LabApparatusIllustration />
+            </div>
           </div>
 
           {/* Compact Filter Toolbar */}
